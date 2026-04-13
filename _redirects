@@ -1,0 +1,29 @@
+# Netlify Redirects — NovaOps AI
+
+# Legacy URL redirects (from old site)
+/services#instant-followup     /services/ai-follow-up.html         301
+/services#appointment-booking  /services/ai-appointment-setting.html 301
+/services#followup-sequences   /services/ai-follow-up.html         301
+/services#missed-call          /services/sms-automation.html       301
+/services#crm                  /services/crm-automation.html       301
+/services#chatbot              /services/voice-ai.html             301
+
+# Pretty URL aliases (no .html extension)
+/about                  /about.html                  200
+/services               /services.html               200
+/pricing                /pricing.html                200
+/industries             /industries.html             200
+/results                /results.html                200
+/faq                    /faq.html                    200
+/contact                /contact.html                200
+
+# Industry short URLs
+/roofers                /industries/ai-automation-for-roofers.html          200
+/med-spas               /industries/ai-automation-for-med-spas.html         200
+/home-services          /industries/ai-automation-for-home-services.html    200
+/insurance              /industries/ai-automation-for-insurance-agencies.html 200
+/solar                  /industries/ai-automation-for-solar-companies.html  200
+/real-estate            /industries/ai-automation-for-real-estate.html      200
+
+# 404 fallback
+/*  /404.html  404

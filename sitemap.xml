@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Core Pages -->
+  <url><loc>https://novaopsai.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://novaopsai.com/about.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://novaopsai.com/services.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://novaopsai.com/pricing.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://novaopsai.com/industries.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://novaopsai.com/results.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://novaopsai.com/faq.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://novaopsai.com/contact.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Service Pages -->
+  <url><loc>https://novaopsai.com/services/ai-appointment-setting.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://novaopsai.com/services/ai-follow-up.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://novaopsai.com/services/crm-automation.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://novaopsai.com/services/lead-qualification.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://novaopsai.com/services/sms-automation.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://novaopsai.com/services/voice-ai.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Pricing Pages -->
+  <url><loc>https://novaopsai.com/pricing/rev-share.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://novaopsai.com/pricing/done-for-you.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://novaopsai.com/pricing/retainer.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Industry Pages -->
+  <url><loc>https://novaopsai.com/industries/ai-automation-for-roofers.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://novaopsai.com/industries/ai-automation-for-med-spas.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://novaopsai.com/industries/ai-automation-for-home-services.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://novaopsai.com/industries/ai-automation-for-insurance-agencies.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://novaopsai.com/industries/ai-automation-for-solar-companies.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://novaopsai.com/industries/ai-automation-for-real-estate.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+</urlset>
