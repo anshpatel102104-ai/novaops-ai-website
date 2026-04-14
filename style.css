@@ -69,6 +69,50 @@
   --nav-h:    68px;
 }
 
+/* SERVICES THEME */
+:root[data-theme="services"] {
+  --bg:        #050810;
+  --bg-2:      #070b14;
+  --bg-3:      #0a101c;
+  --bg-card:   #0f1522;
+  --bg-hover:  #131b28;
+  --bg-subtle: rgba(255,255,255,0.035);
+
+  --text:      #f3f6ff;
+  --text-2:    #a4b3d4;
+  --text-3:    #66759a;
+  --text-inv:  #04060a;
+
+  --border:    rgba(0,229,200,0.18);
+  --border-2:  rgba(255,255,255,0.10);
+  --border-3:  rgba(255,255,255,0.06);
+
+  --teal-dim:  rgba(0,229,200,0.14);
+  --teal-glow: rgba(0,229,200,0.26);
+}
+
+/* PRICING THEME */
+:root[data-theme="pricing"] {
+  --bg:        #f4f7fc;
+  --bg-2:      #edf1fb;
+  --bg-3:      #e2e7f5;
+  --bg-card:   #ffffff;
+  --bg-hover:  #dde4f3;
+  --bg-subtle: rgba(0,0,0,0.02);
+
+  --text:      #101525;
+  --text-2:    #3c4561;
+  --text-3:    #808aa3;
+  --text-inv:  #04060a;
+
+  --border:    rgba(0,0,0,0.07);
+  --border-2:  rgba(0,0,0,0.06);
+  --border-3:  rgba(0,0,0,0.03);
+
+  --teal-dim:  rgba(0,229,200,0.075);
+  --teal-glow: rgba(0,229,200,0.20);
+}
+
 /* ─── BASE RESET ─── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
