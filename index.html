@@ -1,517 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NovaOps AI — AI Automation Agency for Local Businesses | Never Lose Another Lead</title>
-  <meta name="description" content="NovaOps AI builds done-for-you AI automation systems that respond to leads in under 90 seconds, book appointments automatically, and recover revenue 24/7. Serving med spas, HVAC, dental, real estate, and more.">
-  <link rel="canonical" href="https://novaopsai.com/">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://novaopsai.com/">
-  <meta property="og:title" content="NovaOps AI — Never Lose Another Lead">
-  <meta property="og:description" content="Done-for-you AI systems that respond to leads in 90 seconds, book appointments automatically, and recover revenue 24/7.">
-  <meta name="twitter:card" content="summary_large_image">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "NovaOps AI",
-    "url": "https://novaopsai.com",
-    "description": "Done-for-you AI automation agency for local businesses",
-    "telephone": "848-205-5940",
-    "email": "ansh102104@gmail.com",
-    "address": { "@type": "PostalAddress", "addressCountry": "US" }
-  }
-  </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,600,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NovaOps AI | AI Automation for Local Businesses</title>
+  <meta name="description" content="Done-for-you AI automation for local businesses. Respond to leads in under 90 seconds, book appointments automatically, and recover lost revenue 24/7." />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-<!-- ═══ NAV ═══ -->
-<nav class="nav" role="navigation" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo" aria-label="NovaOps AI Home">
-      <svg class="nav-logo-svg" viewBox="0 0 34 34" fill="none" aria-hidden="true">
-        <rect width="34" height="34" rx="8" fill="url(#lg1)"/>
-        <path d="M9 24V10l8 9 8-9v14" stroke="#04060a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <defs><linearGradient id="lg1" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse"><stop stop-color="#00e5c8"/><stop offset="1" stop-color="#1a7bff"/></linearGradient></defs>
-      </svg>
-      <span class="nav-logo-name">Nova<span>Ops</span> AI</span>
-    </a>
-    <ul class="nav-links" role="list">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li>
-        <a href="services.html">Services <svg class="nav-chevron" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
-        <div class="nav-dropdown">
-          <div class="nav-dropdown-label">AI Systems</div>
-          <a href="services/ai-appointment-setting.html">AI Appointment Setting</a>
-          <a href="services/ai-follow-up.html">AI Follow-Up Sequences</a>
-          <a href="services/crm-automation.html">CRM Automation</a>
-          <a href="services/lead-qualification.html">Lead Qualification AI</a>
-          <a href="services/sms-automation.html">SMS Automation</a>
-          <a href="services/voice-ai.html">Voice AI</a>
-        </div>
-      </li>
-      <li>
-        <a href="industries.html">Industries <svg class="nav-chevron" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
-        <div class="nav-dropdown">
-          <div class="nav-dropdown-label">We Serve</div>
-          <a href="industries/ai-automation-for-roofers.html">Roofing Companies</a>
-          <a href="industries/ai-automation-for-med-spas.html">Med Spas</a>
-          <a href="industries/ai-automation-for-home-services.html">Home Services</a>
-          <a href="industries/ai-automation-for-insurance-agencies.html">Insurance Agencies</a>
-          <a href="industries/ai-automation-for-solar-companies.html">Solar Companies</a>
-          <a href="industries/ai-automation-for-real-estate.html">Real Estate</a>
-        </div>
-      </li>
-      <li><a href="results.html">Results</a></li>
-      <li><a href="pricing.html">Pricing</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-    </ul>
-    <div class="nav-cta">
-      <a href="https://tally.so/r/xXQa95" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Book Free Call →</a>
-    </div>
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-
-<!-- Mobile Drawer -->
-<nav class="mobile-drawer" id="mobile-drawer" aria-label="Mobile navigation">
-  <a href="index.html">Home</a>
-  <a href="services.html">Services</a>
-  <a href="industries.html">Industries</a>
-  <a href="results.html">Results</a>
-  <a href="pricing.html">Pricing</a>
-  <a href="about.html">About</a>
-  <a href="faq.html">FAQ</a>
-  <a href="contact.html">Contact</a>
-  <div class="drawer-cta">
-    <a href="https://tally.so/r/xXQa95" target="_blank" class="btn btn-primary btn-full">Book Free Strategy Call →</a>
-    <a href="tel:8482055940" class="btn btn-outline btn-full">Call 848-205-5940</a>
-  </div>
-</nav>
-
-<main>
-
-<!-- ═══ HERO ═══ -->
-<section class="hero" aria-labelledby="hero-h1">
-  <div class="hero-glow" aria-hidden="true"></div>
-  <div class="hero-badge" role="status">
-    <span class="pulse-dot" aria-hidden="true"></span>
-    AI Automation — Built for Local Businesses
-  </div>
-  <h1 id="hero-h1">
-    Never Lose Another Lead<br>to <span class="gradient-text">Slow Follow-Up</span>
-  </h1>
-  <p class="hero-sub">
-    We build done-for-you AI systems that respond to leads in under 90 seconds, book appointments automatically, and recover revenue your team never had time to close — 24/7, no hiring needed.
-  </p>
-  <div class="hero-ctas">
-    <a href="https://tally.so/r/xXQa95" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Book Free Strategy Call →</a>
-    <a href="services.html" class="btn btn-outline btn-lg">See How It Works</a>
-  </div>
-  <div class="hero-stats" role="region" aria-label="Key performance metrics">
-    <div class="hero-stat">
-      <div class="hero-stat-num" data-counter="90s">90s</div>
-      <div class="hero-stat-label">Lead Response<br>Time</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num" data-counter="94%">94%</div>
-      <div class="hero-stat-label">Follow-Up<br>Rate</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num" data-counter="284">284</div>
-      <div class="hero-stat-label">Leads<br>Automated</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num" data-counter="61">61</div>
-      <div class="hero-stat-label">Appts<br>Booked</div>
-    </div>
-  </div>
-</section>
-
-<!-- Marquee -->
-<div class="marquee-wrap" aria-hidden="true">
-  <div class="marquee-track">
-    <div class="marquee-item"><span>◆</span> Med Spas</div>
-    <div class="marquee-item"><span>◆</span> Dental Clinics</div>
-    <div class="marquee-item"><span>◆</span> Real Estate Agents</div>
-    <div class="marquee-item"><span>◆</span> HVAC Companies</div>
-    <div class="marquee-item"><span>◆</span> Roofing Companies</div>
-    <div class="marquee-item"><span>◆</span> Law Firms</div>
-    <div class="marquee-item"><span>◆</span> Solar Companies</div>
-    <div class="marquee-item"><span>◆</span> Insurance Agencies</div>
-    <div class="marquee-item"><span>◆</span> Gyms &amp; Fitness</div>
-    <div class="marquee-item"><span>◆</span> Home Services</div>
-    <div class="marquee-item"><span>◆</span> Med Spas</div>
-    <div class="marquee-item"><span>◆</span> Dental Clinics</div>
-    <div class="marquee-item"><span>◆</span> Real Estate Agents</div>
-    <div class="marquee-item"><span>◆</span> HVAC Companies</div>
-    <div class="marquee-item"><span>◆</span> Roofing Companies</div>
-    <div class="marquee-item"><span>◆</span> Law Firms</div>
-    <div class="marquee-item"><span>◆</span> Solar Companies</div>
-    <div class="marquee-item"><span>◆</span> Insurance Agencies</div>
-    <div class="marquee-item"><span>◆</span> Gyms &amp; Fitness</div>
-    <div class="marquee-item"><span>◆</span> Home Services</div>
-  </div>
-</div>
-
-<!-- ═══ THE PROBLEM ═══ -->
-<section class="section" aria-labelledby="problem-h2">
-  <div class="container">
-    <div class="section-header center reveal">
-      <div class="label">The Problem</div>
-      <h2 id="problem-h2">Your Business Is Bleeding Revenue Every Day</h2>
-      <p>47% of all leads are lost industry-wide to slow follow-up. The first business to respond wins the customer 78% of the time. Right now, most of your leads are choosing your competitor.</p>
-    </div>
-    <div class="stat-grid reveal">
-      <div class="stat-block">
-        <div class="stat-num" data-counter="47%">47%</div>
-        <div class="stat-label">of leads lost to slow follow-up</div>
-      </div>
-      <div class="stat-block">
-        <div class="stat-num" data-counter="78%">78%</div>
-        <div class="stat-label">buy from the first responder</div>
-      </div>
-      <div class="stat-block">
-        <div class="stat-num">4hrs</div>
-        <div class="stat-label">average industry response time</div>
-      </div>
-      <div class="stat-block">
-        <div class="stat-num">21×</div>
-        <div class="stat-label">lower conversion after 30 minutes</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ═══ FEATURE ROWS ═══ -->
-<section class="section" aria-label="Key features">
-  <div class="container">
-
-    <article class="feature-row reveal">
-      <div class="feature-visual">
-        <div class="terminal-line tl-muted">// Lead submitted — 11:47 PM</div>
-        <div class="terminal-line tl-green">✓ AI response fired — 11:47:32 PM (32s)</div>
-        <div class="terminal-line tl-blue">"Hey Sarah! Thanks for reaching out about your HVAC issue. Quick question — is this a repair or replacement?"</div>
-        <div class="terminal-line tl-gold">↳ Sarah replied — 11:49 PM</div>
-        <div class="terminal-line tl-green">✓ Appointment booked — Tue 10:00 AM</div>
-        <div class="terminal-line tl-green">✓ Calendar updated · Owner notified</div>
-      </div>
-      <div class="feature-text">
-        <div class="label">Instant AI Follow-Up</div>
-        <h2>Respond to Every Lead in Under 90 Seconds. Including at 3AM.</h2>
-        <p>When a lead comes in from your website, Google, Facebook, or a missed call, our AI sends a personalized SMS within 90 seconds — qualifies them with smart questions, and books the appointment. You wake up to a full calendar.</p>
-        <ul class="checklist">
-          <li>SMS + email response in under 90 seconds, 24/7</li>
-          <li>Covers nights, weekends, and every holiday</li>
-          <li>AI qualifies leads with natural conversation</li>
-          <li>Books directly into your calendar, zero friction</li>
-        </ul>
-        <a href="services/ai-follow-up.html" class="btn btn-ghost">See How It Works →</a>
-      </div>
-    </article>
-
-    <article class="feature-row reverse reveal">
-      <div class="feature-visual">
-        <div class="terminal-line tl-muted">// Follow-up sequence — Day 1</div>
-        <div class="terminal-line tl-blue">"Hey Mike, just following up on your roofing estimate. Still interested?"</div>
-        <div class="terminal-line tl-muted">// Day 14 — No reply yet</div>
-        <div class="terminal-line tl-blue">"Quick tip: spring is the best time to catch minor damage before summer storms..."</div>
-        <div class="terminal-line tl-gold">// Day 30 — Mike replied</div>
-        <div class="terminal-line tl-green">✓ Sequence stopped · Routed to booking</div>
-      </div>
-      <div class="feature-text">
-        <div class="label">90-Day Follow-Up Sequences</div>
-        <h2>80% of Sales Happen After the 5th Contact. Most Businesses Stop at 2.</h2>
-        <p>Our automated multi-touch sequences follow up for a full 90 days across SMS and email. Every message is personalized to the lead's original inquiry. The moment they reply, the sequence stops and routes them to booking — automatically.</p>
-        <ul class="checklist">
-          <li>12–15 touchpoints over 90 days</li>
-          <li>Personalized per lead — not generic blasts</li>
-          <li>Auto-stops the moment a lead responds</li>
-          <li>Database reactivation for cold and old leads</li>
-        </ul>
-        <a href="services/crm-automation.html" class="btn btn-ghost">Explore Sequences →</a>
-      </div>
-    </article>
-
-    <article class="feature-row reveal">
-      <div class="feature-visual">
-        <div class="terminal-line tl-muted">// Missed call — David — 2:34 PM</div>
-        <div class="terminal-line tl-green">✓ Text-back fired — 2:34:18 PM</div>
-        <div class="terminal-line tl-blue">"Hey David! We just missed your call — how can we help you today?"</div>
-        <div class="terminal-line tl-gold">↳ David: "Need a quote for a new fence"</div>
-        <div class="terminal-line tl-green">✓ Qualified · Booked — Thu 3:00 PM</div>
-        <div class="terminal-line tl-muted">// Job value: ~$3,200</div>
-      </div>
-      <div class="feature-text">
-        <div class="label">Missed-Call Text-Back</div>
-        <h2>Every Missed Call Is a Booking Opportunity — If You Respond in Seconds.</h2>
-        <p>The moment your phone goes unanswered, our AI fires a text to the caller within 20 seconds. They stay engaged, get their questions answered conversationally, and book — before they think to call your competitor.</p>
-        <ul class="checklist">
-          <li>Text-back fires within 20 seconds of missed call</li>
-          <li>AI handles the full conversation automatically</li>
-          <li>Captures high-intent callers who won't leave voicemails</li>
-          <li>Works for every missed call, every hour of the day</li>
-        </ul>
-        <a href="services/sms-automation.html" class="btn btn-ghost">Learn More →</a>
-      </div>
-    </article>
-
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ═══ HOW IT WORKS ═══ -->
-<section class="section" aria-labelledby="how-h2">
-  <div class="container">
-    <div class="section-header center reveal">
-      <div class="label">Process</div>
-      <h2 id="how-h2">From Strategy Call to Live System in 14 Days</h2>
-      <p>We handle every technical aspect. You don't touch a single button. Your only job is to show up to the appointments we send you.</p>
-    </div>
-    <div class="grid-4">
-      <div class="card reveal">
-        <div style="font-family:var(--f-mono);font-size:26px;font-weight:600;color:var(--teal);line-height:1;margin-bottom:14px;">01</div>
-        <h4>Strategy Call</h4>
-        <p>30-minute call to map your lead flow, identify revenue gaps, and design your custom automation blueprint.</p>
-      </div>
-      <div class="card reveal reveal-d1">
-        <div style="font-family:var(--f-mono);font-size:26px;font-weight:600;color:var(--teal);line-height:1;margin-bottom:14px;">02</div>
-        <h4>Custom Build</h4>
-        <p>We build all workflows, AI prompts, follow-up sequences, and CRM inside GoHighLevel — tailored to your business.</p>
-      </div>
-      <div class="card reveal reveal-d2">
-        <div style="font-family:var(--f-mono);font-size:26px;font-weight:600;color:var(--teal);line-height:1;margin-bottom:14px;">03</div>
-        <h4>Test &amp; Launch</h4>
-        <p>Every automation is tested end-to-end with live leads before going live. System deploys in 7–14 business days.</p>
-      </div>
-      <div class="card reveal reveal-d3">
-        <div style="font-family:var(--f-mono);font-size:26px;font-weight:600;color:var(--teal);line-height:1;margin-bottom:14px;">04</div>
-        <h4>Monthly Optimization</h4>
-        <p>Monthly performance reports, AI prompt updates, and strategy calls to keep your results growing every month.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ═══ INDUSTRIES ═══ -->
-<section class="section" aria-labelledby="industries-h2">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="label">Industries</div>
-      <h2 id="industries-h2">Built for Local Businesses That<br>Can't Afford to Lose Leads</h2>
-      <p>Every system is custom-built for your specific industry — not a generic template.</p>
-    </div>
-    <div class="industry-grid reveal">
-      <a href="industries/ai-automation-for-med-spas.html" class="industry-chip">
-        <span class="chip-emoji">💆</span>
-        <div class="chip-text">
-          <div class="chip-name">Med Spas</div>
-          <div class="chip-sub">Reactivation · No-show reduction · Booking</div>
-        </div>
-        <span class="chip-arrow">→</span>
+  <nav class="nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="NovaOps AI Home">
+        <svg class="nav-logo-svg" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+          <rect width="34" height="34" rx="8" fill="url(#lg-nav-home)"></rect>
+          <path d="M9 24V10l8 9 8-9v14" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          <defs>
+            <linearGradient id="lg-nav-home" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#7c3aed"></stop>
+              <stop offset="1" stop-color="#a855f7"></stop>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="nav-logo-name">Nova<span>Ops</span> AI</span>
       </a>
-      <a href="industries/ai-automation-for-home-services.html" class="industry-chip">
-        <span class="chip-emoji">🔧</span>
-        <div class="chip-text">
-          <div class="chip-name">Home Services</div>
-          <div class="chip-sub">HVAC · Plumbing · Missed calls</div>
-        </div>
-        <span class="chip-arrow">→</span>
-      </a>
-      <a href="industries/ai-automation-for-real-estate.html" class="industry-chip">
-        <span class="chip-emoji">🏠</span>
-        <div class="chip-text">
-          <div class="chip-name">Real Estate</div>
-          <div class="chip-sub">Lead nurturing · Pipeline automation</div>
-        </div>
-        <span class="chip-arrow">→</span>
-      </a>
-      <a href="industries/ai-automation-for-roofers.html" class="industry-chip">
-        <span class="chip-emoji">🏗️</span>
-        <div class="chip-text">
-          <div class="chip-name">Roofing Companies</div>
-          <div class="chip-sub">Estimate follow-up · Storm leads</div>
-        </div>
-        <span class="chip-arrow">→</span>
-      </a>
-      <a href="industries/ai-automation-for-solar-companies.html" class="industry-chip">
-        <span class="chip-emoji">☀️</span>
-        <div class="chip-text">
-          <div class="chip-name">Solar Companies</div>
-          <div class="chip-sub">Long-cycle nurture · Homeowner qualification</div>
-        </div>
-        <span class="chip-arrow">→</span>
-      </a>
-      <a href="industries/ai-automation-for-insurance-agencies.html" class="industry-chip">
-        <span class="chip-emoji">🛡️</span>
-        <div class="chip-text">
-          <div class="chip-name">Insurance Agencies</div>
-          <div class="chip-sub">Quote follow-up · Renewal automation</div>
-        </div>
-        <span class="chip-arrow">→</span>
-      </a>
-    </div>
-    <div style="text-align:center;margin-top:28px;" class="reveal">
-      <a href="industries.html" class="btn btn-outline">View All Industries →</a>
-    </div>
-  </div>
-</section>
 
-<div class="divider"></div>
-
-<!-- ═══ TESTIMONIALS ═══ -->
-<section class="section" aria-labelledby="proof-h2">
-  <div class="container">
-    <div class="section-header center reveal">
-      <div class="label">Results</div>
-      <h2 id="proof-h2">What Business Owners Are Saying</h2>
-    </div>
-    <div class="grid-3">
-      <div class="testimonial-card reveal">
-        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <p class="testimonial-text">"We were missing probably 40% of our leads after hours. NovaOps set up a system that now texts every lead within a minute. We booked 15 extra jobs last month — that's $45K we would've left on the table."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar" style="background:linear-gradient(135deg,var(--teal),var(--blue))">M</div>
-          <div>
-            <div class="author-name">Mike R.</div>
-            <div class="author-title">HVAC Company · Tampa, FL</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card reveal reveal-d1">
-        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <p class="testimonial-text">"I had 600 past clients nobody was following up with. One reactivation campaign brought in 22 bookings in a week. That's $11,000 from leads I thought were dead."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar" style="background:linear-gradient(135deg,var(--gold),#e06c00)">J</div>
-          <div>
-            <div class="author-name">Jessica K.</div>
-            <div class="author-title">Med Spa Owner · Austin, TX</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card reveal reveal-d2">
-        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <p class="testimonial-text">"Our team followed up with maybe 30% of Zillow leads. The AI handles all of it now — qualifies, sorts, and pings agents only when someone is ready to act. Four extra closed deals last quarter."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar" style="background:linear-gradient(135deg,var(--blue),#7c3aed)">D</div>
-          <div>
-            <div class="author-name">David T.</div>
-            <div class="author-title">Real Estate Team Lead · Dallas, TX</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:32px;" class="reveal">
-      <a href="results.html" class="btn btn-outline">View All Case Studies →</a>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ═══ PRICING TEASER ═══ -->
-<section class="section-sm" aria-labelledby="pricing-teaser-h2">
-  <div class="container">
-    <div class="section-header center reveal">
-      <div class="label">Pricing</div>
-      <h2 id="pricing-teaser-h2">Three Ways to Work With Us.<br>All Risk-Reversed.</h2>
-      <p>From performance-based (pay only when we deliver) to fully managed monthly — there's an entry point for every business.</p>
-    </div>
-    <div style="text-align:center;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;" class="reveal">
-      <a href="pricing.html" class="btn btn-primary btn-lg">See Full Pricing →</a>
-      <a href="contact.html" class="btn btn-outline btn-lg">Talk to Us First</a>
-    </div>
-    <div class="guarantee-pill reveal" style="margin:24px auto;display:table;">
-      🏆 &nbsp;10 Booked Appointments in 30 Days — or We Work Free Until You Get Them
-    </div>
-  </div>
-</section>
-
-<!-- ═══ FINAL CTA ═══ -->
-<section class="section" aria-labelledby="cta-h2">
-  <div class="container">
-    <div class="cta-banner reveal">
-      <h2 id="cta-h2">Stop Losing Leads Tonight.<br>Your System Can Be Live in 14 Days.</h2>
-      <p>Book a free 30-minute strategy call. We'll show you exactly how much revenue you're losing and what the AI fix looks like for your specific business.</p>
-      <a href="https://tally.so/r/xXQa95" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Book Free Strategy Call →</a>
-      <div class="guarantee-pill">🏆 &nbsp;Guaranteed 10 Appointments in 30 Days or We Work Free</div>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<!-- ═══ FOOTER ═══ -->
-<footer role="contentinfo">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="nav-logo" aria-label="NovaOps AI">
-          <svg class="nav-logo-svg" viewBox="0 0 34 34" fill="none" aria-hidden="true">
-            <rect width="34" height="34" rx="8" fill="url(#lg2)"/>
-            <path d="M9 24V10l8 9 8-9v14" stroke="#04060a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <defs><linearGradient id="lg2" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse"><stop stop-color="#00e5c8"/><stop offset="1" stop-color="#1a7bff"/></linearGradient></defs>
-          </svg>
-          <span class="nav-logo-name">Nova<span>Ops</span> AI</span>
-        </a>
-        <p>Done-for-you AI automation for local businesses that can't afford to lose leads. We build, manage, and optimize — you close the appointments we send.</p>
-        <a href="https://tally.so/r/xXQa95" target="_blank" class="btn btn-ghost btn-sm">Book Free Call</a>
-      </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <a href="services/ai-appointment-setting.html">AI Appointment Setting</a>
-        <a href="services/ai-follow-up.html">AI Follow-Up</a>
-        <a href="services/crm-automation.html">CRM Automation</a>
-        <a href="services/lead-qualification.html">Lead Qualification</a>
-        <a href="services/sms-automation.html">SMS Automation</a>
-        <a href="services/voice-ai.html">Voice AI</a>
-      </div>
-      <div class="footer-col">
-        <h4>Industries</h4>
-        <a href="industries/ai-automation-for-roofers.html">Roofing</a>
-        <a href="industries/ai-automation-for-med-spas.html">Med Spas</a>
-        <a href="industries/ai-automation-for-home-services.html">Home Services</a>
-        <a href="industries/ai-automation-for-solar-companies.html">Solar</a>
-        <a href="industries/ai-automation-for-real-estate.html">Real Estate</a>
-        <a href="industries/ai-automation-for-insurance-agencies.html">Insurance</a>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <a href="about.html">About Us</a>
-        <a href="results.html">Results &amp; Case Studies</a>
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="services.html">Services</a>
         <a href="pricing.html">Pricing</a>
+        <a href="about.html">About</a>
         <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
       </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <a href="tel:8482055940">848-205-5940</a>
-        <a href="mailto:ansh102104@gmail.com">ansh102104@gmail.com</a>
-        <a href="https://tally.so/r/xXQa95" target="_blank">Book a Strategy Call</a>
-        <a href="https://calendar.app.google/syCyZmgeggCeuvPM8" target="_blank">Schedule on Google Cal</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2025 NovaOps AI. All rights reserved.</span>
-      <span>AI Automation Agency — Responding in Under 90 Seconds</span>
-    </div>
-  </div>
-</footer>
 
-<script src="script.js"></script>
+      <div class="nav-cta">
+        <a href="https://tally.so/r/xXQa95" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Book Free Call</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="page-hero" aria-labelledby="hero-h1">
+      <div class="container center">
+        <div class="label">AI Automation Built for Local Businesses</div>
+        <h1 id="hero-h1">Never Lose Another Lead <br />to <span class="gradient-text">Slow Follow-Up</span></h1>
+        <p class="page-hero-sub" style="margin-inline:auto;">
+          We build done-for-you AI systems that respond to leads in under 90 seconds, book appointments automatically, and recover revenue your team never had time to close — 24/7, no hiring needed.
+        </p>
+
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px;">
+          <a href="https://tally.so/r/xXQa95" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">Book Free Strategy Call</a>
+          <a href="services.html" class="btn btn-outline btn-lg">See How It Works</a>
+        </div>
+
+        <div class="pricing-grid" style="margin-top:56px;">
+          <div class="roi-card center">
+            <div class="roi-headline">90s</div>
+            <p>Lead response time</p>
+          </div>
+          <div class="roi-card center">
+            <div class="roi-headline">24/7</div>
+            <p>Nights, weekends, holidays</p>
+          </div>
+          <div class="roi-card center">
+            <div class="roi-headline">14 Days</div>
+            <p>Typical deployment window</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section" aria-labelledby="problem-h2">
+      <div class="container">
+        <div class="section-header center">
+          <div class="label">The Problem</div>
+          <h2 id="problem-h2">Your Business Is Bleeding Revenue Every Day</h2>
+          <p>Most local businesses lose leads because they respond too slowly, stop following up too early, or miss calls when no one is available to answer.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="roi-card center">
+            <div class="roi-headline">Slow Response</div>
+            <p>Leads go cold while your team is busy, off the clock, or buried in admin work.</p>
+          </article>
+          <article class="roi-card center">
+            <div class="roi-headline">Weak Follow-Up</div>
+            <p>Most prospects need multiple touchpoints, but most teams stop after one or two.</p>
+          </article>
+          <article class="roi-card center">
+            <div class="roi-headline">Missed Calls</div>
+            <p>High-intent callers hang up, call the next business, and never come back.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section" aria-labelledby="features-h2">
+      <div class="container">
+        <div class="section-header center">
+          <div class="label">What We Build</div>
+          <h2 id="features-h2">Three Revenue Leaks We Fix First</h2>
+          <p>These are the fastest ROI automation systems for local businesses that already have lead flow but are leaking money in follow-up.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="card">
+            <div class="card-icon">⚡</div>
+            <h3>Instant AI Follow-Up</h3>
+            <p>When a lead comes in from your website, ads, or missed call, AI responds in under 90 seconds, qualifies them, and moves them toward booking.</p>
+            <a class="service-card-link" href="services.html">See Services →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">↺</div>
+            <h3>90-Day Nurture Sequences</h3>
+            <p>Automated SMS and email follow-up keeps leads warm long after your team would normally stop chasing them.</p>
+            <a class="service-card-link" href="services.html">See Services →</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">☎</div>
+            <h3>Missed-Call Recovery</h3>
+            <p>The moment a call is missed, an AI text-back fires to keep the prospect engaged before they call your competitor.</p>
+            <a class="service-card-link" href="services.html">See Services →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section" aria-labelledby="process-h2">
+      <div class="container">
+        <div class="section-header center">
+          <div class="label">Process</div>
+          <h2 id="process-h2">From Strategy Call to Live System in 14 Days</h2>
+          <p>We handle every technical piece. Your only job is to show up to the appointments the system books.</p>
+        </div>
+
+        <div class="process-grid">
+          <article class="process-card">
+            <div class="process-num">01</div>
+            <h3>Strategy Call</h3>
+            <p>We map your lead flow, find the leak, and identify the fastest path to ROI.</p>
+          </article>
+
+          <article class="process-card">
+            <div class="process-num">02</div>
+            <h3>Custom Build</h3>
+            <p>We build the workflows, prompts, follow-up sequences, and CRM automation around your business.</p>
+          </article>
+
+          <article class="process-card">
+            <div class="process-num">03</div>
+            <h3>Test & Launch</h3>
+            <p>Everything is tested end-to-end before going live so leads route, qualify, and book correctly.</p>
+          </article>
+
+          <article class="process-card">
+            <div class="process-num">04</div>
+            <h3>Optimization</h3>
+            <p>We improve prompts, conversion flow, and follow-up performance as results come in.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section" aria-labelledby="industries-h2">
+      <div class="container">
+        <div class="section-header center">
+          <div class="label">Industries</div>
+          <h2 id="industries-h2">Built for Local Businesses That Can’t Afford to Lose Leads</h2>
+          <p>We focus on businesses where every missed lead has obvious revenue value and fast automation ROI.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="card center">
+            <h3>Med Spas</h3>
+            <p>Reactivation, no-show reduction, and high-speed lead response.</p>
+          </article>
+
+          <article class="card center">
+            <h3>HVAC & Home Services</h3>
+            <p>Missed-call recovery, estimate follow-up, and after-hours booking.</p>
+          </article>
+
+          <article class="card center">
+            <h3>Real Estate</h3>
+            <p>Lead nurture, qualification, routing, and long-cycle follow-up.</p>
+          </article>
+        </div>
+
+        <div class="center" style="margin-top:28px;">
+          <a href="services.html" class="btn btn-outline">See Core Services</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section" aria-labelledby="proof-h2">
+      <div class="container">
+        <div class="section-header center">
+          <div class="label">Results</div>
+          <h2 id="proof-h2">What Business Owners Care About</h2>
+          <p>No one buys “AI.” They buy faster follow-up, more booked appointments, and more recovered revenue.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="roi-card">
+            <div class="roi-industry">HVAC Company</div>
+            <div class="roi-headline">15 Extra Jobs in 30 Days</div>
+            <p>After-hours response and booking automation captured leads that used to go cold overnight.</p>
+          </article>
+
+          <article class="roi-card">
+            <div class="roi-industry">Med Spa</div>
+            <div class="roi-headline">22 Reactivation Bookings</div>
+            <p>Old leads were re-engaged automatically with personalized follow-up and clear booking paths.</p>
+          </article>
+
+          <article class="roi-card">
+            <div class="roi-industry">Real Estate Team</div>
+            <div class="roi-headline">4 Extra Closings in a Quarter</div>
+            <p>Long-cycle lead management and smarter qualification helped agents focus on the right prospects.</p>
+          </article>
+        </div>
+
+        <div class="center" style="margin-top:30px;">
+          <a href="pricing.html" class="btn btn-outline">See Pricing Options</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section-sm" aria-labelledby="pricing-teaser-h2">
+      <div class="container center">
+        <div class="section-header center" style="margin-bottom:24px;">
+          <div class="label">Pricing</div>
+          <h2 id="pricing-teaser-h2">Three Ways to Work With Us. All Risk-Reversed.</h2>
+          <p>From performance-based to fully managed monthly, there’s an entry point for the right business.</p>
+        </div>
+
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+          <a href="pricing.html" class="btn btn-primary btn-lg">See Full Pricing</a>
+          <a href="https://tally.so/r/xXQa95" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg">Talk to Us First</a>
+        </div>
+
+        <div class="guarantee-pill" style="margin-top:24px;">10 Booked Appointments in 30 Days or We Work Free Until You Get Them</div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="cta-h2">
+      <div class="container">
+        <div class="cta-banner">
+          <h2 id="cta-h2">Stop Losing Leads Tonight. Your System Can Be Live in 14 Days.</h2>
+          <p>Book a free 30-minute strategy call. We’ll show you exactly where the revenue leak is and what the AI fix looks like for your business.</p>
+          <a href="https://tally.so/r/xXQa95" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">Book Free Strategy Call</a>
+          <div class="guarantee-pill">Guaranteed 10 Appointments in 30 Days or We Work Free</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" aria-label="NovaOps AI">
+            <svg class="nav-logo-svg" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+              <rect width="34" height="34" rx="8" fill="url(#lg-ft-home)"></rect>
+              <path d="M9 24V10l8 9 8-9v14" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              <defs>
+                <linearGradient id="lg-ft-home" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#7c3aed"></stop>
+                  <stop offset="1" stop-color="#a855f7"></stop>
+                </linearGradient>
+              </defs>
+            </svg>
+            <span class="nav-logo-name">Nova<span>Ops</span> AI</span>
+          </a>
+          <p>Done-for-you AI automation for local businesses that can’t afford to lose leads. We build, manage, and optimize — you close the appointments we send.</p>
+          <a href="https://tally.so/r/xXQa95" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">Book Free Call</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="pricing.html">Pricing</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="about.html">About Us</a>
+          <a href="faq.html">FAQ</a>
+          <a href="https://tally.so/r/xXQa95" target="_blank" rel="noopener noreferrer">Book a Call</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="tel:8482055940">848-205-5940</a>
+          <a href="mailto:ansh102104@gmail.com">ansh102104@gmail.com</a>
+          <a href="https://tally.so/r/xXQa95" target="_blank" rel="noopener noreferrer">Strategy Call</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 NovaOps AI. All rights reserved.</span>
+        <span>AI Automation Agency for Local Businesses</span>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
