@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="industries">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +14,113 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,600,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Industries: large horizontal showcase rows ── */
+    .industry-showcase { display: flex; flex-direction: column; }
+
+    .industry-showcase-row {
+      display: grid;
+      grid-template-columns: 52px 72px 1fr 200px 150px;
+      gap: 36px;
+      align-items: center;
+      padding: 44px 0;
+      border-bottom: 1px solid var(--border-3);
+      text-decoration: none;
+      transition: background var(--t), border-color var(--t);
+    }
+    .industry-showcase-row:last-child { border-bottom: none; }
+    .industry-showcase-row:hover { border-color: var(--border-2); }
+    .industry-showcase-row:hover .industry-showcase-emoji { transform: scale(1.12); }
+    .industry-showcase-row:hover .industry-showcase-arrow { color: var(--teal); transform: translateX(4px); }
+
+    .industry-showcase-num {
+      font-family: var(--f-mono);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-3);
+      letter-spacing: 0.08em;
+    }
+
+    .industry-showcase-emoji {
+      font-size: 44px;
+      line-height: 1;
+      transition: transform var(--t);
+    }
+
+    .industry-showcase-content {}
+    .industry-showcase-content h3 {
+      font-size: clamp(20px, 2.6vw, 28px);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .industry-showcase-content p {
+      font-size: 14px;
+      color: var(--text-2);
+      line-height: 1.68;
+      max-width: none;
+    }
+
+    .industry-showcase-stat {
+      background: var(--teal-dim);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 16px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .industry-showcase-stat-num {
+      font-family: var(--f-display);
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--teal);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .industry-showcase-stat-label {
+      font-family: var(--f-mono);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.10em;
+      color: var(--text-3);
+      line-height: 1.4;
+    }
+
+    .industry-showcase-arrow {
+      font-size: 22px;
+      color: var(--text-3);
+      transition: color var(--t), transform var(--t);
+      text-align: right;
+    }
+
+    @media (max-width: 1000px) {
+      .industry-showcase-row {
+        grid-template-columns: 48px 1fr auto;
+        gap: 20px;
+      }
+      .industry-showcase-stat { display: none; }
+      .industry-showcase-arrow { display: none; }
+    }
+    @media (max-width: 640px) {
+      .industry-showcase-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 32px 0;
+      }
+      .industry-showcase-num { display: none; }
+      .industry-showcase-emoji { font-size: 32px; }
+    }
+
+    /* ── Why specific section tweak ── */
+    .why-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    @media (max-width: 860px) { .why-split { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
 
@@ -23,8 +130,8 @@
     <a href="index.html" class="nav-logo" aria-label="NovaOps AI Home">
       <svg class="nav-logo-svg" viewBox="0 0 34 34" fill="none" aria-hidden="true">
         <rect width="34" height="34" rx="8" fill="url(#lgnav)"/>
-        <path d="M9 24V10l8 9 8-9v14" stroke="#04060a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <defs><linearGradient id="lgnav" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse"><stop stop-color="#00e5c8"/><stop offset="1" stop-color="#1a7bff"/></linearGradient></defs>
+        <path d="M9 24V10l8 9 8-9v14" stroke="#0e0800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <defs><linearGradient id="lgnav" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse"><stop stop-color="#f59e0b"/><stop offset="1" stop-color="#fb923c"/></linearGradient></defs>
       </svg>
       <span class="nav-logo-name">Nova<span>Ops</span> AI</span>
     </a>
@@ -45,6 +152,7 @@
     </button>
   </div>
 </nav>
+
 <nav class="mobile-drawer" id="mobile-drawer" aria-label="Mobile navigation">
   <a href="index.html">Home</a>
   <a href="services.html">Services</a>
@@ -64,6 +172,7 @@
 
 <!-- ═══ PAGE HERO ═══ -->
 <section class="page-hero" aria-labelledby="industries-h1">
+  <div class="page-hero-glow" aria-hidden="true"></div>
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="index.html">Home</a>
@@ -71,58 +180,108 @@
       <span aria-current="page">Industries</span>
     </nav>
     <div class="label reveal">Industry-Specific AI</div>
-    <h1 id="industries-h1" class="reveal">Industry-Specific AI Automation That<br><span class="gradient-text">Speaks Your Business's Language</span></h1>
-    <p class="page-hero-sub reveal">Generic AI tools send generic messages. We build systems trained on your industry's specific language, objections, seasonality, and buying cycles — so leads feel like they're talking to a specialist, not a bot.</p>
+    <h1 id="industries-h1" class="reveal">Built for the Way Your<br><span class="gradient-text">Industry Actually Works</span></h1>
+    <p class="page-hero-sub reveal">Generic AI tools send generic messages. We build systems trained on your industry's language, objections, seasonality, and buying cycles — so leads feel like they're talking to a specialist, not a bot.</p>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ═══ INDUSTRY GRID ═══ -->
-<section class="section" aria-labelledby="industry-grid-h2">
+<!-- ═══ INDUSTRY SHOWCASE ROWS ═══ -->
+<section class="section" aria-labelledby="industry-showcase-h2">
   <div class="container">
-    <div class="section-header center reveal">
+    <div class="section-header reveal">
       <div class="label">Industries We Serve</div>
-      <h2 id="industry-grid-h2">Six Industries. Six Custom Systems. One Team.</h2>
+      <h2 id="industry-showcase-h2">Six Industries.<br>Six Custom Systems.</h2>
       <p>Each system is pre-built with industry-specific AI prompts, follow-up scripts, objection handlers, and benchmarks — then customized for your specific business.</p>
     </div>
-    <div class="grid-3">
-      <div class="card reveal">
-        <div class="card-icon">🏗️</div>
-        <h3>Roofing Companies</h3>
-        <p>Storm season lead surges, estimate follow-up sequences, insurance claim workflows, and missed call recovery. Built for the high-volume, short-window roofing sales cycle.</p>
-        <a href="industries/ai-automation-for-roofers.html" class="btn btn-ghost" style="margin-top:16px;">Explore →</a>
-      </div>
-      <div class="card reveal reveal-d1">
-        <div class="card-icon">💆</div>
-        <h3>Med Spas</h3>
-        <p>Client reactivation campaigns, no-show reduction sequences, new treatment upsells, and automated booking for Botox, fillers, lasers, and more.</p>
-        <a href="industries/ai-automation-for-med-spas.html" class="btn btn-ghost" style="margin-top:16px;">Explore →</a>
-      </div>
-      <div class="card reveal reveal-d2">
-        <div class="card-icon">🔧</div>
-        <h3>Home Services (HVAC, Plumbing)</h3>
-        <p>Missed call text-backs, emergency service routing, seasonal tune-up campaigns, and maintenance reminder sequences for HVAC, plumbing, electrical, and more.</p>
-        <a href="industries/ai-automation-for-home-services.html" class="btn btn-ghost" style="margin-top:16px;">Explore →</a>
-      </div>
-      <div class="card reveal">
-        <div class="card-icon">🛡️</div>
-        <h3>Insurance Agencies</h3>
-        <p>Quote follow-up automation, renewal reminder sequences, cross-sell campaigns, and AI-powered lead qualification for P&C, life, health, and commercial lines.</p>
-        <a href="industries/ai-automation-for-insurance-agencies.html" class="btn btn-ghost" style="margin-top:16px;">Explore →</a>
-      </div>
-      <div class="card reveal reveal-d1">
-        <div class="card-icon">☀️</div>
-        <h3>Solar Companies</h3>
-        <p>Long-cycle homeowner nurture sequences, utility bill savings messaging, HOA objection handlers, and financing follow-up — built for the 30–90 day solar sales cycle.</p>
-        <a href="industries/ai-automation-for-solar-companies.html" class="btn btn-ghost" style="margin-top:16px;">Explore →</a>
-      </div>
-      <div class="card reveal reveal-d2">
-        <div class="card-icon">🏠</div>
-        <h3>Real Estate</h3>
-        <p>Portal lead follow-up (Zillow, Realtor.com), seller lead nurturing, buyer qualification AI, agent routing, and pipeline automation for teams and solo agents.</p>
-        <a href="industries/ai-automation-for-real-estate.html" class="btn btn-ghost" style="margin-top:16px;">Explore →</a>
-      </div>
+
+    <div class="industry-showcase reveal">
+
+      <a href="industries/ai-automation-for-roofers.html" class="industry-showcase-row">
+        <div class="industry-showcase-num">01</div>
+        <div class="industry-showcase-emoji">🏗️</div>
+        <div class="industry-showcase-content">
+          <h3>Roofing Companies</h3>
+          <p>Storm season lead surges, estimate follow-up sequences, insurance claim workflows, and missed call recovery — built for the high-volume, short-window roofing sales cycle.</p>
+        </div>
+        <div class="industry-showcase-stat">
+          <div class="industry-showcase-stat-num">$15K</div>
+          <div class="industry-showcase-stat-label">Avg Job<br>Value</div>
+        </div>
+        <div class="industry-showcase-arrow">→</div>
+      </a>
+
+      <a href="industries/ai-automation-for-med-spas.html" class="industry-showcase-row">
+        <div class="industry-showcase-num">02</div>
+        <div class="industry-showcase-emoji">💆</div>
+        <div class="industry-showcase-content">
+          <h3>Med Spas</h3>
+          <p>Client reactivation campaigns, no-show reduction sequences, new treatment upsells, and automated booking for Botox, fillers, lasers, and more. High LTV, fast decisions.</p>
+        </div>
+        <div class="industry-showcase-stat">
+          <div class="industry-showcase-stat-num">$800</div>
+          <div class="industry-showcase-stat-label">Avg Booking<br>Value</div>
+        </div>
+        <div class="industry-showcase-arrow">→</div>
+      </a>
+
+      <a href="industries/ai-automation-for-home-services.html" class="industry-showcase-row">
+        <div class="industry-showcase-num">03</div>
+        <div class="industry-showcase-emoji">🔧</div>
+        <div class="industry-showcase-content">
+          <h3>Home Services (HVAC, Plumbing)</h3>
+          <p>Missed call text-backs, emergency service routing, seasonal tune-up campaigns, and maintenance reminder sequences. Highest missed-call rate of any niche — our biggest impact.</p>
+        </div>
+        <div class="industry-showcase-stat">
+          <div class="industry-showcase-stat-num">40%</div>
+          <div class="industry-showcase-stat-label">Avg Calls<br>Missed</div>
+        </div>
+        <div class="industry-showcase-arrow">→</div>
+      </a>
+
+      <a href="industries/ai-automation-for-insurance-agencies.html" class="industry-showcase-row">
+        <div class="industry-showcase-num">04</div>
+        <div class="industry-showcase-emoji">🛡️</div>
+        <div class="industry-showcase-content">
+          <h3>Insurance Agencies</h3>
+          <p>Quote follow-up automation, renewal reminder sequences, cross-sell campaigns, and AI-powered lead qualification for P&amp;C, life, health, and commercial lines.</p>
+        </div>
+        <div class="industry-showcase-stat">
+          <div class="industry-showcase-stat-num">90d</div>
+          <div class="industry-showcase-stat-label">Avg Sales<br>Cycle</div>
+        </div>
+        <div class="industry-showcase-arrow">→</div>
+      </a>
+
+      <a href="industries/ai-automation-for-solar-companies.html" class="industry-showcase-row">
+        <div class="industry-showcase-num">05</div>
+        <div class="industry-showcase-emoji">☀️</div>
+        <div class="industry-showcase-content">
+          <h3>Solar Companies</h3>
+          <p>Long-cycle homeowner nurture sequences, utility bill savings messaging, HOA objection handlers, and financing follow-up — built for the 30–90 day solar sales cycle.</p>
+        </div>
+        <div class="industry-showcase-stat">
+          <div class="industry-showcase-stat-num">$25K</div>
+          <div class="industry-showcase-stat-label">Avg Install<br>Value</div>
+        </div>
+        <div class="industry-showcase-arrow">→</div>
+      </a>
+
+      <a href="industries/ai-automation-for-real-estate.html" class="industry-showcase-row">
+        <div class="industry-showcase-num">06</div>
+        <div class="industry-showcase-emoji">🏠</div>
+        <div class="industry-showcase-content">
+          <h3>Real Estate</h3>
+          <p>Portal lead follow-up (Zillow, Realtor.com), seller lead nurturing, buyer qualification AI, agent routing, and pipeline automation for teams and solo agents.</p>
+        </div>
+        <div class="industry-showcase-stat">
+          <div class="industry-showcase-stat-num">$12K</div>
+          <div class="industry-showcase-stat-label">Avg Commission<br>Per Deal</div>
+        </div>
+        <div class="industry-showcase-arrow">→</div>
+      </a>
+
     </div>
   </div>
 </section>
@@ -132,29 +291,29 @@
 <!-- ═══ WHY INDUSTRY-SPECIFIC ═══ -->
 <section class="section" aria-labelledby="why-specific-h2">
   <div class="container">
-    <article class="feature-row reveal">
+    <div class="why-split reveal">
       <div class="feature-visual">
         <div class="terminal-line tl-muted">// Generic AI response</div>
-        <div class="terminal-line" style="color:var(--red, #ff4d4d);">"Hi! Thanks for reaching out. How can I help you today?"</div>
+        <div class="terminal-line tl-red">"Hi! Thanks for reaching out. How can I help you today?"</div>
         <div class="terminal-line tl-muted" style="margin-top:12px;">// NovaOps AI — Roofing-specific</div>
         <div class="terminal-line tl-green">"Hey Mike! Thanks for the storm damage inquiry. Quick question — are you looking at an insurance claim or out-of-pocket repair?"</div>
         <div class="terminal-line tl-blue">↳ Mike: "Insurance claim"</div>
         <div class="terminal-line tl-green">✓ Insurance workflow triggered</div>
         <div class="terminal-line tl-green">✓ Adjuster-ready estimate booked</div>
       </div>
-      <div class="feature-text">
+      <div>
         <div class="label">Why Industry-Specific Matters</div>
-        <h2 id="why-specific-h2">Generic AI Feels Like a Bot. Industry-Specific AI Feels Like Your Best Rep.</h2>
+        <h2 id="why-specific-h2">Generic AI Feels Like a Bot.<br>Industry-Specific AI Feels Like Your Best Rep.</h2>
         <p>A roofing lead and a med spa lead need completely different conversations. Different language, different objections, different urgency signals, different next steps. Generic AI tools use one-size-fits-all scripts that feel robotic and convert poorly.</p>
         <p style="margin-top:16px;">Every NovaOps system is trained on your industry's specific language, trained to handle your most common objections, and optimized using performance data from businesses like yours — so your AI sounds human, relevant, and credible from message one.</p>
-        <ul class="checklist">
+        <ul class="checklist" style="margin-top:24px;">
           <li>Industry-specific AI prompts and scripts</li>
           <li>Common objection handlers built-in</li>
           <li>Seasonal and buying-cycle awareness</li>
           <li>Benchmarks from your specific industry</li>
         </ul>
       </div>
-    </article>
+    </div>
   </div>
 </section>
 
@@ -180,8 +339,8 @@
         <a href="index.html" class="nav-logo">
           <svg class="nav-logo-svg" viewBox="0 0 34 34" fill="none" aria-hidden="true">
             <rect width="34" height="34" rx="8" fill="url(#lgft)"/>
-            <path d="M9 24V10l8 9 8-9v14" stroke="#04060a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <defs><linearGradient id="lgft" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse"><stop stop-color="#00e5c8"/><stop offset="1" stop-color="#1a7bff"/></linearGradient></defs>
+            <path d="M9 24V10l8 9 8-9v14" stroke="#0e0800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs><linearGradient id="lgft" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse"><stop stop-color="#f59e0b"/><stop offset="1" stop-color="#fb923c"/></linearGradient></defs>
           </svg>
           <span class="nav-logo-name">Nova<span>Ops</span> AI</span>
         </a>
