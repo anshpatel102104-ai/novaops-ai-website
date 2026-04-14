@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="faq">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Frequently Asked Questions — AI Automation for Local Businesses | NovaOps AI</title>
-  <meta name="description" content="Everything you need to know about NovaOps AI: setup time, pricing, technology stack, TCPA compliance, guarantees, and what to expect from your AI automation system.">
+  <title>FAQ — AI Automation Questions Answered | NovaOps AI</title>
+  <meta name="description" content="Answers to common questions about NovaOps AI's automation services, pricing, technology, and results. Find out how our done-for-you AI systems work.">
   <link rel="canonical" href="https://novaopsai.com/faq">
-  <meta property="og:title" content="Frequently Asked Questions — AI Automation for Local Businesses | NovaOps AI">
-  <meta property="og:description" content="Questions about setup, pricing, technology, and results answered. Learn what to expect before you invest in a done-for-you AI automation system from NovaOps AI.">
+  <meta property="og:title" content="FAQ — AI Automation Questions Answered | NovaOps AI">
   <meta property="og:url" content="https://novaopsai.com/faq">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,111 +14,56 @@
   <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,600,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* FAQ PAGE — Grouped Card Layout */
-    .faq-category {
-      background: var(--bg-card);
-      border: 1px solid var(--border-2);
-      border-radius: var(--r-xl);
-      overflow: hidden;
-      margin-bottom: 20px;
-      transition: border-color var(--t), box-shadow var(--t);
+    /* FAQ — Clean Grouped Layout */
+    .faq-main-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 56px;
+      align-items: start;
     }
-    .faq-category:hover {
-      border-color: rgba(124,58,237,0.22);
-      box-shadow: var(--shadow-sm);
+
+    /* Sticky nav sidebar */
+    .faq-nav {
+      position: sticky;
+      top: calc(var(--nav-h) + 24px);
     }
-    .faq-category-title {
-      font-family: var(--f-mono);
-      font-size: 10.5px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--teal);
-      padding: 18px 24px;
-      background: var(--bg-2);
-      border-bottom: 1px solid var(--border-2);
+    .faq-nav-title { font-family: var(--f-mono); font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-3); margin-bottom: 12px; }
+    .faq-nav-item {
       display: flex;
       align-items: center;
       gap: 10px;
-    }
-    .faq-category-title::before {
-      content: '';
-      width: 3px;
-      height: 14px;
-      background: var(--teal);
-      border-radius: 2px;
-      flex-shrink: 0;
-    }
-    .faq-list { padding: 8px 16px 16px; }
-    /* details/summary accordion */
-    details.faq-item {
-      border: 1px solid var(--border-2);
+      padding: 10px 14px;
       border-radius: var(--r-md);
-      overflow: hidden;
-      margin-bottom: 8px;
-      transition: border-color var(--t);
-    }
-    details.faq-item[open] { border-color: rgba(124,58,237,0.30); }
-    details.faq-item summary {
-      padding: 16px 18px;
-      font-family: var(--f-display);
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--text);
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text-2);
       cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      list-style: none;
-      background: var(--bg-card);
       transition: color var(--t), background var(--t);
-      user-select: none;
+      text-decoration: none;
     }
-    details.faq-item summary::after {
-      content: '+';
-      font-size: 18px;
-      color: var(--teal);
-      flex-shrink: 0;
-      transition: transform 0.28s ease;
-      font-weight: 400;
-      opacity: 0.7;
-    }
-    details.faq-item[open] summary::after {
-      transform: rotate(45deg);
-    }
-    details.faq-item summary:hover {
-      color: var(--teal);
-      background: var(--teal-dim);
-    }
-    details.faq-item summary::-webkit-details-marker { display: none; }
-    details.faq-item[open] summary {
-      border-radius: var(--r-md) var(--r-md) 0 0;
-      color: var(--teal);
+    .faq-nav-item:hover { color: var(--teal); background: var(--teal-dim); }
+    .faq-nav-item.active { color: var(--teal); background: var(--teal-dim); }
+    .faq-nav-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); flex-shrink: 0; opacity: 0.4; }
+    .faq-nav-item.active .faq-nav-dot { opacity: 1; }
+
+    /* FAQ category groups */
+    .faq-group { margin-bottom: 40px; }
+    .faq-group:last-child { margin-bottom: 0; }
+    .faq-group-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 14px;
       border-bottom: 1px solid var(--border-2);
     }
-    details.faq-item .faq-body {
-      padding: 16px 18px 18px;
-      background: var(--bg-card);
-    }
-    details.faq-item .faq-body p {
-      font-size: 13.5px;
-      color: var(--text-2);
-      line-height: 1.78;
-      max-width: none;
-    }
-    details.faq-item .faq-body ul {
-      margin: 12px 0 0 20px;
-      line-height: 2;
-    }
-    /* Still-have-questions box */
-    .faq-still-box {
-      background: linear-gradient(135deg, var(--bg-2) 0%, var(--bg-3) 100%);
-      border: 1px solid var(--border-2);
-      border-radius: var(--r-xl);
-      padding: clamp(36px,4vw,52px);
-      text-align: center;
-      max-width: 640px;
-      margin: 0 auto;
+    .faq-group-icon { font-size: 22px; }
+    .faq-group-title { font-family: var(--f-display); font-size: 18px; font-weight: 700; color: var(--text); }
+    .faq-group-count { font-family: var(--f-mono); font-size: 10px; color: var(--text-3); background: var(--bg-2); border: 1px solid var(--border-2); border-radius: var(--r-full); padding: 2px 9px; margin-left: auto; }
+
+    @media (max-width: 860px) {
+      .faq-main-grid { grid-template-columns: 1fr; }
+      .faq-nav { position: static; display: none; }
     }
   </style>
 </head>
@@ -131,8 +75,8 @@
     <a href="index.html" class="nav-logo" aria-label="NovaOps AI Home">
       <svg class="nav-logo-svg" viewBox="0 0 34 34" fill="none" aria-hidden="true">
         <rect width="34" height="34" rx="8" fill="url(#lgnav)"/>
-        <path d="M9 24V10l8 9 8-9v14" stroke="#04060a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <defs><linearGradient id="lgnav" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse"><stop stop-color="#00e5c8"/><stop offset="1" stop-color="#1a7bff"/></linearGradient></defs>
+        <path d="M9 24V10l8 9 8-9v14" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <defs><linearGradient id="lgnav" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#a855f7"/></linearGradient></defs>
       </svg>
       <span class="nav-logo-name">Nova<span>Ops</span> AI</span>
     </a>
@@ -160,7 +104,7 @@
   <a href="results.html">Results</a>
   <a href="pricing.html">Pricing</a>
   <a href="about.html">About</a>
-  <a href="faq.html">FAQ</a>
+  <a href="faq.html" class="active">FAQ</a>
   <a href="contact.html">Contact</a>
   <div class="drawer-cta">
     <a href="https://tally.so/r/xXQa95" target="_blank" class="btn btn-primary btn-full">Book Free Strategy Call →</a>
@@ -172,147 +116,166 @@
 
 <!-- ═══ PAGE HERO ═══ -->
 <section class="page-hero" aria-labelledby="faq-h1">
+  <div class="page-hero-glow" aria-hidden="true"></div>
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="index.html">Home</a>
       <span aria-hidden="true">›</span>
       <span aria-current="page">FAQ</span>
     </nav>
-    <div class="label reveal">Questions &amp; Answers</div>
-    <h1 id="faq-h1" class="reveal">Everything You Need to Know<br>Before We <span class="gradient-text">Build Your System</span></h1>
-    <p class="page-hero-sub reveal">We believe in radical transparency. Here are the honest answers to every question we get asked — about setup, pricing, technology, compliance, and results.</p>
+    <div class="label reveal">Answers</div>
+    <h1 id="faq-h1" class="reveal">Everything You Need to <span class="gradient-text">Know</span></h1>
+    <p class="page-hero-sub reveal">Common questions about our AI automation systems, pricing, technology, and how we work — answered clearly and honestly.</p>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ═══ FAQ CONTENT — Sidebar + Accordion ═══ -->
-<section class="section" aria-label="FAQ">
+<!-- ═══ FAQ CONTENT ═══ -->
+<section class="section" aria-label="Frequently asked questions">
   <div class="container">
-    <div class="faq-layout">
+    <div class="faq-main-grid">
 
-      <!-- LEFT: Sticky sidebar nav -->
-      <nav class="faq-sidebar" aria-label="FAQ categories">
-        <a href="#faq-getting-started" class="faq-sidebar-link">Getting Started</a>
-        <a href="#faq-pricing" class="faq-sidebar-link">Pricing &amp; Contracts</a>
-        <a href="#faq-tech" class="faq-sidebar-link">Technology &amp; Compliance</a>
-        <a href="#faq-results" class="faq-sidebar-link">Results &amp; Expectations</a>
+      <!-- Sticky nav -->
+      <nav class="faq-nav" aria-label="FAQ categories">
+        <div class="faq-nav-title">Jump to category</div>
+        <a class="faq-nav-item active" href="#how-it-works"><span class="faq-nav-dot"></span>How It Works</a>
+        <a class="faq-nav-item" href="#results"><span class="faq-nav-dot"></span>Results &amp; Guarantee</a>
+        <a class="faq-nav-item" href="#pricing"><span class="faq-nav-dot"></span>Pricing</a>
+        <a class="faq-nav-item" href="#technology"><span class="faq-nav-dot"></span>Technology</a>
+        <a class="faq-nav-item" href="#getting-started"><span class="faq-nav-dot"></span>Getting Started</a>
       </nav>
 
-      <!-- RIGHT: Category sections -->
+      <!-- FAQ groups -->
       <div>
 
+        <!-- HOW IT WORKS -->
+        <div class="faq-group reveal" id="how-it-works">
+          <div class="faq-group-header">
+            <span class="faq-group-icon">⚙️</span>
+            <span class="faq-group-title">How It Works</span>
+            <span class="faq-group-count">5 questions</span>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">What exactly does NovaOps AI do?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-body"><p>We build, deploy, and manage done-for-you AI automation systems that handle lead follow-up, appointment booking, and CRM management for your business. When a lead comes in, our AI responds within 90 seconds, qualifies them through natural conversation, and books the appointment directly into your calendar — all without you lifting a finger.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">How long does it take to go live?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-body"><p>Most systems go live within 7–14 business days from the initial strategy call. That includes building all workflows, writing AI prompts, integrating with your calendar and CRM, and testing end-to-end with live scenarios. We don't cut corners on the build — that's why it runs reliably once launched.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">Do I need any technical skills or equipment?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-body"><p>None at all. We handle 100% of the technical setup — GoHighLevel, Twilio, integrations, AI prompts, workflows, and calendar sync. Your job is to give us access and then show up to the appointments we send you. We've built systems for business owners who've never used CRM software in their lives.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">What happens to my leads that are already in my CRM?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-body"><p>We can import and reactivate them. Our database reactivation campaigns specifically target cold, old, and dormant leads in your existing database. One med spa client had 600 past clients collecting dust — our reactivation campaign generated $11,000 in week one. Old leads are often your fastest ROI.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">Can the AI handle objections and questions from leads?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-body"><p>Yes. Every AI is custom-trained on your business — your services, pricing FAQs, common objections, and brand tone. It handles the initial qualification conversation naturally, answers standard questions, and knows when to route complex situations to a human. It sounds like a member of your team, not a bot.</p></div>
+          </div>
+        </div>
+
+        <!-- RESULTS & GUARANTEE -->
+        <div class="faq-group reveal" id="results">
+          <div class="faq-group-header">
+            <span class="faq-group-icon">🏆</span>
+            <span class="faq-group-title">Results &amp; Guarantee</span>
+            <span class="faq-group-count">4 questions</span>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">What's the 10-appointment guarantee exactly?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-body"><p>If your system doesn't book at least 10 qualified appointments in the first 30 days after launch, we continue working at zero charge until it does. This is written into our service agreement — not just a marketing promise. If we don't deliver, you don't pay anything beyond what you've already paid.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">What kind of results can I realistically expect?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-body"><p>Based on our client base: HVAC companies typically recover 15+ missed jobs per month ($30K–$45K revenue). Med spas see 15–30 reactivation bookings in the first campaign. Real estate teams close 3–6 extra deals per quarter. Insurance agencies convert 25–30% of previously cold quote leads. Results vary by industry and lead volume, but these are real outcomes from real clients — not projections.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">How do you measure and report results?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-body"><p>Monthly performance reports show: leads captured, sequences sent, response rates, appointments booked, revenue attributed, and any optimization changes made. You'll always know exactly what your system is doing and what it's generating. Clients on our Monthly Retainer also get a live reporting dashboard.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">What if the system stops working after a few months?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-body"><p>Systems degrade if they aren't maintained — AI models update, lead sources shift, and copy needs refreshing. That's exactly what our Monthly Retainer covers. We actively monitor performance, update prompts, A/B test copy, and flag issues before they become problems. Done-For-You clients get 30 days of post-launch support and can add optimization coverage after that.</p></div>
+          </div>
+        </div>
+
+        <!-- PRICING -->
+        <div class="faq-group reveal" id="pricing">
+          <div class="faq-group-header">
+            <span class="faq-group-icon">💰</span>
+            <span class="faq-group-title">Pricing</span>
+            <span class="faq-group-count">5 questions</span>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">Is there a contract or lock-in?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-body"><p>The Rev-Share plan runs month-to-month after the first 30 days. The Done-For-You plan is a one-time engagement — you own the system with no ongoing commitment. The Monthly Retainer requires 60 days notice to cancel. No long-term lock-ins on any plan.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">Are there platform or tool costs on top of the price?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-body"><p>GoHighLevel runs ~$97–$297/month depending on your plan. Twilio SMS costs are typically $20–$80/month based on volume. We help you set these up at the lowest appropriate tier, and all costs are disclosed upfront — no surprises on your bill.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">Can I upgrade from Rev-Share to Done-For-You?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-body"><p>Yes. Many clients start on Rev-Share to validate the results with zero risk, then switch to Done-For-You once they've seen ROI. We credit the setup fee against the full build cost when you upgrade — so you don't pay twice.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">Do you have custom pricing for multi-location businesses?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-body"><p>Yes. For businesses with multiple locations, franchise operations, or agencies looking to resell our systems, we offer custom volume pricing. Book a strategy call to discuss what makes sense for your situation.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">What does "pricing on call" mean for Done-For-You and Retainer?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-body"><p>Pricing varies based on the complexity of your system, number of integrations, lead volume, and which services you need. Rather than publish a one-size-fits-all number, we scope the build on your strategy call and give you a clear, fixed quote before any work begins. No vague estimates, no bait-and-switch.</p></div>
+          </div>
+        </div>
+
+        <!-- TECHNOLOGY -->
+        <div class="faq-group reveal" id="technology">
+          <div class="faq-group-header">
+            <span class="faq-group-icon">🤖</span>
+            <span class="faq-group-title">Technology</span>
+            <span class="faq-group-count">4 questions</span>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">What platforms and tools do you build on?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-body"><p>Our core stack: GoHighLevel (CRM + workflows + SMS/email), Twilio (SMS/voice infrastructure), OpenAI GPT-4 (AI conversation engine), Google Calendar (booking), and Zapier/Make (integrations). We work with your existing tools where possible and only add new platforms where they genuinely improve results.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">Is my lead data secure?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-body"><p>Yes. GoHighLevel is SOC 2 compliant. Twilio is used by Fortune 500 companies for sensitive communications. All data is stored in your GoHighLevel account — you own it entirely. We don't share your lead data with third parties, and we follow TCPA compliance guidelines for all SMS campaigns.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">Will the AI respond to leads if I'm using a different CRM like HubSpot or Salesforce?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-body"><p>Yes, via integration. We use Zapier or Make to connect your existing CRM with the GoHighLevel automation layer. Leads flow in from your current source, the AI handles the conversation and booking, and the outcome syncs back to your preferred CRM. We've connected systems to HubSpot, Salesforce, Pipedrive, and custom databases.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">What if a lead asks something the AI can't answer?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-body"><p>The AI is trained to recognize its boundaries. When a question falls outside its training, it gracefully escalates — letting the lead know that a team member will follow up shortly, or offering to book a call. You're never left with a lead having a bad experience because the AI overreached. We call these "handoff triggers" and configure them per your preferences.</p></div>
+          </div>
+        </div>
+
         <!-- GETTING STARTED -->
-        <div id="faq-getting-started" class="reveal" style="margin-bottom:52px;">
-          <div class="label" style="margin-bottom:20px;">Getting Started</div>
-
-          <details class="faq-item-v5">
-            <summary>How long does setup take?</summary>
-            <div class="faq-answer">
-              <p>Most systems go live in 7–14 business days from your kickoff call. The timeline breaks down like this:</p>
-              <ul>
-                <li>Day 1–2: Strategy call + questionnaire review</li>
-                <li>Day 3–7: Build (workflows, AI prompts, CRM, integrations)</li>
-                <li>Day 8–10: Internal testing and QA</li>
-                <li>Day 11–14: Live testing with real leads + final launch</li>
-              </ul>
-              <p style="margin-top:12px;">For more complex systems (Full Stack / Monthly Retainer), allow up to 21 days. We'll give you a firm timeline before you commit.</p>
-            </div>
-          </details>
-
-          <details class="faq-item-v5">
-            <summary>Do I need any technical skills to use this?</summary>
-            <div class="faq-answer">No. This is 100% done-for-you. You don't log into any platform, configure any settings, or write any prompts. Our team handles the entire build, integration, and ongoing management. Your only involvement is a 30-minute kickoff call, a short questionnaire about your business, and optionally a monthly review call to see your results.</div>
-          </details>
-
-          <details class="faq-item-v5">
-            <summary>What's needed from me to get started?</summary>
-            <div class="faq-answer">Very little. We need: (1) A 30-minute strategy call to understand your business and lead flow, (2) A completed onboarding questionnaire (takes about 15 minutes), (3) Access to your existing CRM or lead sources so we can integrate them, and (4) Confirmation that you want to proceed. That's it. We build everything else.</div>
-          </details>
-
-          <details class="faq-item-v5">
-            <summary>What platforms and tools do you integrate with?</summary>
-            <div class="faq-answer">We integrate with virtually any platform that has an API or webhook. This includes GoHighLevel (our primary platform), Google Ads, Facebook/Instagram Ads, Zillow, Realtor.com, website contact forms, Zapier, Make (formerly Integromat), Google Calendar, Outlook Calendar, Stripe, and most CRMs (HubSpot, Salesforce, Pipedrive, etc.). If you use a platform not listed, ask us — we've likely built with it before.</div>
-          </details>
-        </div>
-
-        <!-- PRICING & CONTRACTS -->
-        <div id="faq-pricing" class="reveal" style="margin-bottom:52px;">
-          <div class="label" style="margin-bottom:20px;">Pricing &amp; Contracts</div>
-
-          <details class="faq-item-v5">
-            <summary>Is there a contract or lock-in?</summary>
-            <div class="faq-answer">The Rev-Share plan runs month-to-month after the first 30 days. The Done-For-You plan is a single engagement — you own the system outright with no ongoing commitment. The Monthly Retainer requires 60 days notice to cancel. We don't believe in trapping clients — if the system isn't producing results, we want to fix it, not hold you hostage.</div>
-          </details>
-
-          <details class="faq-item-v5">
-            <summary>Are there any platform or tool costs on top of your fees?</summary>
-            <div class="faq-answer">Yes — GoHighLevel costs approximately $97–$297/month depending on your plan (you'll need your own account). Twilio SMS costs are typically $20–$80/month based on message volume. OpenAI API costs are usually under $20/month for most businesses. We help you set all of these up at the lowest appropriate tier, and we disclose all costs clearly before you start. No hidden fees.</div>
-          </details>
-
-          <details class="faq-item-v5">
-            <summary>What if I already have GoHighLevel?</summary>
-            <div class="faq-answer">Even better. We can build directly inside your existing account, preserving your data and contacts. We'll audit your current setup, clean up unused workflows, and build on top of what's already working. There's no need to start over.</div>
-          </details>
-
-          <details class="faq-item-v5">
-            <summary>Can I upgrade or change plans after I start?</summary>
-            <div class="faq-answer">Yes. Many clients start on Rev-Share to validate the system, then upgrade to Done-For-You or Monthly Retainer as revenue grows. When upgrading, we credit your setup fee against the next plan's cost, so you're never paying twice for the same work.</div>
-          </details>
-        </div>
-
-        <!-- TECHNOLOGY & COMPLIANCE -->
-        <div id="faq-tech" class="reveal" style="margin-bottom:52px;">
-          <div class="label" style="margin-bottom:20px;">Technology &amp; Compliance</div>
-
-          <details class="faq-item-v5">
-            <summary>What is GoHighLevel and why do you use it?</summary>
-            <div class="faq-answer">GoHighLevel (GHL) is a CRM and marketing automation platform built specifically for local service businesses. It combines two-way SMS, email automation, calendar booking, pipeline management, and AI workflows into one platform. We use it because it's purpose-built for the kind of businesses we serve — not an enterprise tool retrofitted for small business. Your entire operation runs inside one unified dashboard.</div>
-          </details>
-
-          <details class="faq-item-v5">
-            <summary>Is the AI messaging TCPA compliant?</summary>
-            <div class="faq-answer">Yes. All outbound SMS messaging is sent only to leads who have opted in by submitting a form, calling your business, or explicitly requesting contact. We include required opt-out language in every message thread and honor all stop requests immediately. We also recommend adding TCPA-compliant consent language to your lead capture forms, which we help you set up. We do not send unsolicited cold SMS blasts.</div>
-          </details>
-
-          <details class="faq-item-v5">
-            <summary>What happens if the AI can't answer a question?</summary>
-            <div class="faq-answer">The AI is trained with specific fallback responses for questions outside its knowledge. When it encounters something it can't answer confidently, it routes the conversation to a human with a notification to you or your team — rather than guessing and potentially giving wrong information. You can customize exactly which topics trigger human handoff during the setup process.</div>
-          </details>
-
-          <details class="faq-item-v5">
-            <summary>Can I see my analytics and performance data?</summary>
-            <div class="faq-answer">Yes. Every client gets a custom reporting dashboard inside GoHighLevel showing leads captured, sequences running, appointments booked, and messages sent. Monthly Retainer clients also receive a formatted performance report delivered by email each month, summarizing key metrics and what we optimized. On all plans, you have full visibility into everything the system is doing.</div>
-          </details>
-        </div>
-
-        <!-- RESULTS & EXPECTATIONS -->
-        <div id="faq-results" class="reveal">
-          <div class="label" style="margin-bottom:20px;">Results &amp; Expectations</div>
-
-          <details class="faq-item-v5">
-            <summary>What exactly is the guarantee?</summary>
-            <div class="faq-answer">We guarantee a minimum of 10 qualified, booked appointments within the first 30 days of your system going live. If you don't hit that number, we continue working at zero charge — no monthly fees, no service charges — until you do. This is written into our service agreement, not just a marketing claim. The only conditions: you need to have an active, working lead source (ads, referrals, organic, etc.) sending leads into the system.</div>
-          </details>
-
-          <details class="faq-item-v5">
-            <summary>How quickly will I see results?</summary>
-            <div class="faq-answer">Most clients see their first appointments booked within 48–72 hours of launch. The speed depends on how many leads are currently coming in. Businesses with active ad campaigns or high organic lead volume typically see results within the first week. For businesses with a lower lead volume, results come from reactivating your existing database — which we can deploy in week one. You will not be waiting months to see results.</div>
-          </details>
-
-          <details class="faq-item-v5">
-            <summary>What types of businesses see the best results?</summary>
-            <div class="faq-answer">
-              <p>The highest-ROI results typically come from businesses that:</p>
-              <ul>
-                <li>Have active inbound lead flow (ads, Google, referrals)</li>
-                <li>Have high average ticket values ($500+)</li>
-                <li>Are currently missing leads after hours or on weekends</li>
-                <li>Have a database of past clients who haven't been contacted recently</li>
-              </ul>
-              <p style="margin-top:12px;">Industries with the strongest results: roofing, HVAC, med spas, real estate, solar, and insurance. But any local service business that books appointments can benefit.</p>
-            </div>
-          </details>
+        <div class="faq-group reveal" id="getting-started">
+          <div class="faq-group-header">
+            <span class="faq-group-icon">🚀</span>
+            <span class="faq-group-title">Getting Started</span>
+            <span class="faq-group-count">3 questions</span>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">What happens on the free strategy call?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-body"><p>It's a 30-minute working session — not a sales pitch. We map your current lead flow, identify where revenue is escaping (missed calls, slow follow-up, cold leads), and show you exactly what a NovaOps system would look like for your specific business. You leave with a clear action plan whether you work with us or not.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">What do I need to prepare for the strategy call?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-body"><p>Just show up. It helps to have a rough sense of your monthly lead volume, your main lead sources (Google, Facebook, referrals, etc.), and your biggest follow-up pain point. But we'll ask all of this during the call — there's no homework required.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-trigger" aria-expanded="false">How do I get started?<span class="faq-icon" aria-hidden="true">+</span></button>
+            <div class="faq-body"><p>Click any "Book Free Strategy Call" button on this site. It takes 60 seconds to fill out the form and pick a time. We'll confirm your appointment and review your business before the call so we can make the most of 30 minutes together. From strategy call to live system is typically 14 business days.</p></div>
+          </div>
         </div>
 
       </div>
@@ -320,27 +283,14 @@
   </div>
 </section>
 
-<!-- ═══ STILL HAVE QUESTIONS ═══ -->
-<section class="section-sm" aria-label="Still have questions">
-  <div class="container">
-    <div class="faq-still-box reveal">
-      <div class="label" style="justify-content:center;margin-bottom:14px;">Still Have Questions?</div>
-      <h2 style="font-size:clamp(22px,3vw,30px);margin-bottom:12px;">We'll Answer Them on a Free Call</h2>
-      <p style="color:var(--text-2);margin:0 auto 24px;max-width:480px;">Book a 30-minute strategy call. Honest answers to your specific situation — no pitch, no pressure.</p>
-      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-        <a href="https://tally.so/r/xXQa95" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Book Free Strategy Call →</a>
-        <a href="mailto:ansh102104@gmail.com" class="btn btn-outline btn-lg">Email Us</a>
-      </div>
-    </div>
-  </div>
-</section>
+<div class="divider"></div>
 
-<!-- ═══ CTA BANNER ═══ -->
-<section class="section" aria-labelledby="faq-cta-h2">
+<!-- ═══ CTA ═══ -->
+<section class="section band-dark" aria-labelledby="faq-cta-h2">
   <div class="container">
     <div class="cta-banner reveal">
-      <h2 id="faq-cta-h2">Ready to Stop Losing Leads?</h2>
-      <p>You've done your research. Now let's map your specific lead flow and show you exactly what a NovaOps AI system would do for your business — before you spend a dollar.</p>
+      <h2 id="faq-cta-h2">Still Have Questions? Let's Talk.</h2>
+      <p>Book a free strategy call and get your specific questions answered — along with a clear picture of what automation would look like for your business.</p>
       <a href="https://tally.so/r/xXQa95" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Book Free Strategy Call →</a>
       <div class="guarantee-pill">🏆 &nbsp;Guaranteed 10 Appointments in 30 Days or We Work Free</div>
     </div>
@@ -349,7 +299,6 @@
 
 </main>
 
-<!-- ═══ FOOTER ═══ -->
 <footer role="contentinfo">
   <div class="container">
     <div class="footer-grid">
@@ -357,49 +306,20 @@
         <a href="index.html" class="nav-logo">
           <svg class="nav-logo-svg" viewBox="0 0 34 34" fill="none" aria-hidden="true">
             <rect width="34" height="34" rx="8" fill="url(#lgft)"/>
-            <path d="M9 24V10l8 9 8-9v14" stroke="#04060a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <defs><linearGradient id="lgft" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse"><stop stop-color="#00e5c8"/><stop offset="1" stop-color="#1a7bff"/></linearGradient></defs>
+            <path d="M9 24V10l8 9 8-9v14" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs><linearGradient id="lgft" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#a855f7"/></linearGradient></defs>
           </svg>
           <span class="nav-logo-name">Nova<span>Ops</span> AI</span>
         </a>
         <p>Done-for-you AI automation for local businesses. We build, manage, and optimize — you close the appointments we send.</p>
         <a href="https://tally.so/r/xXQa95" target="_blank" class="btn btn-ghost btn-sm">Book Free Call</a>
       </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <a href="services/ai-appointment-setting.html">AI Appointment Setting</a>
-        <a href="services/ai-follow-up.html">AI Follow-Up</a>
-        <a href="services/crm-automation.html">CRM Automation</a>
-        <a href="services/sms-automation.html">SMS Automation</a>
-        <a href="services/voice-ai.html">Voice AI</a>
-      </div>
-      <div class="footer-col">
-        <h4>Industries</h4>
-        <a href="industries/ai-automation-for-roofers.html">Roofing</a>
-        <a href="industries/ai-automation-for-med-spas.html">Med Spas</a>
-        <a href="industries/ai-automation-for-home-services.html">Home Services</a>
-        <a href="industries/ai-automation-for-solar-companies.html">Solar</a>
-        <a href="industries/ai-automation-for-real-estate.html">Real Estate</a>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <a href="about.html">About Us</a>
-        <a href="results.html">Results</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <a href="tel:8482055940">848-205-5940</a>
-        <a href="mailto:ansh102104@gmail.com">ansh102104@gmail.com</a>
-        <a href="https://tally.so/r/xXQa95" target="_blank">Book a Strategy Call</a>
-      </div>
+      <div class="footer-col"><h4>Services</h4><a href="services/ai-appointment-setting.html">AI Appointment Setting</a><a href="services/ai-follow-up.html">AI Follow-Up</a><a href="services/crm-automation.html">CRM Automation</a><a href="services/sms-automation.html">SMS Automation</a><a href="services/voice-ai.html">Voice AI</a></div>
+      <div class="footer-col"><h4>Industries</h4><a href="industries/ai-automation-for-roofers.html">Roofing</a><a href="industries/ai-automation-for-med-spas.html">Med Spas</a><a href="industries/ai-automation-for-home-services.html">Home Services</a><a href="industries/ai-automation-for-solar-companies.html">Solar</a><a href="industries/ai-automation-for-real-estate.html">Real Estate</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="about.html">About Us</a><a href="results.html">Results</a><a href="pricing.html">Pricing</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="tel:8482055940">848-205-5940</a><a href="mailto:ansh102104@gmail.com">ansh102104@gmail.com</a><a href="https://tally.so/r/xXQa95" target="_blank">Book a Strategy Call</a></div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2025 NovaOps AI. All rights reserved.</span>
-      <span>AI Automation — Results Guaranteed</span>
-    </div>
+    <div class="footer-bottom"><span>© 2025 NovaOps AI. All rights reserved.</span><span>AI Automation — Results Guaranteed</span></div>
   </div>
 </footer>
 
