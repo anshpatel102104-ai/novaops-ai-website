@@ -124,11 +124,16 @@
       </svg>
       <span class="nav-logo-name">Nova<span>Ops</span> AI</span>
     </a>
+
     <ul class="nav-links" role="list">
       <li><a href="index.html" class="active">Home</a></li>
-      <li>
-        <a href="services.html">Services <svg class="nav-chevron" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
-        <div class="nav-dropdown">
+
+      <li class="nav-item has-dropdown">
+        <button class="nav-drop-btn" aria-expanded="false" aria-haspopup="true" aria-controls="dd-solutions">
+          Solutions
+          <svg class="nav-chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <div class="nav-dropdown" id="dd-solutions" role="region">
           <div class="nav-dropdown-label">AI Systems</div>
           <a href="services/ai-appointment-setting.html">AI Appointment Setting</a>
           <a href="services/ai-follow-up.html">AI Follow-Up Sequences</a>
@@ -138,9 +143,13 @@
           <a href="services/voice-ai.html">Voice AI</a>
         </div>
       </li>
-      <li>
-        <a href="industries.html">Industries <svg class="nav-chevron" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
-        <div class="nav-dropdown">
+
+      <li class="nav-item has-dropdown">
+        <button class="nav-drop-btn" aria-expanded="false" aria-haspopup="true" aria-controls="dd-industries">
+          Industries
+          <svg class="nav-chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <div class="nav-dropdown" id="dd-industries" role="region">
           <div class="nav-dropdown-label">We Serve</div>
           <a href="industries/ai-automation-for-roofers.html">Roofing Companies</a>
           <a href="industries/ai-automation-for-med-spas.html">Med Spas</a>
@@ -150,15 +159,18 @@
           <a href="industries/ai-automation-for-real-estate.html">Real Estate</a>
         </div>
       </li>
+
       <li><a href="results.html">Results</a></li>
       <li><a href="pricing.html">Pricing</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li><a href="faq.html">FAQ</a></li>
     </ul>
+
     <div class="nav-cta">
       <a href="https://tally.so/r/xXQa95" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Book Free Call →</a>
     </div>
+
     <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -167,8 +179,32 @@
 
 <nav class="mobile-drawer" id="mobile-drawer" aria-label="Mobile navigation">
   <a href="index.html">Home</a>
-  <a href="services.html">Services</a>
-  <a href="industries.html">Industries</a>
+  <div class="mobile-drop-group">
+    <button class="mobile-drop-btn" aria-expanded="false">
+      Solutions <svg class="nav-chevron" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+    <div class="mobile-drop-list">
+      <a href="services/ai-appointment-setting.html">AI Appointment Setting</a>
+      <a href="services/ai-follow-up.html">AI Follow-Up Sequences</a>
+      <a href="services/crm-automation.html">CRM Automation</a>
+      <a href="services/lead-qualification.html">Lead Qualification AI</a>
+      <a href="services/sms-automation.html">SMS Automation</a>
+      <a href="services/voice-ai.html">Voice AI</a>
+    </div>
+  </div>
+  <div class="mobile-drop-group">
+    <button class="mobile-drop-btn" aria-expanded="false">
+      Industries <svg class="nav-chevron" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+    <div class="mobile-drop-list">
+      <a href="industries/ai-automation-for-roofers.html">Roofing Companies</a>
+      <a href="industries/ai-automation-for-med-spas.html">Med Spas</a>
+      <a href="industries/ai-automation-for-home-services.html">Home Services</a>
+      <a href="industries/ai-automation-for-insurance-agencies.html">Insurance Agencies</a>
+      <a href="industries/ai-automation-for-solar-companies.html">Solar Companies</a>
+      <a href="industries/ai-automation-for-real-estate.html">Real Estate</a>
+    </div>
+  </div>
   <a href="results.html">Results</a>
   <a href="pricing.html">Pricing</a>
   <a href="about.html">About</a>
@@ -179,8 +215,6 @@
     <a href="tel:8482055940" class="btn btn-outline btn-full">Call 848-205-5940</a>
   </div>
 </nav>
-
-<main>
 
 <!-- ═══ HERO — SPLIT LAYOUT ═══ -->
 <section class="hero-split" aria-labelledby="hero-h1">
