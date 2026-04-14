@@ -4,10 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Automation Services | NovaOps AI</title>
-  <meta name="description" content="Explore NovaOps AI's done-for-you AI automation services for local businesses: appointment setting, follow-up sequences, CRM automation, lead qualification, SMS automation, and voice AI.">
+  <meta name="description" content="Explore NovaOps AI's done-for-you AI automation services: appointment setting, follow-up sequences, CRM automation, lead qualification, SMS automation, and voice AI.">
   <link rel="canonical" href="https://novaopsai.com/services">
   <meta property="og:title" content="AI Automation Services | NovaOps AI">
-  <meta property="og:description" content="Six done-for-you AI systems built to automate lead response, follow-up, qualification, booking, and reactivation for local businesses.">
   <meta property="og:url" content="https://novaopsai.com/services">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,93 +14,71 @@
   <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,600,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* ── SERVICES: Full-width numbered list rows ── */
-    .service-list { display: flex; flex-direction: column; }
-    .service-list-item {
-      display: grid;
-      grid-template-columns: 72px 60px 1fr auto;
-      gap: 32px;
-      align-items: center;
-      padding: 40px 0;
-      border-bottom: 1px solid var(--border-3);
-      transition: border-color var(--t);
-    }
-    .service-list-item:last-child { border-bottom: none; }
-    .service-list-item:hover { border-color: var(--border-2); }
-    .service-list-num {
-      font-family: var(--f-mono);
-      font-size: 38px;
-      font-weight: 600;
-      color: var(--teal);
-      opacity: 0.28;
-      line-height: 1;
-      letter-spacing: -0.03em;
-    }
-    .service-list-icon {
-      font-size: 32px;
-      line-height: 1;
-      opacity: 0.85;
-    }
-    .service-list-content {}
-    .service-list-content h3 {
-      font-size: clamp(18px, 2.4vw, 24px);
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: var(--text);
-    }
-    .service-list-content p {
-      font-size: 14px;
-      color: var(--text-2);
-      max-width: 680px;
-      line-height: 1.72;
-    }
-    .service-list-cta { flex-shrink: 0; }
-    @media (max-width: 860px) {
-      .service-list-item { grid-template-columns: 48px 1fr; gap: 16px; }
-      .service-list-icon { display: none; }
-      .service-list-cta { display: none; }
-      .service-list-content p { max-width: none; }
-    }
-
-    /* ── Process — horizontal timeline ── */
-    .process-timeline {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+    /* SERVICES — Dark Cinematic Page Styles */
+    .services-hero {
+      min-height: 60vh;
+      display: flex;
+      align-items: flex-end;
+      padding: 120px 0 64px;
       position: relative;
-      gap: 0;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border-3);
     }
-    .process-timeline::before {
+    .services-hero::before {
       content: '';
       position: absolute;
-      top: 28px;
-      left: 12%;
-      right: 12%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--border-2) 20%, var(--border-2) 80%, transparent);
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 70% at 50% -20%, rgba(192,132,252,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 30% at 80% 80%, rgba(168,85,247,0.08) 0%, transparent 50%);
     }
-    .timeline-step { padding: 0 20px; text-align: center; }
-    .timeline-dot {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: var(--bg-card);
-      border: 2px solid var(--border-2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 24px;
-      font-family: var(--f-mono);
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--teal);
+    .services-hero-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: flex-end;
+      width: 100%;
       position: relative;
       z-index: 1;
-      transition: border-color var(--t), box-shadow var(--t);
     }
-    .timeline-step:hover .timeline-dot { border-color: var(--teal); box-shadow: var(--shadow-glow); }
-    .timeline-step h3 { font-size: 16px; margin-bottom: 10px; }
-    .timeline-step p { font-size: 13px; color: var(--text-2); }
-    @media (max-width: 860px) {
+    .services-hero-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 220px;
+    }
+    .svc-hero-stat {
+      background: var(--bg-card);
+      border: 1px solid var(--border-2);
+      border-radius: var(--r-md);
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .svc-hero-stat-num { font-family: var(--f-display); font-size: 26px; font-weight: 800; color: var(--teal); line-height: 1; letter-spacing: -0.03em; flex-shrink: 0; }
+    .svc-hero-stat-text { font-size: 12px; color: var(--text-2); font-family: var(--f-mono); }
+
+    /* Process timeline */
+    .process-timeline { display: grid; grid-template-columns: repeat(4, 1fr); position: relative; gap: 0; }
+    .process-timeline::before { content: ''; position: absolute; top: 28px; left: 12%; right: 12%; height: 1px; background: linear-gradient(90deg, transparent, var(--border-2) 20%, var(--border-2) 80%, transparent); }
+    .timeline-step { padding: 0 20px; text-align: center; }
+    .timeline-dot { width: 56px; height: 56px; border-radius: 50%; background: var(--bg-card); border: 2px solid var(--border-2); display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-family: var(--f-mono); font-size: 13px; font-weight: 600; color: var(--teal); position: relative; z-index: 1; transition: border-color var(--t), background var(--t), color var(--t), box-shadow var(--t); }
+    .timeline-step:hover .timeline-dot { background: var(--teal); color: var(--text-inv); border-color: var(--teal); box-shadow: 0 0 32px rgba(192,132,252,0.40); }
+    .timeline-step h3 { font-size: 15px; margin-bottom: 8px; }
+    .timeline-step p { font-size: 12.5px; color: var(--text-2); }
+
+    /* Stack cards */
+    .service-stack-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: start; }
+    @media (max-width: 860px) { .service-stack-grid { grid-template-columns: 1fr; } }
+    .service-stack-card { background: var(--bg-card); border: 1px solid var(--border-2); border-radius: var(--r-xl); padding: 32px; transition: border-color var(--t), transform var(--t), box-shadow var(--t); }
+    .service-stack-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card); }
+    .service-stack-card.featured { border-color: var(--teal); background: linear-gradient(155deg, rgba(192,132,252,0.10) 0%, var(--bg-card) 60%); box-shadow: 0 0 60px rgba(192,132,252,0.10); }
+
+    @media (max-width: 960px) {
+      .services-hero-inner { grid-template-columns: 1fr; }
+      .services-hero-stats { flex-direction: row; flex-wrap: wrap; }
+      .svc-hero-stat { flex: 1; min-width: 160px; }
       .process-timeline { grid-template-columns: 1fr 1fr; }
       .process-timeline::before { display: none; }
       .timeline-step { padding: 0 12px 32px; }
@@ -109,54 +86,6 @@
     @media (max-width: 540px) {
       .process-timeline { grid-template-columns: 1fr; }
     }
-
-    /* ── Stack cards ── */
-    .service-stack-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      align-items: start;
-    }
-    @media (max-width: 860px) { .service-stack-grid { grid-template-columns: 1fr; } }
-    .service-stack-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-2);
-      border-radius: var(--r-xl);
-      padding: 32px;
-    }
-    .service-stack-card.featured {
-      border-color: var(--teal);
-      background: linear-gradient(155deg, rgba(192,132,252,0.09) 0%, var(--bg-card) 60%);
-      box-shadow: 0 0 48px rgba(192,132,252,0.08);
-    }
-
-/* SERVICE MODULE GRID — new 3-col card layout */
-.svc-card-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-@media(max-width:960px){.svc-card-grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:580px){.svc-card-grid{grid-template-columns:1fr;}}
-.svc-card {
-  background:var(--bg-card);border:1px solid var(--border-2);border-radius:var(--r-xl);
-  padding:28px;position:relative;overflow:hidden;
-  transition:border-color var(--t),transform var(--t),box-shadow var(--t);
-}
-.svc-card::after {
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,var(--teal),var(--blue));
-  transform:scaleX(0);transform-origin:left;transition:transform var(--t-slow);
-}
-.svc-card:hover{border-color:rgba(124,58,237,0.28);transform:translateY(-5px);box-shadow:var(--shadow-card);}
-.svc-card:hover::after{transform:scaleX(1);}
-.svc-card-num{font-family:var(--f-mono);font-size:11px;color:var(--teal);opacity:.55;font-weight:600;letter-spacing:.12em;margin-bottom:12px;}
-.svc-card-icon{font-size:28px;margin-bottom:12px;line-height:1;}
-.svc-card h3{font-size:17px;font-weight:700;margin-bottom:8px;color:var(--text);}
-.svc-card p{font-size:13.5px;color:var(--text-2);line-height:1.72;margin-bottom:16px;}
-.svc-card-link{font-size:12.5px;font-weight:600;color:var(--teal);display:inline-flex;align-items:center;gap:5px;opacity:.7;transition:gap var(--t),opacity var(--t);}
-.svc-card:hover .svc-card-link{gap:9px;opacity:1;}
-
-/* CALENDAR SECTION */
-.cal-section{background:var(--bg-2);border:1px solid var(--border-2);border-radius:var(--r-xl);padding:clamp(36px,4vw,56px);text-align:center;}
-.cal-embed{background:var(--bg-card);border:1px dashed var(--border);border-radius:var(--r-lg);min-height:400px;display:flex;align-items:center;justify-content:center;font-family:var(--f-mono);font-size:12px;color:var(--text-3);letter-spacing:.08em;text-transform:uppercase;margin-top:24px;position:relative;overflow:hidden;}
-.cal-embed::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--teal-dim) 0%,transparent 60%);pointer-events:none;}
   </style>
 </head>
 <body>
@@ -189,7 +118,6 @@
     </button>
   </div>
 </nav>
-
 <nav class="mobile-drawer" id="mobile-drawer" aria-label="Mobile navigation">
   <a href="index.html">Home</a>
   <a href="services.html" class="active">Services</a>
@@ -207,86 +135,95 @@
 
 <main>
 
-<!-- ═══ PAGE HERO ═══ -->
-<section class="page-hero" aria-labelledby="services-h1">
-  <div class="page-hero-glow" aria-hidden="true"></div>
+<!-- ═══ CINEMATIC HERO ═══ -->
+<section class="services-hero" aria-labelledby="services-h1">
   <div class="container">
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="index.html">Home</a>
-      <span aria-hidden="true">›</span>
-      <span aria-current="page">Services</span>
-    </nav>
-    <div class="label reveal">Done-For-You Systems</div>
-    <h1 id="services-h1" class="reveal">Six AI Systems That<br><span class="gradient-text">Work While You Sleep</span></h1>
-    <p class="page-hero-sub reveal">Every system built, managed, and optimized by our team. You never touch a button. You just show up to the appointments we send you.</p>
+    <div class="services-hero-inner">
+      <div>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span aria-hidden="true">›</span>
+          <span aria-current="page">Services</span>
+        </nav>
+        <div class="label reveal">Done-For-You Systems</div>
+        <h1 id="services-h1" class="reveal" style="font-size:clamp(40px,5.5vw,68px);">Six AI Systems That<br><span class="gradient-text">Work While You Sleep</span></h1>
+        <p class="page-hero-sub reveal" style="max-width:520px;margin-top:16px;">Every system built, managed, and optimized by our team. You never touch a button. You just show up to the appointments we send you.</p>
+        <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;" class="reveal">
+          <a href="https://tally.so/r/xXQa95" target="_blank" rel="noopener" class="btn btn-primary">Book Free Strategy Call →</a>
+          <a href="pricing.html" class="btn btn-outline">View Pricing</a>
+        </div>
+      </div>
+      <div class="services-hero-stats reveal">
+        <div class="svc-hero-stat">
+          <div class="svc-hero-stat-num">90s</div>
+          <div class="svc-hero-stat-text">Lead response time</div>
+        </div>
+        <div class="svc-hero-stat">
+          <div class="svc-hero-stat-num">14d</div>
+          <div class="svc-hero-stat-text">Live system deployment</div>
+        </div>
+        <div class="svc-hero-stat">
+          <div class="svc-hero-stat-num">6</div>
+          <div class="svc-hero-stat-text">AI systems available</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ═══ SERVICES — FULL-WIDTH NUMBERED ROWS ═══ -->
-<section class="section reveal" aria-labelledby="services-list-h2">
+<!-- ═══ SERVICE CARD GRID ═══ -->
+<section class="section" aria-labelledby="services-list-h2">
   <div class="container">
     <div class="section-header reveal">
       <div class="label">Core Systems</div>
       <h2 id="services-list-h2">Six Systems. One Unified Lead Engine.</h2>
       <p>Each service works standalone — or stacks with others for a fully automated revenue operation.</p>
     </div>
-    <div class="svc-rows">
-      <a class="svc-row reveal" href="services/ai-appointment-setting.html">
-        <div class="svc-row-num">01</div>
-        <div class="svc-row-content">
-          <div class="svc-row-icon">📅</div>
-          <h3>AI Appointment Setting</h3>
-          <p>Responds to new leads in under 90 seconds, qualifies them, and books directly into your calendar — 24/7, no staff required.</p>
-        </div>
-        <div class="svc-row-arrow">→</div>
-      </a>
-      <a class="svc-row reveal" href="services/ai-follow-up.html">
-        <div class="svc-row-num">02</div>
-        <div class="svc-row-content">
-          <div class="svc-row-icon">🔁</div>
-          <h3>AI Follow-Up Sequences</h3>
-          <p>12–15 touchpoints over 90 days across SMS and email. Personalized per lead, auto-stops on reply, routes to booking automatically.</p>
-        </div>
-        <div class="svc-row-arrow">→</div>
-      </a>
-      <a class="svc-row reveal" href="services/crm-automation.html">
-        <div class="svc-row-num">03</div>
-        <div class="svc-row-content">
-          <div class="svc-row-icon">🗂️</div>
-          <h3>CRM Automation</h3>
-          <p>Pipeline, contacts, and workflows running on autopilot inside GoHighLevel. Auto-tagging, auto-routing, idle-lead alerts — zero manual entry.</p>
-        </div>
-        <div class="svc-row-arrow">→</div>
-      </a>
-      <a class="svc-row reveal" href="services/lead-qualification.html">
-        <div class="svc-row-num">04</div>
-        <div class="svc-row-content">
-          <div class="svc-row-icon">🧠</div>
-          <h3>Lead Qualification AI</h3>
-          <p>AI-powered conversation filters unqualified leads before they reach your team. Scores every lead 1–10 automatically on entry.</p>
-        </div>
-        <div class="svc-row-arrow">→</div>
-      </a>
-      <a class="svc-row reveal" href="services/sms-automation.html">
-        <div class="svc-row-num">05</div>
-        <div class="svc-row-content">
-          <div class="svc-row-icon">💬</div>
-          <h3>SMS Automation</h3>
-          <p>Missed call text-backs in 18 seconds, appointment reminders, review requests, and reactivation campaigns — fully automated.</p>
-        </div>
-        <div class="svc-row-arrow">→</div>
-      </a>
-      <a class="svc-row reveal" href="services/voice-ai.html">
-        <div class="svc-row-num">06</div>
-        <div class="svc-row-content">
-          <div class="svc-row-icon">📞</div>
-          <h3>Voice AI</h3>
-          <p>An AI voice agent that answers calls, handles FAQs, qualifies leads, and books appointments — sounds like a real person.</p>
-        </div>
-        <div class="svc-row-arrow">→</div>
-      </a>
+    <div class="svc-card-grid">
+      <article class="svc-card reveal">
+        <div class="svc-card-num">01</div>
+        <div class="svc-card-icon">📅</div>
+        <h3>AI Appointment Setting</h3>
+        <p>Responds to new leads in under 90 seconds, qualifies them, and books directly into your calendar — 24/7, no staff required.</p>
+        <a class="svc-card-link" href="services/ai-appointment-setting.html">Details →</a>
+      </article>
+      <article class="svc-card reveal reveal-d1">
+        <div class="svc-card-num">02</div>
+        <div class="svc-card-icon">🔁</div>
+        <h3>AI Follow-Up Sequences</h3>
+        <p>12–15 touchpoints over 90 days across SMS and email. Personalized per lead, auto-stops on reply, routes to booking automatically.</p>
+        <a class="svc-card-link" href="services/ai-follow-up.html">Details →</a>
+      </article>
+      <article class="svc-card reveal reveal-d2">
+        <div class="svc-card-num">03</div>
+        <div class="svc-card-icon">🗂️</div>
+        <h3>CRM Automation</h3>
+        <p>Pipeline, contacts, and workflows running on autopilot inside GoHighLevel. Auto-tagging, auto-routing, idle-lead alerts — zero manual entry.</p>
+        <a class="svc-card-link" href="services/crm-automation.html">Details →</a>
+      </article>
+      <article class="svc-card reveal">
+        <div class="svc-card-num">04</div>
+        <div class="svc-card-icon">🧠</div>
+        <h3>Lead Qualification AI</h3>
+        <p>AI-powered conversation filters unqualified leads before they reach your team. Scores every lead 1–10 automatically on entry.</p>
+        <a class="svc-card-link" href="services/lead-qualification.html">Details →</a>
+      </article>
+      <article class="svc-card reveal reveal-d1">
+        <div class="svc-card-num">05</div>
+        <div class="svc-card-icon">💬</div>
+        <h3>SMS Automation</h3>
+        <p>Missed call text-backs in 18 seconds, appointment reminders, review requests, and reactivation campaigns — fully automated.</p>
+        <a class="svc-card-link" href="services/sms-automation.html">Details →</a>
+      </article>
+      <article class="svc-card reveal reveal-d2">
+        <div class="svc-card-num">06</div>
+        <div class="svc-card-icon">📞</div>
+        <h3>Voice AI</h3>
+        <p>An AI voice agent that answers calls, handles FAQs, qualifies leads, and books appointments — sounds like a real person.</p>
+        <a class="svc-card-link" href="services/voice-ai.html">Details →</a>
+      </article>
     </div>
   </div>
 </section>
@@ -294,16 +231,15 @@
 <div class="divider"></div>
 
 <!-- ═══ STACKS ═══ -->
-<section class="section reveal" aria-labelledby="stacks-h2">
+<section class="section band-dark" aria-labelledby="stacks-h2">
   <div class="container">
     <div class="section-header center reveal">
       <div class="label">System Bundles</div>
       <h2 id="stacks-h2">How Our Systems Stack Together</h2>
       <p>Start with what solves your biggest problem — then add layers as your business scales.</p>
     </div>
-
     <div class="service-stack-grid reveal">
-      <article class="service-stack-card reveal">
+      <article class="service-stack-card">
         <div class="label" style="margin-bottom:10px;">Starter Layer</div>
         <h3 style="font-size:22px;margin-bottom:10px;">Lead Response Engine</h3>
         <p style="font-size:13.5px;color:var(--text-2);margin-bottom:20px;">For businesses leaking leads to slow follow-up.</p>
@@ -314,8 +250,7 @@
           <li>Basic CRM Setup</li>
         </ul>
       </article>
-
-      <article class="service-stack-card featured reveal">
+      <article class="service-stack-card featured">
         <div class="label" style="margin-bottom:10px;">Growth Layer</div>
         <h3 style="font-size:22px;margin-bottom:10px;">Full Nurture System</h3>
         <p style="font-size:13.5px;color:var(--text-2);margin-bottom:20px;">For businesses with existing lead volume to monetize.</p>
@@ -327,8 +262,7 @@
           <li>Reactivation Campaigns</li>
         </ul>
       </article>
-
-      <article class="service-stack-card reveal">
+      <article class="service-stack-card">
         <div class="label" style="margin-bottom:10px;">Scale Layer</div>
         <h3 style="font-size:22px;margin-bottom:10px;">Complete AI Operation</h3>
         <p style="font-size:13.5px;color:var(--text-2);margin-bottom:20px;">For scaling businesses wanting full automation.</p>
@@ -346,33 +280,32 @@
 
 <div class="divider"></div>
 
-<!-- ═══ PROCESS — VERTICAL TIMELINE ═══ -->
-<section class="section reveal" aria-labelledby="process-h2">
+<!-- ═══ PROCESS — HORIZONTAL TIMELINE ═══ -->
+<section class="section" aria-labelledby="process-h2">
   <div class="container">
     <div class="section-header center reveal">
       <div class="label">Deployment Process</div>
       <h2 id="process-h2">From Strategy Call to Live System in 14 Days</h2>
       <p>We handle every technical aspect. Your only job is to show up to the appointments we send you.</p>
     </div>
-
-    <div class="v-timeline reveal">
-      <div class="v-timeline-step">
-        <div class="v-timeline-dot">01</div>
+    <div class="process-timeline reveal">
+      <div class="timeline-step">
+        <div class="timeline-dot">01</div>
         <h3>Strategy Call</h3>
         <p>Map your lead flow, identify revenue gaps, and design your custom automation blueprint.</p>
       </div>
-      <div class="v-timeline-step">
-        <div class="v-timeline-dot">02</div>
+      <div class="timeline-step">
+        <div class="timeline-dot">02</div>
         <h3>Custom Build</h3>
         <p>All workflows, AI prompts, sequences, and CRM built inside GoHighLevel — tailored to you.</p>
       </div>
-      <div class="v-timeline-step">
-        <div class="v-timeline-dot">03</div>
+      <div class="timeline-step">
+        <div class="timeline-dot">03</div>
         <h3>Test &amp; Launch</h3>
         <p>Every automation tested end-to-end with live leads. System goes live in 7–14 business days.</p>
       </div>
-      <div class="v-timeline-step">
-        <div class="v-timeline-dot">04</div>
+      <div class="timeline-step">
+        <div class="timeline-dot">04</div>
         <h3>Monthly Optimization</h3>
         <p>Monthly reports, AI prompt updates, and strategy calls to keep results growing every month.</p>
       </div>
@@ -385,12 +318,12 @@
 <!-- ═══ BOOK A CALL ═══ -->
 <section class="section" aria-labelledby="svc-book-h2">
   <div class="container">
-    <div class="calendar-section-v5 reveal">
-      <div class="label" style="justify-content:center;margin-bottom:14px;">Schedule Your Build</div>
+    <div class="cal-section reveal">
+      <div class="label" style="justify-content:center;margin-bottom:14px;"><span style="display:none"></span>Schedule Your Build</div>
       <h2 id="svc-book-h2">Ready to See Which System You Need?</h2>
       <p>Book a free 30-minute strategy call and we'll map your lead flow, identify your biggest revenue leak, and recommend the exact system stack for your business.</p>
-      <a href="https://tally.so/r/xXQa95" target="_blank" rel="noopener" class="btn btn-primary btn-lg" style="margin-bottom:0;">Book Free Strategy Call →</a>
-      <div class="calendar-embed" aria-label="Booking Calendar">Booking Calendar</div>
+      <a href="https://tally.so/r/xXQa95" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Book Free Strategy Call →</a>
+      <div class="cal-embed" aria-label="Booking Calendar">Booking Calendar</div>
     </div>
   </div>
 </section>
@@ -409,7 +342,7 @@
 
 </main>
 
-<!-- ═══ FOOTER ═══ -->
+<!-- FOOTER -->
 <footer role="contentinfo">
   <div class="container">
     <div class="footer-grid">
@@ -425,36 +358,10 @@
         <p>Done-for-you AI automation for local businesses. We build, manage, and optimize — you close the appointments we send.</p>
         <a href="https://tally.so/r/xXQa95" target="_blank" class="btn btn-ghost btn-sm">Book Free Call</a>
       </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <a href="services/ai-appointment-setting.html">AI Appointment Setting</a>
-        <a href="services/ai-follow-up.html">AI Follow-Up</a>
-        <a href="services/crm-automation.html">CRM Automation</a>
-        <a href="services/sms-automation.html">SMS Automation</a>
-        <a href="services/voice-ai.html">Voice AI</a>
-      </div>
-      <div class="footer-col">
-        <h4>Industries</h4>
-        <a href="industries/ai-automation-for-roofers.html">Roofing</a>
-        <a href="industries/ai-automation-for-med-spas.html">Med Spas</a>
-        <a href="industries/ai-automation-for-home-services.html">Home Services</a>
-        <a href="industries/ai-automation-for-solar-companies.html">Solar</a>
-        <a href="industries/ai-automation-for-real-estate.html">Real Estate</a>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <a href="about.html">About Us</a>
-        <a href="results.html">Results</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <a href="tel:8482055940">848-205-5940</a>
-        <a href="mailto:ansh102104@gmail.com">ansh102104@gmail.com</a>
-        <a href="https://tally.so/r/xXQa95" target="_blank">Book a Strategy Call</a>
-      </div>
+      <div class="footer-col"><h4>Services</h4><a href="services/ai-appointment-setting.html">AI Appointment Setting</a><a href="services/ai-follow-up.html">AI Follow-Up</a><a href="services/crm-automation.html">CRM Automation</a><a href="services/sms-automation.html">SMS Automation</a><a href="services/voice-ai.html">Voice AI</a></div>
+      <div class="footer-col"><h4>Industries</h4><a href="industries/ai-automation-for-roofers.html">Roofing</a><a href="industries/ai-automation-for-med-spas.html">Med Spas</a><a href="industries/ai-automation-for-home-services.html">Home Services</a><a href="industries/ai-automation-for-solar-companies.html">Solar</a><a href="industries/ai-automation-for-real-estate.html">Real Estate</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="about.html">About Us</a><a href="results.html">Results</a><a href="pricing.html">Pricing</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="tel:8482055940">848-205-5940</a><a href="mailto:ansh102104@gmail.com">ansh102104@gmail.com</a><a href="https://tally.so/r/xXQa95" target="_blank">Book a Strategy Call</a></div>
     </div>
     <div class="footer-bottom">
       <span>© 2025 NovaOps AI. All rights reserved.</span>
