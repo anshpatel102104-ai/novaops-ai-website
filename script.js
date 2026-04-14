@@ -49,8 +49,9 @@
     });
   }
 
-  // ─── Scroll reveal ───
-  const revealEls = document.querySelectorAll('.reveal');
+  // ─── Scroll reveal (enhanced) ───
+  const revealSelectors = '.reveal, .reveal-left, .reveal-right';
+  const revealEls = document.querySelectorAll(revealSelectors);
   if (revealEls.length) {
     const ro = new IntersectionObserver((entries) => {
       entries.forEach(e => {
@@ -59,9 +60,30 @@
           ro.unobserve(e.target);
         }
       });
-    }, { threshold: 0.09, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.08, rootMargin: '0px 0px -36px 0px' });
     revealEls.forEach(el => ro.observe(el));
   }
+
+  // ─── Staggered grid children reveal ───
+  document.querySelectorAll('.svc-card-grid, .service-module-grid, .grid-3, .grid-4, .results-grid').forEach(grid => {
+    const children = Array.from(grid.children).filter(c => !c.classList.contains('reveal'));
+    if (!children.length) return;
+    const go = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          Array.from(e.target.children).forEach((child, i) => {
+            if (!child.classList.contains('reveal')) {
+              child.style.transitionDelay = (i * 80) + 'ms';
+              child.classList.add('reveal');
+              setTimeout(() => child.classList.add('visible'), 60 + i * 80);
+            }
+          });
+          go.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.05 });
+    go.observe(grid);
+  });
 
   // ─── FAQ accordion ───
   document.querySelectorAll('.faq-trigger').forEach(trigger => {

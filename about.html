@@ -14,6 +14,19 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,600,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* ABOUT — premium story layout */
+    .about-manifesto{background:linear-gradient(135deg,var(--bg-3) 0%,var(--bg-2) 100%);border:1px solid var(--border-2);border-radius:var(--r-xl);padding:clamp(40px,5vw,64px);position:relative;overflow:hidden;margin-bottom:0;}
+    .about-manifesto::before{content:'"';position:absolute;top:-20px;left:32px;font-family:var(--f-display);font-size:180px;font-weight:900;color:var(--teal);opacity:.07;line-height:1;pointer-events:none;}
+    .about-manifesto-text{font-family:var(--f-display);font-size:clamp(18px,2.5vw,26px);font-weight:700;color:var(--text);line-height:1.45;letter-spacing:-0.015em;position:relative;z-index:1;}
+    .about-manifesto-sub{font-size:14.5px;color:var(--text-2);margin-top:16px;position:relative;z-index:1;}
+    /* Guarantee box upgrade */
+    .guarantee-box-premium{background:linear-gradient(135deg,rgba(124,58,237,0.07) 0%,rgba(168,85,247,0.04) 100%);border:1px solid rgba(124,58,237,0.22);border-radius:var(--r-xl);padding:clamp(40px,5vw,64px);text-align:center;max-width:760px;margin:0 auto;position:relative;overflow:hidden;}
+    .guarantee-box-premium::before{content:'';position:absolute;top:-80px;right:-80px;width:280px;height:280px;background:radial-gradient(circle,rgba(124,58,237,0.08),transparent 65%);pointer-events:none;}
+    /* Value cards icon hover */
+    .card .card-icon{transition:background var(--t),transform var(--t),box-shadow var(--t);}
+    .card:hover .card-icon{background:var(--teal);transform:scale(1.08);box-shadow:0 0 20px rgba(124,58,237,0.30);}
+  </style>
 </head>
 <body>
 
@@ -73,6 +86,16 @@
     <div class="label reveal">Our Story</div>
     <h1 id="about-h1" class="reveal">We're Not a Software Tool.<br>We're Your <span class="gradient-text">AI Operations Team.</span></h1>
     <p class="page-hero-sub reveal">NovaOps AI exists to solve one problem: local businesses losing revenue to slow follow-up and poor lead management. We don't sell software licenses — we build, run, and optimize AI systems on your behalf, guaranteed to produce results.</p>
+  </div>
+</section>
+
+<!-- ═══ MANIFESTO ═══ -->
+<section class="section-sm" aria-label="Our mission statement">
+  <div class="container">
+    <div class="about-manifesto reveal">
+      <p class="about-manifesto-text">The best local businesses in America are losing to inferior competitors — not because of quality, but because of systems. We built NovaOps AI to change that permanently.</p>
+      <p class="about-manifesto-sub">Every automation we build is designed around one question: did it produce revenue? If not, we fix it. That's the only metric that matters.</p>
+    </div>
   </div>
 </section>
 
@@ -205,10 +228,10 @@
 <!-- ═══ GUARANTEE BOX ═══ -->
 <section class="section-sm" aria-labelledby="guarantee-about-h2">
   <div class="container">
-    <div class="guarantee-box reveal" style="background:var(--surface-2);border:1px solid var(--border);border-radius:16px;padding:48px;text-align:center;max-width:760px;margin:0 auto;">
-      <div class="label" style="text-align:center;">Our Guarantee</div>
-      <h2 id="guarantee-about-h2" style="font-size:var(--text-2xl);margin-bottom:16px;">10 Booked Appointments in 30 Days — or We Work Free</h2>
-      <p style="color:var(--text-muted);max-width:540px;margin:0 auto 24px;">If your system doesn't book at least 10 qualified appointments in the first 30 days, we continue working at zero charge until it does. No fine print. No excuses. Just results.</p>
+    <div class="guarantee-box-premium reveal">
+      <div class="label" style="justify-content:center;margin-bottom:14px;">Our Guarantee</div>
+      <h2 id="guarantee-about-h2" style="font-size:clamp(22px,3vw,32px);margin-bottom:16px;">10 Booked Appointments in 30 Days — or We Work Free</h2>
+      <p style="color:var(--text-2);max-width:540px;margin:0 auto 28px;font-size:15.5px;">If your system doesn't book at least 10 qualified appointments in the first 30 days, we continue working at zero charge until it does. No fine print. No excuses. Just results.</p>
       <a href="https://tally.so/r/xXQa95" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Book Your Free Strategy Call →</a>
     </div>
   </div>

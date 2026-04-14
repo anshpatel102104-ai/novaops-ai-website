@@ -158,6 +158,16 @@
       color: var(--teal);
       font-size: 15px;
     }
+
+    /* CALENDAR */
+    .cal-section{background:var(--bg-2);border:1px solid var(--border-2);border-radius:var(--r-xl);padding:clamp(36px,4vw,56px);text-align:center;}
+    .cal-embed{background:var(--bg-card);border:1px dashed var(--border);border-radius:var(--r-lg);min-height:400px;display:flex;align-items:center;justify-content:center;font-family:var(--f-mono);font-size:12px;color:var(--text-3);letter-spacing:.08em;text-transform:uppercase;margin-top:24px;position:relative;overflow:hidden;}
+    .cal-embed::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--teal-dim) 0%,transparent 60%);pointer-events:none;}
+    /* Pricing card shimmer on featured */
+    .pricing-card-e.featured{overflow:hidden;}
+    /* ROI card hover */
+    .roi-card{transition:border-color var(--t),transform var(--t)!important;}
+    .roi-card:hover{transform:translateY(-4px)!important;border-color:rgba(124,58,237,0.28)!important;}
   </style>
 </head>
 <body>
@@ -478,6 +488,21 @@
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ BOOK A CALL ═══ -->
+<section class="section" aria-labelledby="pricing-book-h2">
+  <div class="container">
+    <div class="cal-section reveal">
+      <div class="label" style="justify-content:center;margin-bottom:14px;">Lock In Your Pricing</div>
+      <h2 id="pricing-book-h2">Not Sure Which Plan Is Right? Talk to Us First.</h2>
+      <p>Book a free 30-minute strategy call. We'll help you pick the right option based on your lead volume, business size, and revenue goals — zero sales pressure.</p>
+      <a href="https://tally.so/r/xXQa95" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Book Free Strategy Call →</a>
+      <div class="cal-embed" aria-label="Booking Calendar">Booking Calendar</div>
     </div>
   </div>
 </section>

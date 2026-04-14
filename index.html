@@ -157,6 +157,54 @@
       .stat-grid-editorial { grid-template-columns: 1fr; }
       .stat-editorial-block { padding: 32px 24px; }
     }
+
+    /* FLAGSHIP HERO UPGRADES */
+    .hero-split {
+      background: 
+        radial-gradient(ellipse 70% 60% at 50% -10%, rgba(124,58,237,0.11) 0%, transparent 65%),
+        radial-gradient(ellipse 35% 25% at 85% 70%, rgba(168,85,247,0.06) 0%, transparent 55%);
+    }
+    /* Stat panel — slide right on hover */
+    .stat-panel-card:hover {
+      border-color: var(--border) !important;
+      box-shadow: var(--shadow-card) !important;
+      transform: translateX(5px);
+    }
+    /* Grid editorial block — hover glow */
+    .stat-editorial-block:hover {
+      background: var(--bg-hover) !important;
+    }
+    /* How-it-works cards — numbered step highlight */
+    .grid-4 .card:hover {
+      border-color: rgba(124,58,237,0.30);
+    }
+    /* Problem band — stronger contrast */
+    .problem-band {
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg-3) 40%, var(--bg) 100%) !important;
+    }
+    /* Industry chips — slide effect */
+    .industry-chip {
+      transition: border-color var(--t), transform var(--t), box-shadow var(--t) !important;
+    }
+    .industry-chip:hover {
+      transform: translateX(6px) !important;
+      box-shadow: var(--shadow-card) !important;
+    }
+    /* Testimonial cards hover */
+    .testimonial-card:hover {
+      transform: translateY(-5px) !important;
+    }
+    /* Pricing teaser section — inverse band */
+    .pricing-teaser-band {
+      background: var(--bg-2);
+      border-top: 1px solid var(--border-3);
+      border-bottom: 1px solid var(--border-3);
+    }
+    /* CTA banner premium */
+    .cta-banner {
+      background: linear-gradient(135deg, rgba(124,58,237,0.07) 0%, rgba(168,85,247,0.04) 100%) !important;
+      border: 1px solid rgba(124,58,237,0.18) !important;
+    }
   </style>
 </head>
 <body>
@@ -238,6 +286,9 @@
         <div class="hero-badge" role="status">
           <span class="pulse-dot" aria-hidden="true"></span>
           AI Automation — Built for Local Businesses
+        </div>
+        <div style="display:inline-flex;align-items:center;gap:6px;font-family:var(--f-mono);font-size:10px;color:var(--text-3);letter-spacing:0.10em;margin-bottom:12px;margin-left:2px;">
+          <span style="color:var(--green);font-size:9px;">●</span> 14-DAY DEPLOYMENT · RESULTS GUARANTEED
         </div>
         <h1 id="hero-h1">
           Never Lose Another Lead<br>to <span class="gradient-text">Slow Follow-Up</span>
@@ -575,7 +626,7 @@
 <div class="divider"></div>
 
 <!-- ═══ PRICING TEASER ═══ -->
-<section class="section-sm" aria-labelledby="pricing-teaser-h2">
+<section class="section-sm pricing-teaser-band" aria-labelledby="pricing-teaser-h2">
   <div class="container">
     <div class="section-header center reveal">
       <div class="label">Pricing</div>

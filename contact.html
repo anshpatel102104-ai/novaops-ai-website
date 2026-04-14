@@ -120,6 +120,18 @@
     .other-way-icon { font-size: 32px; margin-bottom: 12px; }
     .other-way-title { font-weight: 700; font-size: var(--text-base); margin-bottom: 6px; }
     .other-way-desc { font-size: var(--text-sm); color: var(--text-muted); margin-bottom: 16px; }
+    /* CONTACT UPGRADE */
+    .contact-primary-cta{background:linear-gradient(135deg,var(--teal) 0%,var(--blue) 100%);border-radius:var(--r-xl);padding:clamp(36px,4vw,52px);text-align:center;position:relative;overflow:hidden;margin-bottom:48px;}
+    .contact-primary-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.08) 0%,transparent 50%);pointer-events:none;}
+    .contact-primary-cta h2{color:#ffffff;font-size:clamp(22px,3vw,34px);margin-bottom:10px;position:relative;z-index:1;}
+    .contact-primary-cta p{color:rgba(255,255,255,0.78);font-size:15px;margin:0 auto 24px;max-width:460px;position:relative;z-index:1;}
+    .contact-primary-cta .btn{position:relative;z-index:1;}
+    /* Cal */
+    .cal-section{background:var(--bg-2);border:1px solid var(--border-2);border-radius:var(--r-xl);padding:clamp(36px,4vw,56px);text-align:center;margin-top:56px;}
+    .cal-embed{background:var(--bg-card);border:1px dashed var(--border);border-radius:var(--r-lg);min-height:400px;display:flex;align-items:center;justify-content:center;font-family:var(--f-mono);font-size:12px;color:var(--text-3);letter-spacing:.08em;text-transform:uppercase;margin-top:24px;position:relative;overflow:hidden;}
+    .cal-embed::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--teal-dim) 0%,transparent 60%);pointer-events:none;}
+    /* Form focus glow */
+    .form-panel:focus-within{border-color:rgba(124,58,237,0.28)!important;box-shadow:var(--shadow-md)!important;}
   </style>
 </head>
 <body>
@@ -184,6 +196,17 @@
 </section>
 
 <div class="divider"></div>
+
+<!-- ═══ FASTEST PATH ═══ -->
+<section class="section-sm" aria-label="Book a call">
+  <div class="container">
+    <div class="contact-primary-cta reveal">
+      <h2>The Fastest Way to Get Started</h2>
+      <p>Skip the back-and-forth. Book a free 30-minute strategy call and we'll map your lead flow, identify exactly where you're losing revenue, and show you what an AI system would fix — before you spend a dollar.</p>
+      <a href="https://tally.so/r/xXQa95" target="_blank" rel="noopener" class="btn" style="background:rgba(255,255,255,0.15);color:#ffffff;border:1px solid rgba(255,255,255,0.30);backdrop-filter:blur(8px);font-weight:700;padding:14px 32px;border-radius:var(--r-md);font-size:15px;">Book Free Strategy Call →</a>
+    </div>
+  </div>
+</section>
 
 <!-- ═══ CONTACT GRID ═══ -->
 <section class="section" aria-label="Contact information and form">
@@ -305,6 +328,13 @@
         <div class="other-way-desc">Prefer to talk directly? Call us Monday–Saturday, 9 AM to 7 PM EST. Real people, no robots (ironically).</div>
         <a href="tel:8482055940" class="btn btn-outline btn-sm">848-205-5940</a>
       </div>
+    </div>
+
+    <div class="cal-section reveal">
+      <div class="label" style="justify-content:center;margin-bottom:14px;">Schedule Directly</div>
+      <h2 style="font-size:clamp(22px,3vw,32px);margin-bottom:10px;">Pick a Time That Works for You</h2>
+      <p style="margin:0 auto 4px;max-width:460px;">30 minutes. No pressure. We come prepared with a custom plan for your business.</p>
+      <div class="cal-embed" aria-label="Booking Calendar">Booking Calendar</div>
     </div>
   </div>
 </section>

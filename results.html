@@ -73,6 +73,28 @@
     .result-location { font-size: var(--text-xs); color: var(--text-muted); margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); }
     .results-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
     @media (max-width: 768px) { .results-grid { grid-template-columns: 1fr; } }
+/* Remove old stat vars that break */
+.result-card{background:var(--bg-card)!important;border:1px solid var(--border-2)!important;}
+/* Results stat bar */
+.results-hero-stats{display:grid;grid-template-columns:repeat(4,1fr);background:var(--bg-3);border:1px solid var(--border-2);border-radius:var(--r-xl);overflow:hidden;margin:0 auto;}
+@media(max-width:768px){.results-hero-stats{grid-template-columns:repeat(2,1fr);}}
+.rhs-cell{padding:36px 24px;text-align:center;border-right:1px solid var(--border-2);transition:background var(--t);}
+.rhs-cell:last-child{border-right:none;}
+.rhs-cell:hover{background:var(--bg-hover);}
+.rhs-num{font-family:var(--f-display);font-size:clamp(36px,4vw,52px);font-weight:900;color:var(--teal);line-height:1;letter-spacing:-0.04em;margin-bottom:8px;}
+.rhs-label{font-size:12.5px;color:var(--text-2);font-weight:500;}
+/* Calendar */
+.cal-section{background:var(--bg-2);border:1px solid var(--border-2);border-radius:var(--r-xl);padding:clamp(36px,4vw,56px);text-align:center;}
+.cal-embed{background:var(--bg-card);border:1px dashed var(--border);border-radius:var(--r-lg);min-height:400px;display:flex;align-items:center;justify-content:center;font-family:var(--f-mono);font-size:12px;color:var(--text-3);letter-spacing:.08em;text-transform:uppercase;margin-top:24px;position:relative;overflow:hidden;}
+.cal-embed::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--teal-dim) 0%,transparent 60%);pointer-events:none;}
+/* Fix result-card variables from old theme */
+.result-stats{background:var(--bg-2)!important;border-radius:10px;}
+.result-stat-num{font-family:var(--f-mono);font-size:clamp(22px,2.5vw,30px);font-weight:700;color:var(--teal);line-height:1;}
+.result-stat-label{font-size:11px;color:var(--text-2);margin-top:4px;}
+.result-body{color:var(--text-2)!important;}
+.result-location{color:var(--text-3)!important;border-top:1px solid var(--border-2)!important;}
+.result-headline{color:var(--text)!important;}
+.result-industry{color:var(--teal)!important;}
   </style>
 </head>
 <body>
@@ -139,22 +161,22 @@
 <!-- ═══ AGGREGATE STATS ═══ -->
 <section class="section-sm" aria-label="Aggregate results">
   <div class="container">
-    <div class="stat-grid reveal">
-      <div class="stat-block">
-        <div class="stat-num" data-counter="284">284</div>
-        <div class="stat-label">Leads Automated</div>
+    <div class="results-hero-stats reveal">
+      <div class="rhs-cell">
+        <div class="rhs-num" data-counter="284">284</div>
+        <div class="rhs-label">Leads Automated / Month</div>
       </div>
-      <div class="stat-block">
-        <div class="stat-num" data-counter="94%">94%</div>
-        <div class="stat-label">Follow-Up Rate</div>
+      <div class="rhs-cell">
+        <div class="rhs-num">94%</div>
+        <div class="rhs-label">Average Follow-Up Rate</div>
       </div>
-      <div class="stat-block">
-        <div class="stat-num" data-counter="61">61</div>
-        <div class="stat-label">Appointments Booked</div>
+      <div class="rhs-cell">
+        <div class="rhs-num" data-counter="61">61</div>
+        <div class="rhs-label">Appointments Booked</div>
       </div>
-      <div class="stat-block">
-        <div class="stat-num">$127K+</div>
-        <div class="stat-label">Revenue Recovered</div>
+      <div class="rhs-cell">
+        <div class="rhs-num">$127K+</div>
+        <div class="rhs-label">Revenue Recovered</div>
       </div>
     </div>
   </div>
@@ -290,6 +312,21 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ BOOK A CALL ═══ -->
+<section class="section" aria-labelledby="results-book-h2">
+  <div class="container">
+    <div class="cal-section reveal">
+      <div class="label" style="justify-content:center;margin-bottom:14px;">Get Results Like These</div>
+      <h2 id="results-book-h2">See What AI Automation Can Do for Your Business</h2>
+      <p>Book a free 30-minute strategy call. We'll show you exactly how much revenue your business is losing and what a NovaOps system would recover — for your specific industry.</p>
+      <a href="https://tally.so/r/xXQa95" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Book Free Strategy Call →</a>
+      <div class="cal-embed" aria-label="Booking Calendar">Booking Calendar</div>
     </div>
   </div>
 </section>
