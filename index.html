@@ -4,32 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NovaOps AI — AI Automation Agency for Local Businesses | Never Lose Another Lead</title>
-  <meta name="description" content="NovaOps AI builds done-for-you AI automation systems that respond to leads in under 90 seconds, book appointments automatically, and recover revenue 24/7. Serving med spas, HVAC, dental, real estate, and more.">
+  <meta name="description" content="NovaOps AI builds done-for-you AI automation systems that respond to leads in under 90 seconds, book appointments automatically, and recover revenue 24/7.">
   <link rel="canonical" href="https://novaopsai.com/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://novaopsai.com/">
   <meta property="og:title" content="NovaOps AI — Never Lose Another Lead">
   <meta property="og:description" content="Done-for-you AI systems that respond to leads in 90 seconds, book appointments automatically, and recover revenue 24/7.">
   <meta name="twitter:card" content="summary_large_image">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "NovaOps AI",
-    "url": "https://novaopsai.com",
-    "description": "Done-for-you AI automation agency for local businesses",
-    "telephone": "848-205-5940",
-    "email": "ansh102104@gmail.com",
-    "address": { "@type": "PostalAddress", "addressCountry": "US" }
-  }
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NovaOps AI","url":"https://novaopsai.com","description":"Done-for-you AI automation agency for local businesses","telephone":"848-205-5940","email":"ansh102104@gmail.com","address":{"@type":"PostalAddress","addressCountry":"US"}}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,600,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* ── INDEX-SPECIFIC: Split Hero Layout ── */
+    /* ── HOME: SPLIT HERO ── */
     .hero-split {
       min-height: 100vh;
       display: flex;
@@ -37,80 +26,57 @@
       padding: 100px 0 80px;
       position: relative;
       z-index: 1;
+      background:
+        radial-gradient(ellipse 70% 60% at 50% -10%, rgba(124,58,237,0.12) 0%, transparent 65%),
+        radial-gradient(ellipse 35% 25% at 85% 70%, rgba(168,85,247,0.06) 0%, transparent 55%);
     }
-    .hero-split .hero-glow {
+    .hero-split::after {
+      content: '';
       position: absolute;
-      top: -80px; left: 50%;
-      transform: translateX(-50%);
-      width: 1100px; height: 700px;
-      background: radial-gradient(ellipse 55% 45% at 50% 25%, rgba(124,58,237,0.09) 0%, transparent 70%);
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
       pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
     }
     .hero-split-inner {
       display: grid;
-      grid-template-columns: 1fr 440px;
+      grid-template-columns: 1fr 420px;
       gap: 72px;
       align-items: center;
       width: 100%;
+      position: relative;
+      z-index: 1;
     }
     .hero-split-left { text-align: left; }
     .hero-split-left .hero-badge { display: inline-flex; }
-    .hero-split-left h1 { text-align: left; }
-    .hero-split-left .hero-sub { text-align: left; margin-left: 0; }
-    .hero-split-left .hero-ctas { justify-content: flex-start; }
-    .hero-split-right {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
+    .hero-split-left h1 { text-align: left; max-width: none; }
+    .hero-split-left .hero-sub { text-align: left; margin-left: 0; margin-bottom: 40px; }
+    .hero-split-left .hero-ctas { justify-content: flex-start; margin-bottom: 0; }
+    .hero-deploy-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--f-mono); font-size: 10px; color: var(--text-3);
+      letter-spacing: 0.10em; margin-bottom: 12px; margin-left: 2px;
     }
+    .hero-deploy-tag .dot { color: #22c55e; font-size: 9px; }
+    .hero-split-right { display: flex; flex-direction: column; gap: 12px; }
     .stat-panel-card {
       background: var(--bg-card);
       border: 1px solid var(--border-2);
       border-radius: var(--r-lg);
-      padding: 22px 24px;
+      padding: 20px 24px;
       display: flex;
       align-items: center;
       gap: 20px;
-      transition: border-color var(--t), box-shadow var(--t);
+      transition: border-color var(--t), box-shadow var(--t), transform var(--t);
     }
-    .stat-panel-card:hover { border-color: var(--border); box-shadow: var(--shadow-card); }
-    .stat-panel-num {
-      font-family: var(--f-display);
-      font-size: 38px;
-      font-weight: 800;
-      color: var(--teal);
-      line-height: 1;
-      letter-spacing: -0.03em;
-      flex-shrink: 0;
-      min-width: 90px;
-    }
-    .stat-panel-body {}
-    .stat-panel-label {
-      font-size: 13.5px;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 3px;
-    }
-    .stat-panel-desc {
-      font-size: 12px;
-      color: var(--text-3);
-      font-family: var(--f-mono);
-    }
-    @media (max-width: 960px) {
-      .hero-split-inner { grid-template-columns: 1fr; }
-      .hero-split-right { display: none; }
-      .hero-split-left { text-align: center; }
-      .hero-split-left h1 { text-align: center; }
-      .hero-split-left .hero-sub { margin: 0 auto 40px; }
-      .hero-split-left .hero-ctas { justify-content: center; }
-    }
+    .stat-panel-card:hover { border-color: var(--border); box-shadow: var(--shadow-card); transform: translateX(5px); }
+    .stat-panel-num { font-family: var(--f-display); font-size: 36px; font-weight: 800; color: var(--teal); line-height: 1; letter-spacing: -0.03em; flex-shrink: 0; min-width: 88px; }
+    .stat-panel-label { font-size: 13.5px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+    .stat-panel-desc { font-size: 11.5px; color: var(--text-3); font-family: var(--f-mono); }
 
-    /* ── Problem band — full-bleed purple tint ── */
-    .problem-band {
-      background: linear-gradient(180deg, var(--bg) 0%, rgba(124,58,237,0.04) 40%, var(--bg) 100%);
-    }
-
-    /* ── Big stat grid — 2 column editorial on desktop ── */
+    /* ── PROBLEM BAND ── */
+    .problem-band { background: linear-gradient(180deg, var(--bg) 0%, var(--bg-3) 40%, var(--bg) 100%); }
     .stat-grid-editorial {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -122,88 +88,26 @@
       max-width: 860px;
       margin: 0 auto;
     }
-    .stat-editorial-block {
-      background: var(--bg-card);
-      padding: 48px 40px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
+    .stat-editorial-block { background: var(--bg-card); padding: 48px 40px; display: flex; flex-direction: column; justify-content: center; transition: background var(--t); }
     .stat-editorial-block:hover { background: var(--bg-hover); }
-    .stat-editorial-num {
-      font-family: var(--f-display);
-      font-size: clamp(52px, 7vw, 72px);
-      font-weight: 900;
-      color: var(--teal);
-      line-height: 1;
-      letter-spacing: -0.04em;
-      margin-bottom: 10px;
-    }
-    .stat-editorial-label {
-      font-size: 15px;
-      color: var(--text-2);
-      font-weight: 500;
-      line-height: 1.5;
-    }
-    .stat-editorial-sub {
-      font-family: var(--f-mono);
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--text-3);
-      margin-top: 6px;
+    .stat-editorial-num { font-family: var(--f-display); font-size: clamp(52px, 7vw, 72px); font-weight: 900; color: var(--teal); line-height: 1; letter-spacing: -0.04em; margin-bottom: 10px; }
+    .stat-editorial-label { font-size: 15px; color: var(--text-2); font-weight: 500; line-height: 1.5; }
+    .stat-editorial-sub { font-family: var(--f-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-3); margin-top: 6px; }
+
+    /* ── PRICING TEASER ── */
+    .pricing-teaser-band { background: var(--bg-2); border-top: 1px solid var(--border-3); border-bottom: 1px solid var(--border-3); }
+
+    @media (max-width: 960px) {
+      .hero-split-inner { grid-template-columns: 1fr; }
+      .hero-split-right { display: none; }
+      .hero-split-left { text-align: center; }
+      .hero-split-left h1 { text-align: center; }
+      .hero-split-left .hero-sub { margin: 0 auto 40px; }
+      .hero-split-left .hero-ctas { justify-content: center; }
     }
     @media (max-width: 640px) {
       .stat-grid-editorial { grid-template-columns: 1fr; }
       .stat-editorial-block { padding: 32px 24px; }
-    }
-
-    /* FLAGSHIP HERO UPGRADES */
-    .hero-split {
-      background: 
-        radial-gradient(ellipse 70% 60% at 50% -10%, rgba(124,58,237,0.11) 0%, transparent 65%),
-        radial-gradient(ellipse 35% 25% at 85% 70%, rgba(168,85,247,0.06) 0%, transparent 55%);
-    }
-    /* Stat panel — slide right on hover */
-    .stat-panel-card:hover {
-      border-color: var(--border) !important;
-      box-shadow: var(--shadow-card) !important;
-      transform: translateX(5px);
-    }
-    /* Grid editorial block — hover glow */
-    .stat-editorial-block:hover {
-      background: var(--bg-hover) !important;
-    }
-    /* How-it-works cards — numbered step highlight */
-    .grid-4 .card:hover {
-      border-color: rgba(124,58,237,0.30);
-    }
-    /* Problem band — stronger contrast */
-    .problem-band {
-      background: linear-gradient(180deg, var(--bg) 0%, var(--bg-3) 40%, var(--bg) 100%) !important;
-    }
-    /* Industry chips — slide effect */
-    .industry-chip {
-      transition: border-color var(--t), transform var(--t), box-shadow var(--t) !important;
-    }
-    .industry-chip:hover {
-      transform: translateX(6px) !important;
-      box-shadow: var(--shadow-card) !important;
-    }
-    /* Testimonial cards hover */
-    .testimonial-card:hover {
-      transform: translateY(-5px) !important;
-    }
-    /* Pricing teaser section — inverse band */
-    .pricing-teaser-band {
-      background: var(--bg-2);
-      border-top: 1px solid var(--border-3);
-      border-bottom: 1px solid var(--border-3);
-    }
-    /* CTA banner premium */
-    .cta-banner {
-      background: linear-gradient(135deg, rgba(124,58,237,0.07) 0%, rgba(168,85,247,0.04) 100%) !important;
-      border: 1px solid rgba(124,58,237,0.18) !important;
     }
   </style>
 </head>
@@ -277,56 +181,64 @@
 
 <main>
 
-<!-- ═══ HERO — BENTO GRID ═══ -->
-<section class="bento-hero" aria-labelledby="hero-h1">
+<!-- ═══ HERO — SPLIT LAYOUT ═══ -->
+<section class="hero-split" aria-labelledby="hero-h1">
   <div class="container">
-    <div class="bento-grid">
-      <div class="bento-main">
-        <div class="hero-badge" role="status">
+    <div class="hero-split-inner">
+      <div class="hero-split-left">
+        <div class="hero-badge reveal" role="status">
           <span class="pulse-dot" aria-hidden="true"></span>
           AI Automation — Built for Local Businesses
         </div>
-        <div style="display:inline-flex;align-items:center;gap:6px;font-family:var(--f-mono);font-size:10px;color:var(--text-3);letter-spacing:0.10em;margin-bottom:12px;margin-left:2px;">
-          <span style="color:var(--green);font-size:9px;">●</span> 14-DAY DEPLOYMENT · RESULTS GUARANTEED
+        <div class="hero-deploy-tag reveal reveal-d1">
+          <span class="dot">●</span> 14-DAY DEPLOYMENT · RESULTS GUARANTEED
         </div>
-        <h1 id="hero-h1">
+        <h1 id="hero-h1" class="reveal reveal-d1">
           Never Lose Another Lead<br>to <span class="gradient-text">Slow Follow-Up</span>
         </h1>
-        <p class="hero-sub">
+        <p class="hero-sub reveal reveal-d2">
           We build done-for-you AI systems that respond to leads in under 90 seconds, book appointments automatically, and recover revenue your team never had time to close — 24/7, no hiring needed.
         </p>
-        <div class="hero-ctas">
+        <div class="hero-ctas reveal reveal-d3">
           <a href="https://tally.so/r/xXQa95" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Book Free Strategy Call →</a>
           <a href="services.html" class="btn btn-outline btn-lg">See How It Works</a>
         </div>
       </div>
-      <div class="bento-stats" aria-label="Key performance metrics">
-        <div class="bento-stat">
-          <div class="bento-stat-num" data-counter="90">90s</div>
-          <div class="bento-stat-label">Lead Response Time</div>
-          <div class="bento-stat-sub">vs. 4-hour industry avg</div>
+      <div class="hero-split-right" aria-label="Key performance metrics">
+        <div class="stat-panel-card reveal reveal-d1">
+          <div class="stat-panel-num" data-counter="90">90s</div>
+          <div>
+            <div class="stat-panel-label">Lead Response Time</div>
+            <div class="stat-panel-desc">vs. 4-hour industry average</div>
+          </div>
         </div>
-        <div class="bento-stat">
-          <div class="bento-stat-num" data-counter="94">94%</div>
-          <div class="bento-stat-label">Follow-Up Rate</div>
-          <div class="bento-stat-sub">leads contacted automatically</div>
+        <div class="stat-panel-card reveal reveal-d2">
+          <div class="stat-panel-num" data-counter="94">94%</div>
+          <div>
+            <div class="stat-panel-label">Follow-Up Rate</div>
+            <div class="stat-panel-desc">leads contacted automatically</div>
+          </div>
         </div>
-        <div class="bento-stat">
-          <div class="bento-stat-num" data-counter="284">284</div>
-          <div class="bento-stat-label">Leads Automated</div>
-          <div class="bento-stat-sub">per client per month avg</div>
+        <div class="stat-panel-card reveal reveal-d3">
+          <div class="stat-panel-num" data-counter="284">284</div>
+          <div>
+            <div class="stat-panel-label">Leads Automated</div>
+            <div class="stat-panel-desc">per client per month avg</div>
+          </div>
         </div>
-        <div class="bento-stat">
-          <div class="bento-stat-num" data-counter="61">61</div>
-          <div class="bento-stat-label">Appointments Booked</div>
-          <div class="bento-stat-sub">zero staff involvement</div>
+        <div class="stat-panel-card reveal reveal-d4">
+          <div class="stat-panel-num" data-counter="61">61</div>
+          <div>
+            <div class="stat-panel-label">Appointments Booked</div>
+            <div class="stat-panel-desc">zero staff involvement</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Marquee -->
+<!-- MARQUEE -->
 <div class="marquee-wrap" aria-hidden="true">
   <div class="marquee-track">
     <div class="marquee-item"><span>◆</span> Med Spas</div>
@@ -352,34 +264,34 @@
   </div>
 </div>
 
-<!-- ═══ THE PROBLEM — Dark Band ═══ -->
-<section class="problem-dark-band" aria-labelledby="problem-h2">
+<!-- ═══ THE PROBLEM ═══ -->
+<section class="section problem-band" aria-labelledby="problem-h2">
   <div class="container">
     <div class="section-header center reveal">
       <div class="label">The Problem</div>
       <h2 id="problem-h2">Your Business Is Bleeding Revenue Every Day</h2>
       <p>47% of all leads are lost to slow follow-up. The first business to respond wins the customer 78% of the time. Right now, most of your leads are choosing your competitor.</p>
     </div>
-    <div class="problem-numbers reveal">
-      <div class="problem-num-cell">
-        <div class="problem-num-val" data-counter="47">47%</div>
-        <div class="problem-num-label">of leads are lost to slow follow-up industry-wide</div>
-        <div class="problem-num-source">Source: Harvard Business Review</div>
+    <div class="stat-grid-editorial reveal">
+      <div class="stat-editorial-block">
+        <div class="stat-editorial-num" data-counter="47">47%</div>
+        <div class="stat-editorial-label">of leads are lost to slow follow-up industry-wide</div>
+        <div class="stat-editorial-sub">Source: Harvard Business Review</div>
       </div>
-      <div class="problem-num-cell">
-        <div class="problem-num-val" data-counter="78">78%</div>
-        <div class="problem-num-label">of buyers hire the first business that responds</div>
-        <div class="problem-num-source">First-mover advantage</div>
+      <div class="stat-editorial-block">
+        <div class="stat-editorial-num" data-counter="78">78%</div>
+        <div class="stat-editorial-label">of buyers hire the first business that responds</div>
+        <div class="stat-editorial-sub">First-mover advantage</div>
       </div>
-      <div class="problem-num-cell">
-        <div class="problem-num-val">4hrs</div>
-        <div class="problem-num-label">average industry response time — yours can be 90 seconds</div>
-        <div class="problem-num-source">vs. our 90-second AI response</div>
+      <div class="stat-editorial-block">
+        <div class="stat-editorial-num">4hrs</div>
+        <div class="stat-editorial-label">average industry response time — yours can be 90 seconds</div>
+        <div class="stat-editorial-sub">vs. our 90-second AI response</div>
       </div>
-      <div class="problem-num-cell">
-        <div class="problem-num-val">21×</div>
-        <div class="problem-num-label">lower conversion when you wait more than 30 minutes</div>
-        <div class="problem-num-source">MIT lead response study</div>
+      <div class="stat-editorial-block">
+        <div class="stat-editorial-num">21×</div>
+        <div class="stat-editorial-label">lower conversion when you wait more than 30 minutes</div>
+        <div class="stat-editorial-sub">MIT lead response study</div>
       </div>
     </div>
   </div>
@@ -391,7 +303,7 @@
 <section class="section" aria-label="Key features">
   <div class="container">
 
-    <article class="feature-row reveal">
+    <article class="feature-row reveal-left" style="opacity:0;transform:translateX(-24px);transition:opacity 0.65s cubic-bezier(0.16,1,0.3,1),transform 0.65s cubic-bezier(0.16,1,0.3,1);">
       <div class="feature-visual">
         <div class="terminal-line tl-muted">// Lead submitted — 11:47 PM</div>
         <div class="terminal-line tl-green">✓ AI response fired — 11:47:32 PM (32s)</div>
@@ -414,7 +326,7 @@
       </div>
     </article>
 
-    <article class="feature-row reverse reveal">
+    <article class="feature-row reverse" style="opacity:0;transform:translateX(24px);transition:opacity 0.65s cubic-bezier(0.16,1,0.3,1),transform 0.65s cubic-bezier(0.16,1,0.3,1) 0.1s;">
       <div class="feature-visual">
         <div class="terminal-line tl-muted">// Follow-up sequence — Day 1</div>
         <div class="terminal-line tl-blue">"Hey Mike, just following up on your roofing estimate. Still interested?"</div>
@@ -437,7 +349,7 @@
       </div>
     </article>
 
-    <article class="feature-row reveal">
+    <article class="feature-row" style="opacity:0;transform:translateX(-24px);transition:opacity 0.65s cubic-bezier(0.16,1,0.3,1),transform 0.65s cubic-bezier(0.16,1,0.3,1) 0.1s;">
       <div class="feature-visual">
         <div class="terminal-line tl-muted">// Missed call — David — 2:34 PM</div>
         <div class="terminal-line tl-green">✓ Text-back fired — 2:34:18 PM</div>
@@ -465,33 +377,33 @@
 
 <div class="divider"></div>
 
-<!-- ═══ HOW IT WORKS — Horizontal Stepper ═══ -->
-<section class="section" aria-labelledby="how-h2">
+<!-- ═══ HOW IT WORKS ═══ -->
+<section class="section band-dark" aria-labelledby="how-h2">
   <div class="container">
     <div class="section-header center reveal">
       <div class="label">Process</div>
       <h2 id="how-h2">From Strategy Call to Live System in 14 Days</h2>
       <p>We handle every technical aspect. You don't touch a single button. Your only job is to show up to the appointments we send you.</p>
     </div>
-    <div class="h-stepper reveal">
-      <div class="stepper-item">
-        <div class="stepper-num">01</div>
-        <h3>Strategy Call</h3>
+    <div class="grid-4">
+      <div class="card reveal">
+        <div style="font-family:var(--f-mono);font-size:26px;font-weight:600;color:var(--teal);line-height:1;margin-bottom:14px;">01</div>
+        <h4>Strategy Call</h4>
         <p>30-minute call to map your lead flow, identify revenue gaps, and design your custom automation blueprint.</p>
       </div>
-      <div class="stepper-item">
-        <div class="stepper-num">02</div>
-        <h3>Custom Build</h3>
+      <div class="card reveal reveal-d1">
+        <div style="font-family:var(--f-mono);font-size:26px;font-weight:600;color:var(--teal);line-height:1;margin-bottom:14px;">02</div>
+        <h4>Custom Build</h4>
         <p>We build all workflows, AI prompts, follow-up sequences, and CRM inside GoHighLevel — tailored to your business.</p>
       </div>
-      <div class="stepper-item">
-        <div class="stepper-num">03</div>
-        <h3>Test &amp; Launch</h3>
+      <div class="card reveal reveal-d2">
+        <div style="font-family:var(--f-mono);font-size:26px;font-weight:600;color:var(--teal);line-height:1;margin-bottom:14px;">03</div>
+        <h4>Test &amp; Launch</h4>
         <p>Every automation is tested end-to-end with live leads before going live. System deploys in 7–14 business days.</p>
       </div>
-      <div class="stepper-item">
-        <div class="stepper-num">04</div>
-        <h3>Monthly Optimization</h3>
+      <div class="card reveal reveal-d3">
+        <div style="font-family:var(--f-mono);font-size:26px;font-weight:600;color:var(--teal);line-height:1;margin-bottom:14px;">04</div>
+        <h4>Monthly Optimization</h4>
         <p>Monthly performance reports, AI prompt updates, and strategy calls to keep your results growing every month.</p>
       </div>
     </div>
@@ -511,50 +423,32 @@
     <div class="industry-grid reveal">
       <a href="industries/ai-automation-for-med-spas.html" class="industry-chip">
         <span class="chip-emoji">💆</span>
-        <div class="chip-text">
-          <div class="chip-name">Med Spas</div>
-          <div class="chip-sub">Reactivation · No-show reduction · Booking</div>
-        </div>
+        <div class="chip-text"><div class="chip-name">Med Spas</div><div class="chip-sub">Reactivation · No-show reduction · Booking</div></div>
         <span class="chip-arrow">→</span>
       </a>
       <a href="industries/ai-automation-for-home-services.html" class="industry-chip">
         <span class="chip-emoji">🔧</span>
-        <div class="chip-text">
-          <div class="chip-name">Home Services</div>
-          <div class="chip-sub">HVAC · Plumbing · Missed calls</div>
-        </div>
+        <div class="chip-text"><div class="chip-name">Home Services</div><div class="chip-sub">HVAC · Plumbing · Missed calls</div></div>
         <span class="chip-arrow">→</span>
       </a>
       <a href="industries/ai-automation-for-real-estate.html" class="industry-chip">
         <span class="chip-emoji">🏠</span>
-        <div class="chip-text">
-          <div class="chip-name">Real Estate</div>
-          <div class="chip-sub">Lead nurturing · Pipeline automation</div>
-        </div>
+        <div class="chip-text"><div class="chip-name">Real Estate</div><div class="chip-sub">Lead nurturing · Pipeline automation</div></div>
         <span class="chip-arrow">→</span>
       </a>
       <a href="industries/ai-automation-for-roofers.html" class="industry-chip">
         <span class="chip-emoji">🏗️</span>
-        <div class="chip-text">
-          <div class="chip-name">Roofing Companies</div>
-          <div class="chip-sub">Estimate follow-up · Storm leads</div>
-        </div>
+        <div class="chip-text"><div class="chip-name">Roofing Companies</div><div class="chip-sub">Estimate follow-up · Storm leads</div></div>
         <span class="chip-arrow">→</span>
       </a>
       <a href="industries/ai-automation-for-solar-companies.html" class="industry-chip">
         <span class="chip-emoji">☀️</span>
-        <div class="chip-text">
-          <div class="chip-name">Solar Companies</div>
-          <div class="chip-sub">Long-cycle nurture · Homeowner qualification</div>
-        </div>
+        <div class="chip-text"><div class="chip-name">Solar Companies</div><div class="chip-sub">Long-cycle nurture · Homeowner qualification</div></div>
         <span class="chip-arrow">→</span>
       </a>
       <a href="industries/ai-automation-for-insurance-agencies.html" class="industry-chip">
         <span class="chip-emoji">🛡️</span>
-        <div class="chip-text">
-          <div class="chip-name">Insurance Agencies</div>
-          <div class="chip-sub">Quote follow-up · Renewal automation</div>
-        </div>
+        <div class="chip-text"><div class="chip-name">Insurance Agencies</div><div class="chip-sub">Quote follow-up · Renewal automation</div></div>
         <span class="chip-arrow">→</span>
       </a>
     </div>
@@ -566,14 +460,14 @@
 
 <div class="divider"></div>
 
-<!-- ═══ TESTIMONIALS — Staggered Grid ═══ -->
-<section class="section" aria-labelledby="proof-h2">
+<!-- ═══ TESTIMONIALS ═══ -->
+<section class="section band-dark" aria-labelledby="proof-h2">
   <div class="container">
     <div class="section-header center reveal">
       <div class="label">Results</div>
       <h2 id="proof-h2">What Business Owners Are Saying</h2>
     </div>
-    <div class="testimonial-stagger">
+    <div class="grid-3">
       <div class="testimonial-card reveal">
         <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
         <p class="testimonial-text">"We were missing probably 40% of our leads after hours. NovaOps set up a system that now texts every lead within a minute. We booked 15 extra jobs last month — that's $45K we would've left on the table."</p>
@@ -617,7 +511,7 @@
 <div class="divider"></div>
 
 <!-- ═══ PRICING TEASER ═══ -->
-<section class="section-sm pricing-teaser-band gradient-band" aria-labelledby="pricing-teaser-h2">
+<section class="section-sm pricing-teaser-band" aria-labelledby="pricing-teaser-h2">
   <div class="container">
     <div class="section-header center reveal">
       <div class="label">Pricing</div>
