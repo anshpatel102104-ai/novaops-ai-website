@@ -186,116 +186,137 @@
 
 <div class="divider"></div>
 
-<!-- ═══ FAQ SECTIONS ═══ -->
+<!-- ═══ FAQ CONTENT — Sidebar + Accordion ═══ -->
 <section class="section" aria-label="FAQ">
-  <div class="container" style="max-width:800px;">
+  <div class="container">
+    <div class="faq-layout">
 
-    <!-- GETTING STARTED -->
-    <div class="faq-category reveal">
-      <div class="faq-category-title">Getting Started</div>
-      <div class="faq-list">
-        <details class="faq-item">
-          <summary>How long does setup take?</summary>
-          <div class="faq-body">
-            <p>Most systems go live in 7–14 business days from your kickoff call. The timeline breaks down like this:</p>
-            <ul style="margin:12px 0 0 20px;line-height:2;">
-              <li>Day 1–2: Strategy call + questionnaire review</li>
-              <li>Day 3–7: Build (workflows, AI prompts, CRM, integrations)</li>
-              <li>Day 8–10: Internal testing and QA</li>
-              <li>Day 11–14: Live testing with real leads + final launch</li>
-            </ul>
-            <p style="margin-top:12px;">For more complex systems (Full Stack / Monthly Retainer), allow up to 21 days. We'll give you a firm timeline before you commit.</p>
-          </div>
-        </details>
-        <details class="faq-item">
-          <summary>Do I need any technical skills to use this?</summary>
-          <div class="faq-body">No. This is 100% done-for-you. You don't log into any platform, configure any settings, or write any prompts. Our team handles the entire build, integration, and ongoing management. Your only involvement is a 30-minute kickoff call, a short questionnaire about your business, and optionally a monthly review call to see your results.</div>
-        </details>
-        <details class="faq-item">
-          <summary>What's needed from me to get started?</summary>
-          <div class="faq-body">Very little. We need: (1) A 30-minute strategy call to understand your business and lead flow, (2) A completed onboarding questionnaire (takes about 15 minutes), (3) Access to your existing CRM or lead sources so we can integrate them, and (4) Confirmation that you want to proceed. That's it. We build everything else.</div>
-        </details>
-        <details class="faq-item">
-          <summary>What platforms and tools do you integrate with?</summary>
-          <div class="faq-body">We integrate with virtually any platform that has an API or webhook. This includes GoHighLevel (our primary platform), Google Ads, Facebook/Instagram Ads, Zillow, Realtor.com, website contact forms, Zapier, Make (formerly Integromat), Google Calendar, Outlook Calendar, Stripe, and most CRMs (HubSpot, Salesforce, Pipedrive, etc.). If you use a platform not listed, ask us — we've likely built with it before.</div>
-        </details>
+      <!-- LEFT: Sticky sidebar nav -->
+      <nav class="faq-sidebar" aria-label="FAQ categories">
+        <a href="#faq-getting-started" class="faq-sidebar-link">Getting Started</a>
+        <a href="#faq-pricing" class="faq-sidebar-link">Pricing &amp; Contracts</a>
+        <a href="#faq-tech" class="faq-sidebar-link">Technology &amp; Compliance</a>
+        <a href="#faq-results" class="faq-sidebar-link">Results &amp; Expectations</a>
+      </nav>
+
+      <!-- RIGHT: Category sections -->
+      <div>
+
+        <!-- GETTING STARTED -->
+        <div id="faq-getting-started" class="reveal" style="margin-bottom:52px;">
+          <div class="label" style="margin-bottom:20px;">Getting Started</div>
+
+          <details class="faq-item-v5">
+            <summary>How long does setup take?</summary>
+            <div class="faq-answer">
+              <p>Most systems go live in 7–14 business days from your kickoff call. The timeline breaks down like this:</p>
+              <ul>
+                <li>Day 1–2: Strategy call + questionnaire review</li>
+                <li>Day 3–7: Build (workflows, AI prompts, CRM, integrations)</li>
+                <li>Day 8–10: Internal testing and QA</li>
+                <li>Day 11–14: Live testing with real leads + final launch</li>
+              </ul>
+              <p style="margin-top:12px;">For more complex systems (Full Stack / Monthly Retainer), allow up to 21 days. We'll give you a firm timeline before you commit.</p>
+            </div>
+          </details>
+
+          <details class="faq-item-v5">
+            <summary>Do I need any technical skills to use this?</summary>
+            <div class="faq-answer">No. This is 100% done-for-you. You don't log into any platform, configure any settings, or write any prompts. Our team handles the entire build, integration, and ongoing management. Your only involvement is a 30-minute kickoff call, a short questionnaire about your business, and optionally a monthly review call to see your results.</div>
+          </details>
+
+          <details class="faq-item-v5">
+            <summary>What's needed from me to get started?</summary>
+            <div class="faq-answer">Very little. We need: (1) A 30-minute strategy call to understand your business and lead flow, (2) A completed onboarding questionnaire (takes about 15 minutes), (3) Access to your existing CRM or lead sources so we can integrate them, and (4) Confirmation that you want to proceed. That's it. We build everything else.</div>
+          </details>
+
+          <details class="faq-item-v5">
+            <summary>What platforms and tools do you integrate with?</summary>
+            <div class="faq-answer">We integrate with virtually any platform that has an API or webhook. This includes GoHighLevel (our primary platform), Google Ads, Facebook/Instagram Ads, Zillow, Realtor.com, website contact forms, Zapier, Make (formerly Integromat), Google Calendar, Outlook Calendar, Stripe, and most CRMs (HubSpot, Salesforce, Pipedrive, etc.). If you use a platform not listed, ask us — we've likely built with it before.</div>
+          </details>
+        </div>
+
+        <!-- PRICING & CONTRACTS -->
+        <div id="faq-pricing" class="reveal" style="margin-bottom:52px;">
+          <div class="label" style="margin-bottom:20px;">Pricing &amp; Contracts</div>
+
+          <details class="faq-item-v5">
+            <summary>Is there a contract or lock-in?</summary>
+            <div class="faq-answer">The Rev-Share plan runs month-to-month after the first 30 days. The Done-For-You plan is a single engagement — you own the system outright with no ongoing commitment. The Monthly Retainer requires 60 days notice to cancel. We don't believe in trapping clients — if the system isn't producing results, we want to fix it, not hold you hostage.</div>
+          </details>
+
+          <details class="faq-item-v5">
+            <summary>Are there any platform or tool costs on top of your fees?</summary>
+            <div class="faq-answer">Yes — GoHighLevel costs approximately $97–$297/month depending on your plan (you'll need your own account). Twilio SMS costs are typically $20–$80/month based on message volume. OpenAI API costs are usually under $20/month for most businesses. We help you set all of these up at the lowest appropriate tier, and we disclose all costs clearly before you start. No hidden fees.</div>
+          </details>
+
+          <details class="faq-item-v5">
+            <summary>What if I already have GoHighLevel?</summary>
+            <div class="faq-answer">Even better. We can build directly inside your existing account, preserving your data and contacts. We'll audit your current setup, clean up unused workflows, and build on top of what's already working. There's no need to start over.</div>
+          </details>
+
+          <details class="faq-item-v5">
+            <summary>Can I upgrade or change plans after I start?</summary>
+            <div class="faq-answer">Yes. Many clients start on Rev-Share to validate the system, then upgrade to Done-For-You or Monthly Retainer as revenue grows. When upgrading, we credit your setup fee against the next plan's cost, so you're never paying twice for the same work.</div>
+          </details>
+        </div>
+
+        <!-- TECHNOLOGY & COMPLIANCE -->
+        <div id="faq-tech" class="reveal" style="margin-bottom:52px;">
+          <div class="label" style="margin-bottom:20px;">Technology &amp; Compliance</div>
+
+          <details class="faq-item-v5">
+            <summary>What is GoHighLevel and why do you use it?</summary>
+            <div class="faq-answer">GoHighLevel (GHL) is a CRM and marketing automation platform built specifically for local service businesses. It combines two-way SMS, email automation, calendar booking, pipeline management, and AI workflows into one platform. We use it because it's purpose-built for the kind of businesses we serve — not an enterprise tool retrofitted for small business. Your entire operation runs inside one unified dashboard.</div>
+          </details>
+
+          <details class="faq-item-v5">
+            <summary>Is the AI messaging TCPA compliant?</summary>
+            <div class="faq-answer">Yes. All outbound SMS messaging is sent only to leads who have opted in by submitting a form, calling your business, or explicitly requesting contact. We include required opt-out language in every message thread and honor all stop requests immediately. We also recommend adding TCPA-compliant consent language to your lead capture forms, which we help you set up. We do not send unsolicited cold SMS blasts.</div>
+          </details>
+
+          <details class="faq-item-v5">
+            <summary>What happens if the AI can't answer a question?</summary>
+            <div class="faq-answer">The AI is trained with specific fallback responses for questions outside its knowledge. When it encounters something it can't answer confidently, it routes the conversation to a human with a notification to you or your team — rather than guessing and potentially giving wrong information. You can customize exactly which topics trigger human handoff during the setup process.</div>
+          </details>
+
+          <details class="faq-item-v5">
+            <summary>Can I see my analytics and performance data?</summary>
+            <div class="faq-answer">Yes. Every client gets a custom reporting dashboard inside GoHighLevel showing leads captured, sequences running, appointments booked, and messages sent. Monthly Retainer clients also receive a formatted performance report delivered by email each month, summarizing key metrics and what we optimized. On all plans, you have full visibility into everything the system is doing.</div>
+          </details>
+        </div>
+
+        <!-- RESULTS & EXPECTATIONS -->
+        <div id="faq-results" class="reveal">
+          <div class="label" style="margin-bottom:20px;">Results &amp; Expectations</div>
+
+          <details class="faq-item-v5">
+            <summary>What exactly is the guarantee?</summary>
+            <div class="faq-answer">We guarantee a minimum of 10 qualified, booked appointments within the first 30 days of your system going live. If you don't hit that number, we continue working at zero charge — no monthly fees, no service charges — until you do. This is written into our service agreement, not just a marketing claim. The only conditions: you need to have an active, working lead source (ads, referrals, organic, etc.) sending leads into the system.</div>
+          </details>
+
+          <details class="faq-item-v5">
+            <summary>How quickly will I see results?</summary>
+            <div class="faq-answer">Most clients see their first appointments booked within 48–72 hours of launch. The speed depends on how many leads are currently coming in. Businesses with active ad campaigns or high organic lead volume typically see results within the first week. For businesses with a lower lead volume, results come from reactivating your existing database — which we can deploy in week one. You will not be waiting months to see results.</div>
+          </details>
+
+          <details class="faq-item-v5">
+            <summary>What types of businesses see the best results?</summary>
+            <div class="faq-answer">
+              <p>The highest-ROI results typically come from businesses that:</p>
+              <ul>
+                <li>Have active inbound lead flow (ads, Google, referrals)</li>
+                <li>Have high average ticket values ($500+)</li>
+                <li>Are currently missing leads after hours or on weekends</li>
+                <li>Have a database of past clients who haven't been contacted recently</li>
+              </ul>
+              <p style="margin-top:12px;">Industries with the strongest results: roofing, HVAC, med spas, real estate, solar, and insurance. But any local service business that books appointments can benefit.</p>
+            </div>
+          </details>
+        </div>
+
       </div>
     </div>
-
-    <!-- PRICING -->
-    <div class="faq-category reveal">
-      <div class="faq-category-title">Pricing &amp; Contracts</div>
-      <div class="faq-list">
-        <details class="faq-item">
-          <summary>Is there a contract or lock-in?</summary>
-          <div class="faq-body">The Rev-Share plan runs month-to-month after the first 30 days. The Done-For-You plan is a single engagement — you own the system outright with no ongoing commitment. The Monthly Retainer requires 60 days notice to cancel. We don't believe in trapping clients — if the system isn't producing results, we want to fix it, not hold you hostage.</div>
-        </details>
-        <details class="faq-item">
-          <summary>Are there any platform or tool costs on top of your fees?</summary>
-          <div class="faq-body">Yes — GoHighLevel costs approximately $97–$297/month depending on your plan (you'll need your own account). Twilio SMS costs are typically $20–$80/month based on message volume. OpenAI API costs are usually under $20/month for most businesses. We help you set all of these up at the lowest appropriate tier, and we disclose all costs clearly before you start. No hidden fees.</div>
-        </details>
-        <details class="faq-item">
-          <summary>What if I already have GoHighLevel?</summary>
-          <div class="faq-body">Even better. We can build directly inside your existing account, preserving your data and contacts. We'll audit your current setup, clean up unused workflows, and build on top of what's already working. There's no need to start over.</div>
-        </details>
-        <details class="faq-item">
-          <summary>Can I upgrade or change plans after I start?</summary>
-          <div class="faq-body">Yes. Many clients start on Rev-Share to validate the system, then upgrade to Done-For-You or Monthly Retainer as revenue grows. When upgrading, we credit your setup fee against the next plan's cost, so you're never paying twice for the same work.</div>
-        </details>
-      </div>
-    </div>
-
-    <!-- TECHNOLOGY -->
-    <div class="faq-category reveal">
-      <div class="faq-category-title">Technology &amp; Compliance</div>
-      <div class="faq-list">
-        <details class="faq-item">
-          <summary>What is GoHighLevel and why do you use it?</summary>
-          <div class="faq-body">GoHighLevel (GHL) is a CRM and marketing automation platform built specifically for local service businesses. It combines two-way SMS, email automation, calendar booking, pipeline management, and AI workflows into one platform. We use it because it's purpose-built for the kind of businesses we serve — not an enterprise tool retrofitted for small business. Your entire operation runs inside one unified dashboard.</div>
-        </details>
-        <details class="faq-item">
-          <summary>Is the AI messaging TCPA compliant?</summary>
-          <div class="faq-body">Yes. All outbound SMS messaging is sent only to leads who have opted in by submitting a form, calling your business, or explicitly requesting contact. We include required opt-out language in every message thread and honor all stop requests immediately. We also recommend adding TCPA-compliant consent language to your lead capture forms, which we help you set up. We do not send unsolicited cold SMS blasts.</div>
-        </details>
-        <details class="faq-item">
-          <summary>What happens if the AI can't answer a question?</summary>
-          <div class="faq-body">The AI is trained with specific fallback responses for questions outside its knowledge. When it encounters something it can't answer confidently, it routes the conversation to a human with a notification to you or your team — rather than guessing and potentially giving wrong information. You can customize exactly which topics trigger human handoff during the setup process.</div>
-        </details>
-        <details class="faq-item">
-          <summary>Can I see my analytics and performance data?</summary>
-          <div class="faq-body">Yes. Every client gets a custom reporting dashboard inside GoHighLevel showing leads captured, sequences running, appointments booked, and messages sent. Monthly Retainer clients also receive a formatted performance report delivered by email each month, summarizing key metrics and what we optimized. On all plans, you have full visibility into everything the system is doing.</div>
-        </details>
-      </div>
-    </div>
-
-    <!-- RESULTS -->
-    <div class="faq-category reveal">
-      <div class="faq-category-title">Results &amp; Expectations</div>
-      <div class="faq-list">
-        <details class="faq-item">
-          <summary>What exactly is the guarantee?</summary>
-          <div class="faq-body">We guarantee a minimum of 10 qualified, booked appointments within the first 30 days of your system going live. If you don't hit that number, we continue working at zero charge — no monthly fees, no service charges — until you do. This is written into our service agreement, not just a marketing claim. The only conditions: you need to have an active, working lead source (ads, referrals, organic, etc.) sending leads into the system.</div>
-        </details>
-        <details class="faq-item">
-          <summary>How quickly will I see results?</summary>
-          <div class="faq-body">Most clients see their first appointments booked within 48–72 hours of launch. The speed depends on how many leads are currently coming in. Businesses with active ad campaigns or high organic lead volume typically see results within the first week. For businesses with a lower lead volume, results come from reactivating your existing database — which we can deploy in week one. You will not be waiting months to see results.</div>
-        </details>
-        <details class="faq-item">
-          <summary>What types of businesses see the best results?</summary>
-          <div class="faq-body">
-            <p>The highest-ROI results typically come from businesses that:</p>
-            <ul style="margin:12px 0 0 20px;line-height:2;">
-              <li>Have active inbound lead flow (ads, Google, referrals)</li>
-              <li>Have high average ticket values ($500+)</li>
-              <li>Are currently missing leads after hours or on weekends</li>
-              <li>Have a database of past clients who haven't been contacted recently</li>
-            </ul>
-            <p style="margin-top:12px;">Industries with the strongest results: roofing, HVAC, med spas, real estate, solar, and insurance. But any local service business that books appointments can benefit.</p>
-          </div>
-        </details>
-      </div>
-    </div>
-
   </div>
 </section>
 
