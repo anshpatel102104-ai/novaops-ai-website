@@ -1,107 +1,74 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="contact">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact NovaOps AI — Book a Free Strategy Call</title>
-  <meta name="description" content="Book a free 30-minute strategy call with NovaOps AI. We'll map your lead flow, identify revenue gaps, and show you exactly what an AI automation system would do for your business.">
-  <link rel="canonical" href="https://novaopsai.com/contact">
-  <meta property="og:title" content="Contact NovaOps AI — Book a Free Strategy Call">
-  <meta property="og:url" content="https://novaopsai.com/contact">
+  <title>About NovaOps AI — Our Mission, Story &amp; Technology</title>
+  <meta name="description" content="NovaOps AI is a done-for-you AI automation agency helping local businesses stop losing leads. Learn our story, values, and the technology stack behind our results.">
+  <link rel="canonical" href="https://novaopsai.com/about">
+  <meta property="og:title" content="About NovaOps AI — Our Mission, Story &amp; Technology">
+  <meta property="og:url" content="https://novaopsai.com/about">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,600,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* CONTACT — Minimal Dark Conversion */
+    /* ABOUT — Editorial Light Layout */
 
-    /* Hero — full-width centered CTA */
-    .contact-hero {
-      min-height: 52vh;
-      display: flex;
-      align-items: center;
-      padding: 120px 0 56px;
-      position: relative;
-      overflow: hidden;
-      border-bottom: 1px solid var(--border-3);
-    }
-    .contact-hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 70% 60% at 50% -10%, rgba(167,139,250,0.15) 0%, transparent 65%),
-        radial-gradient(ellipse 30% 25% at 90% 80%, rgba(129,140,248,0.07) 0%, transparent 50%);
-    }
-    .contact-hero-inner {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-    .contact-hero h1 { font-size: clamp(36px, 5vw, 64px); margin-bottom: 18px; }
-    .contact-hero-sub { font-size: clamp(15px, 1.8vw, 18px); color: var(--text-2); max-width: 520px; margin: 0 auto 36px; line-height: 1.72; }
-    .contact-hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-
-    /* Main contact layout */
-    .contact-main-grid {
+    /* Two-column editorial intro */
+    .about-intro-grid {
       display: grid;
-      grid-template-columns: 380px 1fr;
-      gap: 56px;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
       align-items: start;
     }
-
-    /* Left sidebar */
-    .contact-sidebar {}
-    .contact-info-card {
-      background: var(--bg-card);
+    .about-intro-left {}
+    .about-intro-right {
+      padding-top: 12px;
+    }
+    .about-stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 36px;
+    }
+    .about-stat-block {
+      padding: 20px;
+      background: var(--bg-2);
       border: 1px solid var(--border-2);
-      border-radius: var(--r-xl);
-      padding: 32px;
-      margin-bottom: 20px;
+      border-radius: var(--r-lg);
+      text-align: center;
+      transition: border-color var(--t), transform var(--t);
     }
-    .contact-info-card h3 { font-size: 18px; margin-bottom: 20px; }
-    .contact-detail {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      padding: 14px 0;
-      border-bottom: 1px solid var(--border-2);
-    }
-    .contact-detail:first-of-type { padding-top: 0; }
-    .contact-detail:last-of-type { border-bottom: none; padding-bottom: 0; }
-    .contact-detail-icon {
-      width: 36px; height: 36px;
-      background: var(--teal-dim);
-      border: 1px solid var(--border);
-      border-radius: var(--r-sm);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 15px; flex-shrink: 0;
-    }
-    .contact-detail-label { font-size: 10.5px; font-weight: 600; color: var(--text-3); font-family: var(--f-mono); text-transform: uppercase; letter-spacing: 0.10em; margin-bottom: 3px; }
-    .contact-detail-val { font-size: 13.5px; color: var(--text-2); }
-    .contact-detail-val a { color: var(--text-2); transition: color var(--t); }
-    .contact-detail-val a:hover { color: var(--teal); }
+    .about-stat-block:hover { border-color: var(--border); transform: translateY(-3px); }
+    .about-stat-num { font-family: var(--f-display); font-size: 32px; font-weight: 900; color: var(--teal); line-height: 1; letter-spacing: -0.03em; margin-bottom: 5px; }
+    .about-stat-label { font-size: 11.5px; color: var(--text-2); font-family: var(--f-mono); text-transform: uppercase; letter-spacing: 0.08em; }
 
-    /* Trust items */
-    .contact-trust { display: flex; flex-direction: column; gap: 10px; }
-    .trust-item {
-      display: flex;
+    /* Alternating editorial rows */
+    .about-story-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
       align-items: center;
-      gap: 10px;
-      padding: 12px 16px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-2);
-      border-radius: var(--r-md);
-      font-size: 13px;
-      color: var(--text-2);
+      padding: 56px 0;
+      border-bottom: 1px solid var(--border-3);
     }
-    .trust-icon { color: var(--teal); font-size: 15px; flex-shrink: 0; }
+    .about-story-row:last-child { border-bottom: none; }
+    .about-story-row.flip { direction: rtl; }
+    .about-story-row.flip > * { direction: ltr; }
 
-    @media (max-width: 900px) {
-      .contact-main-grid { grid-template-columns: 1fr; gap: 40px; }
+    /* Values alternating band */
+    .values-band { background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 40%, var(--bg) 100%); }
+
+    @media (max-width: 860px) {
+      .about-intro-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-story-row { grid-template-columns: 1fr; gap: 36px; padding: 48px 0; }
+      .about-story-row.flip { direction: ltr; }
+      .about-stat-row { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 540px) {
+      .about-stat-row { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -113,8 +80,8 @@
     <a href="index.html" class="nav-logo" aria-label="NovaOps AI Home">
       <svg class="nav-logo-svg" viewBox="0 0 34 34" fill="none" aria-hidden="true">
         <rect width="34" height="34" rx="8" fill="url(#lgnav)"/>
-        <path d="M9 24V10l8 9 8-9v14" stroke="#050310" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <defs><linearGradient id="lgnav" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse"><stop stop-color="#a78bfa"/><stop offset="1" stop-color="#818cf8"/></linearGradient></defs>
+        <path d="M9 24V10l8 9 8-9v14" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <defs><linearGradient id="lgnav" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#a855f7"/></linearGradient></defs>
       </svg>
       <span class="nav-logo-name">Nova<span>Ops</span> AI</span>
     </a>
@@ -124,7 +91,7 @@
       <li><a href="industries.html">Industries</a></li>
       <li><a href="results.html">Results</a></li>
       <li><a href="pricing.html">Pricing</a></li>
-      <li><a href="about.html">About</a></li>
+      <li><a href="about.html" class="active">About</a></li>
       <li><a href="faq.html">FAQ</a></li>
     </ul>
     <div class="nav-cta">
@@ -141,9 +108,9 @@
   <a href="industries.html">Industries</a>
   <a href="results.html">Results</a>
   <a href="pricing.html">Pricing</a>
-  <a href="about.html">About</a>
+  <a href="about.html" class="active">About</a>
   <a href="faq.html">FAQ</a>
-  <a href="contact.html" class="active">Contact</a>
+  <a href="contact.html">Contact</a>
   <div class="drawer-cta">
     <a href="https://tally.so/r/xXQa95" target="_blank" class="btn btn-primary btn-full">Book Free Strategy Call →</a>
     <a href="tel:8482055940" class="btn btn-outline btn-full">Call 848-205-5940</a>
@@ -152,155 +119,184 @@
 
 <main>
 
-<!-- ═══ HERO ═══ -->
-<section class="contact-hero" aria-labelledby="contact-h1">
+<!-- ═══ PAGE HERO — EDITORIAL ═══ -->
+<section class="page-hero" aria-labelledby="about-h1">
+  <div class="page-hero-glow" aria-hidden="true"></div>
   <div class="container">
-    <div class="contact-hero-inner">
-      <nav class="breadcrumb" aria-label="Breadcrumb" style="justify-content:center;margin-bottom:20px;">
-        <a href="index.html">Home</a>
-        <span aria-hidden="true">›</span>
-        <span aria-current="page">Contact</span>
-      </nav>
-      <div class="label reveal" style="justify-content:center;margin-bottom:16px;">Let's Talk</div>
-      <h1 id="contact-h1" class="reveal">Ready to Stop Losing Leads?</h1>
-      <p class="contact-hero-sub reveal">Book a free 30-minute strategy call. No pitch, no pressure — just a clear picture of where revenue is escaping your business and what the AI fix looks like.</p>
-      <div class="contact-hero-btns reveal">
-        <a href="https://tally.so/r/xXQa95" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Book Free Strategy Call →</a>
-        <a href="tel:8482055940" class="btn btn-outline btn-lg">Call 848-205-5940</a>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span aria-hidden="true">›</span>
+      <span aria-current="page">About</span>
+    </nav>
+    <div class="about-intro-grid">
+      <div>
+        <div class="label reveal">Our Story</div>
+        <h1 id="about-h1" class="reveal">We're Not a Software Tool.<br>We're Your <span class="gradient-text">AI Operations Team.</span></h1>
+        <p class="page-hero-sub reveal" style="margin-top:18px;">NovaOps AI exists to solve one problem: local businesses losing revenue to slow follow-up and poor lead management. We don't sell software licenses — we build, run, and optimize AI systems on your behalf, guaranteed to produce results.</p>
       </div>
-      <div class="guarantee-pill reveal" style="margin: 20px auto 0; display:inline-flex;">
-        🏆 &nbsp;10 Appointments in 30 Days — Guaranteed
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ═══ MAIN CONTACT SECTION ═══ -->
-<section class="section" aria-labelledby="contact-form-h2">
-  <div class="container">
-    <div class="contact-main-grid">
-
-      <!-- Left: Info + Trust -->
-      <div class="contact-sidebar reveal">
-        <div class="contact-info-card">
-          <h3>Get in Touch</h3>
-          <div class="contact-detail">
-            <div class="contact-detail-icon">📞</div>
-            <div>
-              <div class="contact-detail-label">Phone</div>
-              <div class="contact-detail-val"><a href="tel:8482055940">848-205-5940</a></div>
-            </div>
-          </div>
-          <div class="contact-detail">
-            <div class="contact-detail-icon">📧</div>
-            <div>
-              <div class="contact-detail-label">Email</div>
-              <div class="contact-detail-val"><a href="mailto:ansh102104@gmail.com">ansh102104@gmail.com</a></div>
-            </div>
-          </div>
-          <div class="contact-detail">
-            <div class="contact-detail-icon">📅</div>
-            <div>
-              <div class="contact-detail-label">Schedule</div>
-              <div class="contact-detail-val"><a href="https://calendar.app.google/syCyZmgeggCeuvPM8" target="_blank" rel="noopener">Book on Google Cal →</a></div>
-            </div>
-          </div>
-          <div class="contact-detail">
-            <div class="contact-detail-icon">⚡</div>
-            <div>
-              <div class="contact-detail-label">Response Time</div>
-              <div class="contact-detail-val">Within 4 business hours</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="contact-trust">
-          <div class="trust-item"><span class="trust-icon">✓</span> Free 30-minute strategy call</div>
-          <div class="trust-item"><span class="trust-icon">✓</span> No long-term contracts required</div>
-          <div class="trust-item"><span class="trust-icon">✓</span> Results guaranteed or we work free</div>
-          <div class="trust-item"><span class="trust-icon">✓</span> Live system in 14 business days</div>
-          <div class="trust-item"><span class="trust-icon">✓</span> 100% done-for-you — zero tech skills needed</div>
-        </div>
-      </div>
-
-      <!-- Right: Form -->
       <div class="reveal">
-        <div class="form-panel">
-          <h3 id="contact-form-h2">Tell Us About Your Business</h3>
-          <p>We'll review your details before the call so we can hit the ground running.</p>
-          <form action="https://tally.so/r/xXQa95" method="GET" target="_blank" novalidate>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="fname">First Name</label>
-                <input type="text" id="fname" name="fname" placeholder="John" autocomplete="given-name">
-              </div>
-              <div class="form-group">
-                <label for="lname">Last Name</label>
-                <input type="text" id="lname" name="lname" placeholder="Smith" autocomplete="family-name">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" placeholder="john@yourbusiness.com" autocomplete="email">
-            </div>
-            <div class="form-group">
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" autocomplete="tel">
-            </div>
-            <div class="form-group">
-              <label for="industry">Your Industry</label>
-              <select id="industry" name="industry">
-                <option value="" disabled selected>Select your industry</option>
-                <option>HVAC / Home Services</option>
-                <option>Med Spa / Aesthetics</option>
-                <option>Roofing</option>
-                <option>Real Estate</option>
-                <option>Solar</option>
-                <option>Insurance Agency</option>
-                <option>Dental / Medical</option>
-                <option>Law Firm</option>
-                <option>Gym / Fitness</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="leads">Monthly Lead Volume</label>
-              <select id="leads" name="leads">
-                <option value="" disabled selected>How many leads/month?</option>
-                <option>Under 20 leads/month</option>
-                <option>20–50 leads/month</option>
-                <option>50–100 leads/month</option>
-                <option>100–250 leads/month</option>
-                <option>250+ leads/month</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="message">Biggest Challenge</label>
-              <textarea id="message" name="message" placeholder="What's the #1 lead or follow-up problem you're facing right now?"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary btn-full btn-lg" style="margin-top:8px;">Book Free Strategy Call →</button>
-            <p style="font-size:11.5px;color:var(--text-3);text-align:center;margin-top:14px;max-width:none;">No spam. No sales pressure. Just a real conversation about your business.</p>
-          </form>
+        <div class="about-manifesto">
+          <p class="about-manifesto-text">The best local businesses in America are losing to inferior competitors — not because of quality, but because of systems. We built NovaOps AI to change that permanently.</p>
+          <p class="about-manifesto-sub">Every automation we build is designed around one question: did it produce revenue? If not, we fix it. That's the only metric that matters.</p>
+        </div>
+        <div class="about-stat-row">
+          <div class="about-stat-block"><div class="about-stat-num">14d</div><div class="about-stat-label">Live in days</div></div>
+          <div class="about-stat-block"><div class="about-stat-num">94%</div><div class="about-stat-label">Follow-up rate</div></div>
+          <div class="about-stat-block"><div class="about-stat-num">$0</div><div class="about-stat-label">If no results</div></div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ═══ CALENDAR SECTION ═══ -->
-<section class="section" aria-labelledby="contact-cal-h2">
+<!-- ═══ STORY — ALTERNATING EDITORIAL ROWS ═══ -->
+<section class="section" aria-labelledby="story-h2">
   <div class="container">
-    <div class="cal-section reveal">
-      <div class="label" style="justify-content:center;margin-bottom:14px;">Book Directly</div>
-      <h2 id="contact-cal-h2">Prefer to Pick a Time Right Now?</h2>
-      <p>Skip the form and book directly on our calendar. Choose a time that works for you — we'll confirm within 30 minutes.</p>
-      <a href="https://calendar.app.google/syCyZmgeggCeuvPM8" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Open Calendar →</a>
-      <div class="cal-embed" aria-label="Booking Calendar">Booking Calendar</div>
+
+    <div class="about-story-row reveal-left" style="opacity:0;transform:translateX(-24px);transition:opacity 0.65s cubic-bezier(0.16,1,0.3,1),transform 0.65s cubic-bezier(0.16,1,0.3,1);">
+      <div class="feature-visual">
+        <div class="terminal-line tl-muted">// Before NovaOps AI</div>
+        <div class="terminal-line tl-red">✗ Lead came in at 9PM — no one saw it</div>
+        <div class="terminal-line tl-red">✗ Followed up 2 days later — cold</div>
+        <div class="terminal-line tl-red">✗ 600 past clients — zero reactivation</div>
+        <div class="terminal-line tl-red">✗ Missed calls just… gone</div>
+        <div class="terminal-line tl-muted" style="margin-top:10px;">// After NovaOps AI</div>
+        <div class="terminal-line tl-green">✓ AI response fired — 9:00:28 PM (28s)</div>
+        <div class="terminal-line tl-green">✓ Appointment booked — same night</div>
+        <div class="terminal-line tl-green">✓ 22 reactivation bookings — Week 1</div>
+        <div class="terminal-line tl-green">✓ Missed call text-back — 18s response</div>
+      </div>
+      <div class="feature-text">
+        <div class="label">Why We Started</div>
+        <h2 id="story-h2">The Best Local Businesses Were Losing to Worse Competitors — Just Because of Slow Follow-Up</h2>
+        <p>We watched exceptional tradespeople, med spa owners, and service businesses get undercut by inferior competitors who simply responded faster. The problem wasn't quality. It was systems.</p>
+        <p style="margin-top:16px;">NovaOps AI was built to fix that permanently. We don't hand you software and walk away. We become your back-office AI team — building the workflows, writing the prompts, integrating the tools, and monitoring performance so you never have to think about lead follow-up again.</p>
+        <ul class="checklist" style="margin-top:20px;">
+          <li>100% done-for-you — no tech skills needed</li>
+          <li>Live system in 7–14 business days</li>
+          <li>Ongoing optimization included</li>
+          <li>Performance guaranteed or we work free</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ VALUES ═══ -->
+<section class="section values-band" aria-labelledby="values-h2">
+  <div class="container">
+    <div class="section-header center reveal">
+      <div class="label">Our Values</div>
+      <h2 id="values-h2">Six Principles That Drive Every System We Build</h2>
+      <p>These aren't poster slogans — they're the operating rules behind every automation, every conversation, every deliverable.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card reveal">
+        <div class="card-icon">🎯</div>
+        <h3>Results-First</h3>
+        <p>We don't celebrate effort — we celebrate outcomes. Every system is designed around one question: did it produce revenue? If not, we fix it.</p>
+      </div>
+      <div class="card reveal reveal-d1">
+        <div class="card-icon">🤝</div>
+        <h3>Done-For-You</h3>
+        <p>You run your business. We run your automation. No DIY dashboards, no "onboarding calls" that dump the work back on you. We handle it all.</p>
+      </div>
+      <div class="card reveal reveal-d2">
+        <div class="card-icon">🏗️</div>
+        <h3>Built to Last</h3>
+        <p>We don't take shortcuts in the build. Every workflow is documented, tested, and stress-tested before going live — so it runs for years, not weeks.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon">⚡</div>
+        <h3>Fast to Market</h3>
+        <p>Every day without your system is revenue leaving the table. We commit to a 7–14 business day launch timeline and treat it like a deadline, not a guideline.</p>
+      </div>
+      <div class="card reveal reveal-d1">
+        <div class="card-icon">📊</div>
+        <h3>Radically Transparent</h3>
+        <p>You get a monthly performance report showing every lead captured, every appointment booked, and every dollar recovered. No hiding behind vague metrics.</p>
+      </div>
+      <div class="card reveal reveal-d2">
+        <div class="card-icon">🔭</div>
+        <h3>Long-Term Thinking</h3>
+        <p>We optimize for your business 12 months from now, not just this week's numbers. Our monthly strategy calls keep your system evolving as your market does.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ TECH STACK ═══ -->
+<section class="section band-dark" aria-labelledby="tech-h2">
+  <div class="container">
+    <div class="section-header center reveal">
+      <div class="label">Technology</div>
+      <h2 id="tech-h2">Enterprise-Grade Tools. Built for Local Business.</h2>
+      <p>We assemble the best-in-class platforms into a single, unified system — so you benefit from enterprise automation at a fraction of the cost.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card reveal">
+        <div class="card-icon">⚙️</div>
+        <h3>GoHighLevel</h3>
+        <p>The backbone of every system. CRM, pipeline management, two-way SMS/email, calendar booking, and workflow automation — all in one platform built for local businesses.</p>
+      </div>
+      <div class="card reveal reveal-d1">
+        <div class="card-icon">🔗</div>
+        <h3>Zapier / Make</h3>
+        <p>Connects your existing tools — lead forms, ad platforms, spreadsheets, CRMs — into a seamless data pipeline. Zero manual data entry between systems.</p>
+      </div>
+      <div class="card reveal reveal-d2">
+        <div class="card-icon">💬</div>
+        <h3>Twilio</h3>
+        <p>Carrier-grade SMS and voice infrastructure powering our text-back, conversation AI, and voice drop systems. 99.95% uptime. TCPA-compliant sending.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon">🤖</div>
+        <h3>OpenAI GPT-4</h3>
+        <p>The AI that runs your conversations. Custom-trained on your business, products, objections, and tone — so every message sounds like you wrote it personally.</p>
+      </div>
+      <div class="card reveal reveal-d1">
+        <div class="card-icon">📅</div>
+        <h3>Google Calendar</h3>
+        <p>Two-way calendar sync that books appointments directly into your schedule, sends confirmations, fires reminders, and eliminates no-shows automatically.</p>
+      </div>
+      <div class="card reveal reveal-d2">
+        <div class="card-icon">📈</div>
+        <h3>Custom Reporting</h3>
+        <p>Monthly dashboards showing leads captured, sequences sent, appointments booked, and revenue recovered — so you always know exactly what your system is doing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ GUARANTEE BOX ═══ -->
+<section class="section-sm" aria-labelledby="guarantee-about-h2">
+  <div class="container">
+    <div class="guarantee-box-premium reveal">
+      <div class="label" style="justify-content:center;margin-bottom:14px;">Our Guarantee</div>
+      <h2 id="guarantee-about-h2" style="font-size:clamp(22px,3vw,32px);margin-bottom:16px;">10 Booked Appointments in 30 Days — or We Work Free</h2>
+      <p style="color:var(--text-2);max-width:540px;margin:0 auto 28px;font-size:15.5px;">If your system doesn't book at least 10 qualified appointments in the first 30 days, we continue working at zero charge until it does. No fine print. No excuses. Just results.</p>
+      <a href="https://tally.so/r/xXQa95" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Book Your Free Strategy Call →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="section" aria-labelledby="about-cta-h2">
+  <div class="container">
+    <div class="cta-banner reveal">
+      <h2 id="about-cta-h2">Ready to Meet Your AI Operations Team?</h2>
+      <p>Book a free 30-minute strategy call. We'll map your lead flow, identify where revenue is escaping, and show you what the fix looks like — before you spend a dollar.</p>
+      <a href="https://tally.so/r/xXQa95" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Book Free Strategy Call →</a>
+      <div class="guarantee-pill">🏆 &nbsp;Guaranteed 10 Appointments in 30 Days or We Work Free</div>
     </div>
   </div>
 </section>
@@ -314,8 +310,8 @@
         <a href="index.html" class="nav-logo">
           <svg class="nav-logo-svg" viewBox="0 0 34 34" fill="none" aria-hidden="true">
             <rect width="34" height="34" rx="8" fill="url(#lgft)"/>
-            <path d="M9 24V10l8 9 8-9v14" stroke="#050310" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <defs><linearGradient id="lgft" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse"><stop stop-color="#a78bfa"/><stop offset="1" stop-color="#818cf8"/></linearGradient></defs>
+            <path d="M9 24V10l8 9 8-9v14" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs><linearGradient id="lgft" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#a855f7"/></linearGradient></defs>
           </svg>
           <span class="nav-logo-name">Nova<span>Ops</span> AI</span>
         </a>
