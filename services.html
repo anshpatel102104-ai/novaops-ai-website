@@ -4,50 +4,61 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI Automation Services | NovaOps AI</title>
-  <meta name="description" content="Explore NovaOps AI’s done-for-you automation services for local businesses: appointment setting, follow-up sequences, CRM automation, lead qualification, SMS automation, and voice AI." />
+  <meta name="description" content="Explore NovaOps AI's done-for-you AI automation services for local businesses: appointment setting, follow-up sequences, CRM automation, lead qualification, SMS automation, and voice AI." />
+  <link rel="canonical" href="https://novaopsai.com/services" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,600,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="page-services">
-  <nav class="nav" aria-label="Main navigation">
+<body>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo" aria-label="NovaOps AI Home">
         <svg class="nav-logo-svg" viewBox="0 0 34 34" fill="none" aria-hidden="true">
-          <rect width="34" height="34" rx="8" fill="url(#lg-nav-services)"></rect>
-          <path d="M9 24V10l8 9 8-9v14" stroke="#09051a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          <rect width="34" height="34" rx="8" fill="url(#lgservices)" />
+          <path d="M9 24V10l8 9 8-9v14" stroke="#09051a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
           <defs>
-            <linearGradient id="lg-nav-services" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#c084fc"></stop>
-              <stop offset="1" stop-color="#a855f7"></stop>
+            <linearGradient id="lgservices" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#c084fc" />
+              <stop offset="1" stop-color="#a855f7" />
             </linearGradient>
           </defs>
         </svg>
         <span class="nav-logo-name">Nova<span>Ops</span> AI</span>
       </a>
 
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="services.html" class="active">Services</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="about.html">About</a>
-        <a href="faq.html">FAQ</a>
-      </div>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="industries.html">Industries</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
 
       <div class="nav-cta">
         <a href="https://tally.so/r/xXQa95" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Book Free Call</a>
       </div>
 
-      <button class="hamburger" aria-label="Menu">
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
-  <nav class="mobile-drawer" aria-label="Mobile navigation">
+  <nav class="mobile-drawer" id="mobile-drawer" aria-label="Mobile navigation">
     <a href="index.html">Home</a>
     <a href="services.html" class="active">Services</a>
+    <a href="industries.html">Industries</a>
+    <a href="results.html">Results</a>
     <a href="pricing.html">Pricing</a>
     <a href="about.html">About</a>
     <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+
     <div class="drawer-cta">
       <a href="https://tally.so/r/xXQa95" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-full">Book Free Strategy Call</a>
       <a href="tel:8482055940" class="btn btn-outline btn-full">Call 848-205-5940</a>
@@ -59,11 +70,12 @@
       <div class="container">
         <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href="index.html">Home</a>
+          <span>/</span>
           <span aria-current="page">Services</span>
         </nav>
-        <div class="label">Done-For-You Systems</div>
-        <h1 id="services-h1">Done-For-You AI Systems That <span class="gradient-text">Work While You Sleep</span></h1>
-        <p class="page-hero-sub">Six AI automation systems, each built, managed, and optimized by our team. You never touch a button. You just show up to the appointments we send.</p>
+        <div class="label reveal">Done-For-You Systems</div>
+        <h1 id="services-h1" class="reveal">Done-For-You AI Systems That <span class="gradient-text">Work While You Sleep</span></h1>
+        <p class="page-hero-sub reveal">Six AI automation systems each built, managed, and optimized by our team. You never touch a button. You just show up to the appointments we send you.</p>
       </div>
     </section>
 
@@ -71,53 +83,53 @@
 
     <section class="section" aria-labelledby="services-grid-h2">
       <div class="container">
-        <div class="section-header center">
+        <div class="section-header center reveal">
           <div class="label">Core Systems</div>
           <h2 id="services-grid-h2">Six Systems. One Unified Lead Engine.</h2>
-          <p>Each system can work standalone or stack together into a fully automated revenue engine.</p>
+          <p>Each service works standalone or stacks with others for a fully automated revenue operation. Most clients run three or more.</p>
         </div>
 
-        <div class="service-grid">
+        <div class="service-grid reveal">
           <article class="card">
             <div class="card-icon">⚡</div>
             <h3>AI Appointment Setting</h3>
-            <p>AI responds to new leads in under 90 seconds, qualifies them with smart questions, and books directly into your calendar.</p>
-            <a class="service-card-link" href="#">Learn More →</a>
+            <p>AI responds to new leads in under 90 seconds, qualifies them with smart questions, and books directly into your calendar 24/7, no staff required.</p>
+            <a class="service-card-link" href="services-ai-appointment-setting.html">Learn More →</a>
           </article>
 
           <article class="card">
             <div class="card-icon">↺</div>
             <h3>AI Follow-Up Sequences</h3>
-            <p>12–15 touchpoint sequences across 90 days using SMS and email. Personalized, persistent, and auto-stopping on reply.</p>
-            <a class="service-card-link" href="#">Learn More →</a>
+            <p>12–15 touchpoint sequences over 90 days across SMS and email. Personalized per lead, auto-stops on reply, routes to booking automatically.</p>
+            <a class="service-card-link" href="services-ai-follow-up.html">Learn More →</a>
           </article>
 
           <article class="card">
-            <div class="card-icon">📊</div>
+            <div class="card-icon">▣</div>
             <h3>CRM Automation</h3>
-            <p>Auto-tagging, routing, follow-up, and contact management inside your CRM with less manual work.</p>
-            <a class="service-card-link" href="#">Learn More →</a>
+            <p>Your pipeline, contacts, and workflows all running on autopilot inside GoHighLevel. Auto-tagging, auto-routing, and zero manual data entry.</p>
+            <a class="service-card-link" href="services-crm-automation.html">Learn More →</a>
           </article>
 
           <article class="card">
-            <div class="card-icon">🧠</div>
+            <div class="card-icon">✓</div>
             <h3>Lead Qualification AI</h3>
-            <p>AI filters out low-intent leads before they waste your team’s time so only sales-ready prospects reach the calendar.</p>
-            <a class="service-card-link" href="#">Learn More →</a>
+            <p>AI-powered conversation filters out unqualified leads before they reach your team. Only ready-to-buy prospects land on your calendar.</p>
+            <a class="service-card-link" href="services-lead-qualification-ai.html">Learn More →</a>
           </article>
 
           <article class="card">
-            <div class="card-icon">💬</div>
+            <div class="card-icon">✉</div>
             <h3>SMS Automation</h3>
-            <p>Missed-call text-backs, reminders, review requests, and reactivation campaigns all triggered automatically.</p>
-            <a class="service-card-link" href="#">Learn More →</a>
+            <p>Missed call text-backs in 18 seconds, appointment reminders, review requests, and reactivation campaigns all automated via SMS.</p>
+            <a class="service-card-link" href="services-sms-automation.html">Learn More →</a>
           </article>
 
           <article class="card">
             <div class="card-icon">☎</div>
             <h3>Voice AI</h3>
-            <p>An AI voice agent that answers calls, handles FAQs, qualifies leads, and books even when your staff is unavailable.</p>
-            <a class="service-card-link" href="#">Learn More →</a>
+            <p>An AI voice agent that answers calls, handles FAQs, qualifies leads, and books appointments even when your team is busy or off the clock.</p>
+            <a class="service-card-link" href="services-voice-ai.html">Learn More →</a>
           </article>
         </div>
       </div>
@@ -127,20 +139,20 @@
 
     <section class="section" aria-labelledby="stacks-h2">
       <div class="container">
-        <div class="section-header center">
+        <div class="section-header center reveal">
           <div class="label">System Bundles</div>
           <h2 id="stacks-h2">How Our Systems Stack Together</h2>
-          <p>Start with your biggest leak, then layer in more automation as your lead flow scales.</p>
+          <p>Start with what solves your biggest problem then add layers as your business scales.</p>
         </div>
 
-        <div class="service-stack-grid">
+        <div class="service-stack-grid reveal">
           <article class="service-stack-card">
             <div class="label" style="margin-bottom:10px;">Starter Layer</div>
             <h3 style="font-size:24px;margin-bottom:10px;">Lead Response Engine</h3>
-            <p style="margin-bottom:18px;">Best for businesses losing leads to slow response and missed calls.</p>
+            <p style="margin-bottom:18px;">Best for businesses losing leads to slow follow-up.</p>
             <ul class="checklist">
               <li>AI Appointment Setting</li>
-              <li>Missed-Call Text-Back</li>
+              <li>Missed Call Text-Back</li>
               <li>SMS Automation</li>
               <li>Basic CRM Setup</li>
             </ul>
@@ -149,7 +161,7 @@
           <article class="service-stack-card featured">
             <div class="label" style="margin-bottom:10px;">Growth Layer</div>
             <h3 style="font-size:24px;margin-bottom:10px;">Full Nurture System</h3>
-            <p style="margin-bottom:18px;">Best for businesses with active lead volume that want more booked appointments.</p>
+            <p style="margin-bottom:18px;">Best for businesses with existing lead volume to monetize.</p>
             <ul class="checklist">
               <li>Everything in Starter</li>
               <li>90-Day Follow-Up Sequences</li>
@@ -162,12 +174,12 @@
           <article class="service-stack-card">
             <div class="label" style="margin-bottom:10px;">Scale Layer</div>
             <h3 style="font-size:24px;margin-bottom:10px;">Complete AI Operation</h3>
-            <p style="margin-bottom:18px;">Best for businesses wanting full front-end lead handling with minimal manual work.</p>
+            <p style="margin-bottom:18px;">Best for scaling businesses wanting full automation.</p>
             <ul class="checklist">
               <li>Everything in Growth</li>
               <li>Voice AI</li>
-              <li>Custom Dashboard</li>
-              <li>Monthly Optimization</li>
+              <li>Custom Reporting Dashboard</li>
+              <li>Monthly Strategy Calls</li>
               <li>Priority Support</li>
             </ul>
           </article>
@@ -179,38 +191,115 @@
 
     <section class="section" aria-labelledby="process-h2">
       <div class="container">
-        <div class="section-header center">
+        <div class="section-header center reveal">
           <div class="label">Deployment Process</div>
           <h2 id="process-h2">From Strategy Call to Live System in 14 Days</h2>
-          <p>We handle the technical build. You keep running the business while we install the engine.</p>
+          <p>We handle every technical aspect. Your only job is to show up to the appointments we send you.</p>
         </div>
 
-        <div class="process-grid">
+        <div class="process-grid reveal">
           <article class="process-card">
             <div class="process-num">01</div>
             <h3>Strategy Call</h3>
-            <p>We map your lead flow, identify the leak, and define the fastest path to ROI.</p>
+            <p>30-minute call to map your lead flow, identify revenue gaps, and design your custom automation blueprint.</p>
           </article>
 
           <article class="process-card">
             <div class="process-num">02</div>
             <h3>Custom Build</h3>
-            <p>We create the workflows, AI prompts, automations, and CRM logic around your business.</p>
+            <p>We build all workflows, AI prompts, follow-up sequences, and CRM inside GoHighLevel tailored to your business.</p>
           </article>
 
           <article class="process-card">
             <div class="process-num">03</div>
             <h3>Test & Launch</h3>
-            <p>Everything is tested end-to-end before launch so routing, booking, and follow-up work cleanly.</p>
+            <p>Every automation is tested end-to-end with live leads before going live. System deploys in 7–14 business days.</p>
           </article>
 
           <article class="process-card">
             <div class="process-num">04</div>
-            <h3>Optimization</h3>
-            <p>We improve prompts, conversion flow, and appointment quality as real data comes in.</p>
+            <h3>Monthly Optimization</h3>
+            <p>Monthly performance reports, AI prompt updates, and strategy calls to keep your results growing every month.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section"
+    <section class="section" aria-labelledby="services-cta-h2">
+      <div class="container">
+        <div class="cta-banner reveal">
+          <h2 id="services-cta-h2">Need Help Choosing the Right System?</h2>
+          <p>Book a free strategy call and we'll show you which automation setup will create the fastest ROI for your business.</p>
+          <a href="https://tally.so/r/xXQa95" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">Book Free Strategy Call</a>
+          <div class="guarantee-pill">Guaranteed 10 Appointments in 30 Days or We Work Free</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <svg class="nav-logo-svg" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+              <rect width="34" height="34" rx="8" fill="url(#lgft1)" />
+              <path d="M9 24V10l8 9 8-9v14" stroke="#09051a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+              <defs>
+                <linearGradient id="lgft1" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#c084fc" />
+                  <stop offset="1" stop-color="#a855f7" />
+                </linearGradient>
+              </defs>
+            </svg>
+            <span class="nav-logo-name">Nova<span>Ops</span> AI</span>
+          </a>
+          <p>Done-for-you AI automation for local businesses. We build, manage, and optimize — you close the appointments we send.</p>
+          <a href="https://tally.so/r/xXQa95" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">Book Free Call</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="services-ai-appointment-setting.html">AI Appointment Setting</a>
+          <a href="services-ai-follow-up.html">AI Follow-Up</a>
+          <a href="services-crm-automation.html">CRM Automation</a>
+          <a href="services-sms-automation.html">SMS Automation</a>
+          <a href="services-voice-ai.html">Voice AI</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Industries</h4>
+          <a href="industries-ai-automation-for-roofers.html">Roofing</a>
+          <a href="industries-ai-automation-for-med-spas.html">Med Spas</a>
+          <a href="industries-ai-automation-for-home-services.html">Home Services</a>
+          <a href="industries-ai-automation-for-solar-companies.html">Solar</a>
+          <a href="industries-ai-automation-for-real-estate.html">Real Estate</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="about.html">About Us</a>
+          <a href="results.html">Results</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="tel:8482055940">848-205-5940</a>
+          <a href="mailto:ansh102104@gmail.com">ansh102104@gmail.com</a>
+          <a href="https://tally.so/r/xXQa95" target="_blank" rel="noopener noreferrer">Book a Strategy Call</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>2026 NovaOps AI. All rights reserved.</span>
+        <span>AI Automation Results Guaranteed</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
