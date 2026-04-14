@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="results">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Automation Results &amp; Case Studies — NovaOps AI</title>
-  <meta name="description" content="Real results from real businesses: 284 leads automated, 61 appointments booked, $127K+ in revenue recovered. See case studies from HVAC, med spas, roofing, real estate, and more.">
+  <meta name="description" content="Real results: 284 leads automated, 61 appointments booked, $127K+ in revenue recovered. Case studies from HVAC, med spas, roofing, real estate, and more.">
   <link rel="canonical" href="https://novaopsai.com/results">
   <meta property="og:title" content="AI Automation Results &amp; Case Studies — NovaOps AI">
-  <meta property="og:description" content="Concrete results from NovaOps AI clients: $45K recovered by an HVAC company, $11K in one week for a med spa, $48K commission for a real estate team. Real numbers, real businesses.">
   <meta property="og:url" content="https://novaopsai.com/results">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,86 +14,47 @@
   <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,600,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    .result-card {
-      background: var(--surface-1);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 32px;
-      position: relative;
+    /* RESULTS — Dark Proof Page */
+    .results-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    @media (max-width: 768px) { .results-grid { grid-template-columns: 1fr; } }
+
+    .result-card-v2 {
+      background: var(--bg-card);
+      border: 1px solid var(--border-2);
+      border-radius: var(--r-xl);
       overflow: hidden;
+      position: relative;
+      transition: border-color var(--t), transform var(--t), box-shadow var(--t);
     }
-    .result-card::before {
+    .result-card-v2::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       height: 3px;
       background: linear-gradient(90deg, var(--teal), var(--blue));
     }
-    .result-industry {
-      font-size: var(--text-xs);
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--teal);
-      margin-bottom: 8px;
+    .result-card-v2:hover { border-color: rgba(167,139,250,0.30); transform: translateY(-5px); box-shadow: var(--shadow-card); }
+
+    .rc-top { padding: 28px 28px 20px; border-bottom: 1px solid var(--border-2); }
+    .rc-industry { font-family: var(--f-mono); font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.13em; color: var(--teal); margin-bottom: 8px; }
+    .rc-headline { font-family: var(--f-display); font-size: clamp(15px, 1.8vw, 19px); font-weight: 800; color: var(--text); line-height: 1.25; }
+
+    .rc-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border-2); border-bottom: 1px solid var(--border-2); }
+    .rc-stat { background: var(--bg-card); padding: 16px 12px; text-align: center; transition: background var(--t); }
+    .rc-stat:hover { background: var(--bg-hover); }
+    .rc-stat-num { font-family: var(--f-display); font-size: 24px; font-weight: 900; color: var(--teal); line-height: 1; margin-bottom: 4px; }
+    .rc-stat-label { font-size: 10px; color: var(--text-3); font-family: var(--f-mono); text-transform: uppercase; letter-spacing: 0.07em; }
+
+    .rc-body { padding: 20px 28px 24px; }
+    .rc-body p { font-size: 13px; color: var(--text-2); line-height: 1.75; }
+    .rc-footer { font-size: 11px; color: var(--text-3); margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border-2); font-family: var(--f-mono); }
+
+    /* Big aggregate numbers */
+    .aggregate-band {
+      background: linear-gradient(180deg, transparent 0%, rgba(167,139,250,0.04) 50%, transparent 100%);
+      border-top: 1px solid var(--border-3);
+      border-bottom: 1px solid var(--border-3);
     }
-    .result-headline {
-      font-family: var(--f-display);
-      font-size: var(--text-xl);
-      font-weight: 800;
-      margin-bottom: 16px;
-      line-height: 1.2;
-    }
-    .result-stats {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-bottom: 16px;
-      padding: 16px;
-      background: var(--surface-2);
-      border-radius: 10px;
-    }
-    .result-stat-item { text-align: center; }
-    .result-stat-num {
-      font-family: var(--f-mono);
-      font-size: var(--text-2xl);
-      font-weight: 700;
-      color: var(--teal);
-      line-height: 1;
-    }
-    .result-stat-label {
-      font-size: 11px;
-      color: var(--text-muted);
-      margin-top: 4px;
-    }
-    .result-body { color: var(--text-muted); font-size: var(--text-sm); line-height: 1.7; }
-    .result-location { font-size: var(--text-xs); color: var(--text-muted); margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); }
-    .results-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-    @media (max-width: 768px) { .results-grid { grid-template-columns: 1fr; } }
-/* Remove old stat vars that break */
-.result-card{background:var(--bg-card)!important;border:1px solid var(--border-2)!important;}
-/* Results stat bar */
-.results-hero-stats{display:grid;grid-template-columns:repeat(4,1fr);background:var(--bg-3);border:1px solid var(--border-2);border-radius:var(--r-xl);overflow:hidden;margin:0 auto;}
-@media(max-width:768px){.results-hero-stats{grid-template-columns:repeat(2,1fr);}}
-.rhs-cell{padding:36px 24px;text-align:center;border-right:1px solid var(--border-2);transition:background var(--t);}
-.rhs-cell:last-child{border-right:none;}
-.rhs-cell:hover{background:var(--bg-hover);}
-.rhs-num{font-family:var(--f-display);font-size:clamp(36px,4vw,52px);font-weight:900;color:var(--teal);line-height:1;letter-spacing:-0.04em;margin-bottom:8px;}
-.rhs-label{font-size:12.5px;color:var(--text-2);font-weight:500;}
-/* Calendar */
-.cal-section{background:var(--bg-2);border:1px solid var(--border-2);border-radius:var(--r-xl);padding:clamp(36px,4vw,56px);text-align:center;}
-.cal-embed{background:var(--bg-card);border:1px dashed var(--border);border-radius:var(--r-lg);min-height:400px;display:flex;align-items:center;justify-content:center;font-family:var(--f-mono);font-size:12px;color:var(--text-3);letter-spacing:.08em;text-transform:uppercase;margin-top:24px;position:relative;overflow:hidden;}
-.cal-embed::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--teal-dim) 0%,transparent 60%);pointer-events:none;}
-/* Fix result-card variables from old theme */
-.result-stats{background:var(--bg-2)!important;border-radius:10px;}
-.result-stat-num{font-family:var(--f-mono);font-size:clamp(22px,2.5vw,30px);font-weight:700;color:var(--teal);line-height:1;}
-.result-stat-label{font-size:11px;color:var(--text-2);margin-top:4px;}
-.result-body{color:var(--text-2)!important;}
-.result-location{color:var(--text-3)!important;border-top:1px solid var(--border-2)!important;}
-.result-headline{color:var(--text)!important;}
-.result-industry{color:var(--teal)!important;}
   </style>
 </head>
 <body>
@@ -105,8 +65,8 @@
     <a href="index.html" class="nav-logo" aria-label="NovaOps AI Home">
       <svg class="nav-logo-svg" viewBox="0 0 34 34" fill="none" aria-hidden="true">
         <rect width="34" height="34" rx="8" fill="url(#lgnav)"/>
-        <path d="M9 24V10l8 9 8-9v14" stroke="#04060a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <defs><linearGradient id="lgnav" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse"><stop stop-color="#00e5c8"/><stop offset="1" stop-color="#1a7bff"/></linearGradient></defs>
+        <path d="M9 24V10l8 9 8-9v14" stroke="#06040f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <defs><linearGradient id="lgnav" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse"><stop stop-color="#a78bfa"/><stop offset="1" stop-color="#c084fc"/></linearGradient></defs>
       </svg>
       <span class="nav-logo-name">Nova<span>Ops</span> AI</span>
     </a>
@@ -146,6 +106,7 @@
 
 <!-- ═══ PAGE HERO ═══ -->
 <section class="page-hero" aria-labelledby="results-h1">
+  <div class="page-hero-glow" aria-hidden="true"></div>
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="index.html">Home</a>
@@ -159,7 +120,7 @@
 </section>
 
 <!-- ═══ AGGREGATE STATS ═══ -->
-<section class="section-sm" aria-label="Aggregate results">
+<section class="section-sm aggregate-band" aria-label="Aggregate results">
   <div class="container">
     <div class="results-hero-stats reveal">
       <div class="rhs-cell">
@@ -184,120 +145,131 @@
 
 <div class="divider"></div>
 
-<!-- ═══ CASE STUDIES — Magazine Grid ═══ -->
+<!-- ═══ CASE STUDIES ═══ -->
 <section class="section" aria-labelledby="case-studies-h2">
   <div class="container">
     <div class="section-header center reveal">
       <div class="label">Case Studies</div>
       <h2 id="case-studies-h2">Six Businesses. Six Systems. Six Transformations.</h2>
     </div>
+    <div class="results-grid">
 
-    <!-- Magazine grid: HVAC featured (spans 2 rows) + Med Spa + Real Estate -->
-    <div class="results-magazine reveal">
-
-      <!-- HVAC: featured, spans 2 rows -->
-      <div class="result-featured">
-        <div class="result-industry">HVAC Company</div>
-        <div class="result-headline">15 Extra Jobs. $45K Recovered. 40% of Missed Leads Recaptured.</div>
-        <div class="result-stats">
-          <div class="result-stat-item"><div class="result-stat-num">15</div><div class="result-stat-label">Extra jobs/mo</div></div>
-          <div class="result-stat-item"><div class="result-stat-num">$45K</div><div class="result-stat-label">Revenue recovered</div></div>
-          <div class="result-stat-item"><div class="result-stat-num">40%</div><div class="result-stat-label">Missed leads recaptured</div></div>
+      <div class="result-card-v2 reveal">
+        <div class="rc-top">
+          <div class="rc-industry">HVAC Company · Tampa, FL</div>
+          <div class="rc-headline">15 Extra Jobs. $45K Recovered. 40% of Missed Leads Recaptured.</div>
         </div>
-        <p class="result-body">This HVAC company was missing roughly 40% of their leads after hours with no follow-up system. We deployed a missed call text-back sequence and 90-day nurture workflow. Within the first month, 40% of previously lost leads were recaptured, booking 15 extra jobs at an average ticket of $3,000 each — $45K that would have gone to a competitor.</p>
-        <div class="result-location">Mike R. · HVAC Company · Tampa, FL</div>
+        <div class="rc-stats">
+          <div class="rc-stat"><div class="rc-stat-num">15</div><div class="rc-stat-label">Extra jobs/mo</div></div>
+          <div class="rc-stat"><div class="rc-stat-num">$45K</div><div class="rc-stat-label">Revenue recovered</div></div>
+          <div class="rc-stat"><div class="rc-stat-num">40%</div><div class="rc-stat-label">Leads recaptured</div></div>
+        </div>
+        <div class="rc-body">
+          <p>This HVAC company was missing roughly 40% of their leads after hours with no follow-up system. We deployed a missed call text-back sequence and 90-day nurture workflow. Within the first month, 40% of previously lost leads were recaptured, booking 15 extra jobs at an average ticket of $3,000 each — $45K that would have gone to a competitor.</p>
+          <div class="rc-footer">Mike R. · HVAC Company Owner</div>
+        </div>
       </div>
 
-      <!-- Med Spa: compact, right top -->
-      <div class="result-compact">
-        <div class="result-industry">Med Spa</div>
-        <div class="result-headline">22 Reactivation Bookings. $11,000 Revenue in Week 1.</div>
-        <div class="result-stats">
-          <div class="result-stat-item"><div class="result-stat-num">22</div><div class="result-stat-label">Bookings in Week 1</div></div>
-          <div class="result-stat-item"><div class="result-stat-num">$11K</div><div class="result-stat-label">Revenue in Week 1</div></div>
-          <div class="result-stat-item"><div class="result-stat-num">600</div><div class="result-stat-label">Dormant clients activated</div></div>
+      <div class="result-card-v2 reveal reveal-d1">
+        <div class="rc-top">
+          <div class="rc-industry">Med Spa · Austin, TX</div>
+          <div class="rc-headline">22 Reactivation Bookings. $11,000 Revenue in Week 1.</div>
         </div>
-        <p class="result-body">The owner had 600 past clients collecting dust in a spreadsheet with zero active follow-up. We built a reactivation sequence targeting dormant clients with personalized treatment reminders and limited-time offers. In the first 7 days, 22 clients rebooked — generating $11,000 from leads the owner had written off as gone.</p>
-        <div class="result-location">Jessica K. · Med Spa Owner · Austin, TX</div>
+        <div class="rc-stats">
+          <div class="rc-stat"><div class="rc-stat-num">22</div><div class="rc-stat-label">Bookings in Week 1</div></div>
+          <div class="rc-stat"><div class="rc-stat-num">$11K</div><div class="rc-stat-label">Revenue in Week 1</div></div>
+          <div class="rc-stat"><div class="rc-stat-num">600</div><div class="rc-stat-label">Clients reactivated</div></div>
+        </div>
+        <div class="rc-body">
+          <p>The owner had 600 past clients collecting dust in a spreadsheet with zero active follow-up. We built a reactivation sequence targeting dormant clients with personalized treatment reminders and limited-time offers. In the first 7 days, 22 clients rebooked — generating $11,000 from leads the owner had written off as gone.</p>
+          <div class="rc-footer">Jessica K. · Med Spa Owner</div>
+        </div>
       </div>
 
-      <!-- Real Estate: compact, right bottom -->
-      <div class="result-compact">
-        <div class="result-industry">Real Estate</div>
-        <div class="result-headline">4 Extra Closed Deals. $48K in Additional Commission.</div>
-        <div class="result-stats">
-          <div class="result-stat-item"><div class="result-stat-num">4</div><div class="result-stat-label">Extra closings/quarter</div></div>
-          <div class="result-stat-item"><div class="result-stat-num">$48K</div><div class="result-stat-label">Commission gained</div></div>
-          <div class="result-stat-item"><div class="result-stat-num">70%</div><div class="result-stat-label">More leads followed up</div></div>
+      <div class="result-card-v2 reveal">
+        <div class="rc-top">
+          <div class="rc-industry">Real Estate · Dallas, TX</div>
+          <div class="rc-headline">4 Extra Closed Deals. $48K in Additional Commission.</div>
         </div>
-        <p class="result-body">This real estate team was following up with only 30% of Zillow and Realtor.com leads before their agents got overwhelmed. The AI now handles all incoming lead qualification, sorts leads by readiness, and routes hot prospects to agents. Four extra closed deals in one quarter represents $48K in commissions that would have been lost to poor follow-up.</p>
-        <div class="result-location">David T. · Real Estate Team Lead · Dallas, TX</div>
+        <div class="rc-stats">
+          <div class="rc-stat"><div class="rc-stat-num">4</div><div class="rc-stat-label">Extra closings/qtr</div></div>
+          <div class="rc-stat"><div class="rc-stat-num">$48K</div><div class="rc-stat-label">Commission gained</div></div>
+          <div class="rc-stat"><div class="rc-stat-num">70%</div><div class="rc-stat-label">More leads followed</div></div>
+        </div>
+        <div class="rc-body">
+          <p>This real estate team was following up with only 30% of Zillow and Realtor.com leads before their agents got overwhelmed. The AI now handles all incoming lead qualification, sorts leads by readiness, and routes hot prospects to agents. Four extra closed deals in one quarter represents $48K in commissions that would have been lost to poor follow-up.</p>
+          <div class="rc-footer">David T. · Real Estate Team Lead</div>
+        </div>
       </div>
 
-    </div><!-- /results-magazine -->
-
-    <!-- Regular 2-col grid for the remaining 3 cards -->
-    <div class="results-grid" style="margin-top:24px;">
-
-      <div class="result-compact reveal">
-        <div class="result-industry">Roofing Company</div>
-        <div class="result-headline">31 Booked Estimates. $68K Pipeline Built in 6 Weeks.</div>
-        <div class="result-stats">
-          <div class="result-stat-item"><div class="result-stat-num">31</div><div class="result-stat-label">Estimates booked</div></div>
-          <div class="result-stat-item"><div class="result-stat-num">$68K</div><div class="result-stat-label">Pipeline value</div></div>
-          <div class="result-stat-item"><div class="result-stat-num">6wks</div><div class="result-stat-label">Time to results</div></div>
+      <div class="result-card-v2 reveal reveal-d1">
+        <div class="rc-top">
+          <div class="rc-industry">Roofing Company · Orlando, FL</div>
+          <div class="rc-headline">31 Booked Estimates. $68K Pipeline Built in 6 Weeks.</div>
         </div>
-        <p class="result-body">After a storm season left this roofing company drowning in inbound leads they couldn't follow up with fast enough, we deployed an AI appointment setting system that responded within 90 seconds to every lead. Over 6 weeks, the system booked 31 free estimates — building a $68,000 pipeline from leads that previously went cold while waiting for a callback.</p>
-        <div class="result-location">Carlos M. · Roofing Company Owner · Orlando, FL</div>
+        <div class="rc-stats">
+          <div class="rc-stat"><div class="rc-stat-num">31</div><div class="rc-stat-label">Estimates booked</div></div>
+          <div class="rc-stat"><div class="rc-stat-num">$68K</div><div class="rc-stat-label">Pipeline value</div></div>
+          <div class="rc-stat"><div class="rc-stat-num">6wks</div><div class="rc-stat-label">Time to results</div></div>
+        </div>
+        <div class="rc-body">
+          <p>After a storm season left this roofing company drowning in inbound leads they couldn't follow up with fast enough, we deployed an AI appointment setting system that responded within 90 seconds to every lead. Over 6 weeks, the system booked 31 free estimates — building a $68,000 pipeline from leads that previously went cold.</p>
+          <div class="rc-footer">Carlos M. · Roofing Company Owner</div>
+        </div>
       </div>
 
-      <div class="result-compact reveal reveal-d1">
-        <div class="result-industry">Insurance Agency</div>
-        <div class="result-headline">89 Quote Follow-Ups Automated. 28% Conversion Rate.</div>
-        <div class="result-stats">
-          <div class="result-stat-item"><div class="result-stat-num">89</div><div class="result-stat-label">Quotes followed up</div></div>
-          <div class="result-stat-item"><div class="result-stat-num">28%</div><div class="result-stat-label">Conversion rate</div></div>
-          <div class="result-stat-item"><div class="result-stat-num">25</div><div class="result-stat-label">New policies</div></div>
+      <div class="result-card-v2 reveal">
+        <div class="rc-top">
+          <div class="rc-industry">Insurance Agency · Phoenix, AZ</div>
+          <div class="rc-headline">89 Quote Follow-Ups Automated. 28% Conversion Rate.</div>
         </div>
-        <p class="result-body">This independent insurance agency was sending quotes and never following up past the initial email — letting warm leads go cold. We built an automated quote follow-up sequence with 8 touchpoints over 21 days. Of 89 quote leads that entered the sequence, 25 converted to policies — a 28% conversion rate on leads that would otherwise have been written off.</p>
-        <div class="result-location">Sarah L. · Independent Insurance Agency · Phoenix, AZ</div>
+        <div class="rc-stats">
+          <div class="rc-stat"><div class="rc-stat-num">89</div><div class="rc-stat-label">Quotes followed up</div></div>
+          <div class="rc-stat"><div class="rc-stat-num">28%</div><div class="rc-stat-label">Conversion rate</div></div>
+          <div class="rc-stat"><div class="rc-stat-num">25</div><div class="rc-stat-label">New policies</div></div>
+        </div>
+        <div class="rc-body">
+          <p>This independent insurance agency was sending quotes and never following up past the initial email. We built an automated quote follow-up sequence with 8 touchpoints over 21 days. Of 89 quote leads that entered the sequence, 25 converted to policies — a 28% conversion rate on leads that would otherwise have been written off.</p>
+          <div class="rc-footer">Sarah L. · Independent Insurance Agency</div>
+        </div>
       </div>
 
-      <div class="result-compact reveal">
-        <div class="result-industry">Home Services</div>
-        <div class="result-headline">19 Jobs Recovered From Missed Calls Alone.</div>
-        <div class="result-stats">
-          <div class="result-stat-item"><div class="result-stat-num">19</div><div class="result-stat-label">Jobs recovered</div></div>
-          <div class="result-stat-item"><div class="result-stat-num">18s</div><div class="result-stat-label">Avg text-back time</div></div>
-          <div class="result-stat-item"><div class="result-stat-num">$34K</div><div class="result-stat-label">Revenue from missed calls</div></div>
+      <div class="result-card-v2 reveal reveal-d1">
+        <div class="rc-top">
+          <div class="rc-industry">Home Services · Chicago, IL</div>
+          <div class="rc-headline">19 Jobs Recovered From Missed Calls Alone.</div>
         </div>
-        <p class="result-body">A Chicago-based home services company (plumbing + electrical) was losing 30+ calls a week to voicemail with no text-back system. We deployed missed call text-back automation that fires within 18 seconds of every unanswered call. In the first 60 days, 19 jobs were recovered from calls that would have hung up and dialed a competitor — generating $34K in previously invisible revenue.</p>
-        <div class="result-location">Tom B. · Home Services · Chicago, IL</div>
+        <div class="rc-stats">
+          <div class="rc-stat"><div class="rc-stat-num">19</div><div class="rc-stat-label">Jobs recovered</div></div>
+          <div class="rc-stat"><div class="rc-stat-num">18s</div><div class="rc-stat-label">Avg text-back time</div></div>
+          <div class="rc-stat"><div class="rc-stat-num">$34K</div><div class="rc-stat-label">Revenue recovered</div></div>
+        </div>
+        <div class="rc-body">
+          <p>A Chicago-based home services company was losing 30+ calls a week to voicemail with no text-back system. We deployed missed call text-back automation that fires within 18 seconds of every unanswered call. In the first 60 days, 19 jobs were recovered from calls that would have hung up and dialed a competitor — generating $34K in previously invisible revenue.</p>
+          <div class="rc-footer">Tom B. · Home Services Owner</div>
+        </div>
       </div>
 
-    </div><!-- /results-grid -->
+    </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ═══ TESTIMONIALS — Staggered ═══ -->
-<section class="section" aria-labelledby="testimonials-h2">
+<!-- ═══ TESTIMONIALS ═══ -->
+<section class="section band-dark" aria-labelledby="testimonials-h2">
   <div class="container">
     <div class="section-header center reveal">
       <div class="label">What They're Saying</div>
       <h2 id="testimonials-h2">In Their Own Words</h2>
     </div>
-    <div class="testimonial-stagger">
+    <div class="grid-3">
       <div class="testimonial-card reveal">
         <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
         <p class="testimonial-text">"We were missing probably 40% of our leads after hours. NovaOps set up a system that now texts every lead within a minute. We booked 15 extra jobs last month — that's $45K we would've left on the table."</p>
         <div class="testimonial-author">
           <div class="author-avatar" style="background:linear-gradient(135deg,var(--teal),var(--blue))">M</div>
-          <div>
-            <div class="author-name">Mike R.</div>
-            <div class="author-title">HVAC Company · Tampa, FL</div>
-          </div>
+          <div><div class="author-name">Mike R.</div><div class="author-title">HVAC Company · Tampa, FL</div></div>
         </div>
       </div>
       <div class="testimonial-card reveal reveal-d1">
@@ -305,10 +277,7 @@
         <p class="testimonial-text">"I had 600 past clients nobody was following up with. One reactivation campaign brought in 22 bookings in a week. That's $11,000 from leads I thought were dead."</p>
         <div class="testimonial-author">
           <div class="author-avatar" style="background:linear-gradient(135deg,var(--gold),#e06c00)">J</div>
-          <div>
-            <div class="author-name">Jessica K.</div>
-            <div class="author-title">Med Spa Owner · Austin, TX</div>
-          </div>
+          <div><div class="author-name">Jessica K.</div><div class="author-title">Med Spa Owner · Austin, TX</div></div>
         </div>
       </div>
       <div class="testimonial-card reveal reveal-d2">
@@ -316,10 +285,7 @@
         <p class="testimonial-text">"Our team followed up with maybe 30% of Zillow leads. The AI handles all of it now — qualifies, sorts, and pings agents only when someone is ready to act. Four extra closed deals last quarter."</p>
         <div class="testimonial-author">
           <div class="author-avatar" style="background:linear-gradient(135deg,var(--blue),#7c3aed)">D</div>
-          <div>
-            <div class="author-name">David T.</div>
-            <div class="author-title">Real Estate Team Lead · Dallas, TX</div>
-          </div>
+          <div><div class="author-name">David T.</div><div class="author-title">Real Estate Team Lead · Dallas, TX</div></div>
         </div>
       </div>
     </div>
@@ -331,12 +297,12 @@
 <!-- ═══ BOOK A CALL ═══ -->
 <section class="section" aria-labelledby="results-book-h2">
   <div class="container">
-    <div class="calendar-section-v5 reveal">
+    <div class="cal-section reveal">
       <div class="label" style="justify-content:center;margin-bottom:14px;">Get Results Like These</div>
       <h2 id="results-book-h2">See What AI Automation Can Do for Your Business</h2>
       <p>Book a free 30-minute strategy call. We'll show you exactly how much revenue your business is losing and what a NovaOps system would recover — for your specific industry.</p>
       <a href="https://tally.so/r/xXQa95" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Book Free Strategy Call →</a>
-      <div class="calendar-embed" aria-label="Booking Calendar">Booking Calendar</div>
+      <div class="cal-embed" aria-label="Booking Calendar">Booking Calendar</div>
     </div>
   </div>
 </section>
@@ -355,7 +321,6 @@
 
 </main>
 
-<!-- ═══ FOOTER ═══ -->
 <footer role="contentinfo">
   <div class="container">
     <div class="footer-grid">
@@ -363,49 +328,20 @@
         <a href="index.html" class="nav-logo">
           <svg class="nav-logo-svg" viewBox="0 0 34 34" fill="none" aria-hidden="true">
             <rect width="34" height="34" rx="8" fill="url(#lgft)"/>
-            <path d="M9 24V10l8 9 8-9v14" stroke="#04060a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <defs><linearGradient id="lgft" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse"><stop stop-color="#00e5c8"/><stop offset="1" stop-color="#1a7bff"/></linearGradient></defs>
+            <path d="M9 24V10l8 9 8-9v14" stroke="#06040f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs><linearGradient id="lgft" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse"><stop stop-color="#a78bfa"/><stop offset="1" stop-color="#c084fc"/></linearGradient></defs>
           </svg>
           <span class="nav-logo-name">Nova<span>Ops</span> AI</span>
         </a>
         <p>Done-for-you AI automation for local businesses. We build, manage, and optimize — you close the appointments we send.</p>
         <a href="https://tally.so/r/xXQa95" target="_blank" class="btn btn-ghost btn-sm">Book Free Call</a>
       </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <a href="services/ai-appointment-setting.html">AI Appointment Setting</a>
-        <a href="services/ai-follow-up.html">AI Follow-Up</a>
-        <a href="services/crm-automation.html">CRM Automation</a>
-        <a href="services/sms-automation.html">SMS Automation</a>
-        <a href="services/voice-ai.html">Voice AI</a>
-      </div>
-      <div class="footer-col">
-        <h4>Industries</h4>
-        <a href="industries/ai-automation-for-roofers.html">Roofing</a>
-        <a href="industries/ai-automation-for-med-spas.html">Med Spas</a>
-        <a href="industries/ai-automation-for-home-services.html">Home Services</a>
-        <a href="industries/ai-automation-for-solar-companies.html">Solar</a>
-        <a href="industries/ai-automation-for-real-estate.html">Real Estate</a>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <a href="about.html">About Us</a>
-        <a href="results.html">Results</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <a href="tel:8482055940">848-205-5940</a>
-        <a href="mailto:ansh102104@gmail.com">ansh102104@gmail.com</a>
-        <a href="https://tally.so/r/xXQa95" target="_blank">Book a Strategy Call</a>
-      </div>
+      <div class="footer-col"><h4>Services</h4><a href="services/ai-appointment-setting.html">AI Appointment Setting</a><a href="services/ai-follow-up.html">AI Follow-Up</a><a href="services/crm-automation.html">CRM Automation</a><a href="services/sms-automation.html">SMS Automation</a><a href="services/voice-ai.html">Voice AI</a></div>
+      <div class="footer-col"><h4>Industries</h4><a href="industries/ai-automation-for-roofers.html">Roofing</a><a href="industries/ai-automation-for-med-spas.html">Med Spas</a><a href="industries/ai-automation-for-home-services.html">Home Services</a><a href="industries/ai-automation-for-solar-companies.html">Solar</a><a href="industries/ai-automation-for-real-estate.html">Real Estate</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="about.html">About Us</a><a href="results.html">Results</a><a href="pricing.html">Pricing</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="tel:8482055940">848-205-5940</a><a href="mailto:ansh102104@gmail.com">ansh102104@gmail.com</a><a href="https://tally.so/r/xXQa95" target="_blank">Book a Strategy Call</a></div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2025 NovaOps AI. All rights reserved.</span>
-      <span>AI Automation — Results Guaranteed</span>
-    </div>
+    <div class="footer-bottom"><span>© 2025 NovaOps AI. All rights reserved.</span><span>AI Automation — Results Guaranteed</span></div>
   </div>
 </footer>
 
