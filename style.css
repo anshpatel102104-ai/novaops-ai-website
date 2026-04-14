@@ -566,6 +566,73 @@ a, button, [role='button'], input, textarea, select {
 .nav-links > li:hover .nav-chevron { transform: rotate(180deg); }
 .nav-cta { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
 
+/* ── CLICK DROPDOWN OVERRIDES ── */
+.nav-drop-btn {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  font-weight: 500;
+  font-size: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  letter-spacing: inherit;
+}
+
+.has-dropdown .nav-dropdown {
+  display: none;
+  pointer-events: none;
+}
+
+.has-dropdown.open .nav-dropdown {
+  display: block;
+  pointer-events: auto;
+}
+
+.nav-chevron {
+  transition: transform 0.2s ease;
+}
+
+.has-dropdown.open .nav-chevron {
+  transform: rotate(180deg);
+}
+
+/* Mobile drop groups */
+.mobile-drop-group { width: 100%; }
+
+.mobile-drop-btn {
+  width: 100%;
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.mobile-drop-list {
+  display: none;
+  flex-direction: column;
+  padding: 4px 0 8px 16px;
+  gap: 2px;
+}
+
+.mobile-drop-group.open .mobile-drop-list {
+  display: flex;
+}
+
+.mobile-drop-group.open .nav-chevron {
+  transform: rotate(180deg);
+}
+
 .hamburger {
   display: none;
   flex-direction: column;
