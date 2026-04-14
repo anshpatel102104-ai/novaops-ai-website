@@ -6,8 +6,7 @@
   <title>AI Automation Pricing — Performance-Based, Done-For-You &amp; Monthly | NovaOps AI</title>
   <meta name="description" content="Three ways to work with NovaOps AI: rev-share (pay only on results), done-for-you one-time build, or monthly managed retainer. All backed by our 10-appointment guarantee.">
   <link rel="canonical" href="https://novaopsai.com/pricing">
-  <meta property="og:title" content="AI Automation Pricing — Performance-Based, Done-For-You &amp; Monthly | NovaOps AI">
-  <meta property="og:description" content="NovaOps AI offers three transparent pricing options. All plans come with our guarantee: 10 booked appointments in 30 days or we work free.">
+  <meta property="og:title" content="AI Automation Pricing | NovaOps AI">
   <meta property="og:url" content="https://novaopsai.com/pricing">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,159 +14,51 @@
   <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,600,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* ── Pricing page: fixed vars + editorial cards ── */
-    .pricing-comparison-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 32px;
-      font-size: 14px;
-    }
-    .pricing-comparison-table th,
-    .pricing-comparison-table td {
-      padding: 14px 16px;
-      border-bottom: 1px solid var(--border-2);
-      text-align: left;
-    }
-    .pricing-comparison-table th {
-      background: var(--bg-2);
-      font-weight: 700;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.10em;
-      color: var(--text-3);
-      font-family: var(--f-mono);
-    }
-    .pricing-comparison-table th:first-child { border-radius: 8px 0 0 0; }
-    .pricing-comparison-table th:last-child { border-radius: 0 8px 0 0; }
-    .pricing-comparison-table td:not(:first-child) { text-align: center; }
-    .pricing-comparison-table th:not(:first-child) { text-align: center; }
-    .pricing-comparison-table tr:last-child td { border-bottom: none; }
-    .pricing-comparison-table tr:hover td { background: var(--bg-3); }
-    .check-yes { color: var(--teal); font-size: 18px; }
-    .check-no  { color: var(--text-3); font-size: 18px; }
-    .pricing-table-wrap { overflow-x: auto; border: 1px solid var(--border-2); border-radius: 16px; }
-
-    /* ── 3-col pricing with featured center taller ── */
-    .pricing-editorial {
+    /* PRICING — Clean Spacious Lavender */
+    .pricing-hero-inner {
       display: grid;
-      grid-template-columns: 1fr 1.08fr 1fr;
-      gap: 20px;
-      align-items: start;
+      grid-template-columns: 1fr auto;
+      gap: 64px;
+      align-items: center;
     }
-    @media (max-width: 900px) { .pricing-editorial { grid-template-columns: 1fr; } }
-
-    .pricing-card-e {
+    .pricing-hero-pill-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-width: 260px;
+    }
+    .risk-pill {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
       background: var(--bg-card);
       border: 1px solid var(--border-2);
-      border-radius: 20px;
-      padding: 36px 30px;
-      position: relative;
-      transition: transform var(--t), box-shadow var(--t), border-color var(--t);
-    }
-    .pricing-card-e:hover { transform: translateY(-4px); box-shadow: var(--shadow-card); }
-    .pricing-card-e.featured {
-      border-color: var(--teal);
-      background: linear-gradient(160deg, rgba(124,58,237,0.06) 0%, var(--bg-card) 55%);
-      box-shadow: 0 0 60px rgba(124,58,237,0.10);
-      padding: 44px 30px;
-    }
-    .pricing-badge-e {
-      position: absolute;
-      top: -13px; left: 50%;
-      transform: translateX(-50%);
-      background: var(--teal);
-      color: #ffffff;
-      font-family: var(--f-mono);
-      font-size: 9.5px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      padding: 4px 16px;
-      border-radius: 99px;
-      white-space: nowrap;
-    }
-    .pricing-tier-e {
-      font-family: var(--f-mono);
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--text-3);
-      margin-bottom: 6px;
-    }
-    .pricing-name-e {
-      font-family: var(--f-display);
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--text);
-    }
-    .pricing-price-e {
-      font-family: var(--f-display);
-      font-size: 40px;
-      font-weight: 800;
-      color: var(--text);
-      line-height: 1;
-      letter-spacing: -0.03em;
-      margin: 16px 0 4px;
-    }
-    .pricing-price-e span {
-      font-size: 14px;
-      font-weight: 400;
-      color: var(--text-3);
-    }
-    .pricing-desc-e {
-      font-size: 13.5px;
-      color: var(--text-2);
-      margin-bottom: 22px;
-      padding-bottom: 22px;
-      border-bottom: 1px solid var(--border-2);
-      line-height: 1.68;
-    }
-
-    /* ── ROI big numbers ── */
-    .roi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    @media (max-width: 860px) { .roi-grid { grid-template-columns: 1fr; } }
-    .roi-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-2);
-      border-radius: 16px;
-      padding: 32px;
+      border-radius: var(--r-md);
       transition: border-color var(--t), transform var(--t);
     }
-    .roi-card:hover { border-color: var(--border); transform: translateY(-3px); }
-    .roi-industry {
-      font-family: var(--f-mono);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--teal);
-      margin-bottom: 10px;
-    }
-    .roi-headline { font-size: 19px; font-weight: 800; margin-bottom: 20px; color: var(--text); }
-    .roi-math p {
-      display: flex;
-      justify-content: space-between;
-      font-size: 13.5px;
-      color: var(--text-2);
-      padding: 7px 0;
-      border-bottom: 1px solid var(--border-3);
-    }
-    .roi-math p:last-child {
-      border-bottom: none;
-      font-weight: 700;
-      color: var(--teal);
-      font-size: 15px;
+    .risk-pill:hover { border-color: var(--border); transform: translateX(4px); }
+    .risk-pill-icon { font-size: 20px; flex-shrink: 0; }
+    .risk-pill-text { font-size: 13px; font-weight: 600; color: var(--text); font-family: var(--f-display); }
+    .risk-pill-sub { font-size: 11px; color: var(--text-3); font-family: var(--f-mono); }
+
+    /* Pricing card shimmer */
+    .pricing-card-e.featured { overflow: hidden; }
+    .pricing-card-e.featured::after {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: linear-gradient(115deg, transparent 40%, rgba(255,255,255,0.05) 50%, transparent 60%);
+      animation: shimmer 5s ease-in-out infinite;
+      pointer-events: none;
     }
 
-    /* CALENDAR */
-    .cal-section{background:var(--bg-2);border:1px solid var(--border-2);border-radius:var(--r-xl);padding:clamp(36px,4vw,56px);text-align:center;}
-    .cal-embed{background:var(--bg-card);border:1px dashed var(--border);border-radius:var(--r-lg);min-height:400px;display:flex;align-items:center;justify-content:center;font-family:var(--f-mono);font-size:12px;color:var(--text-3);letter-spacing:.08em;text-transform:uppercase;margin-top:24px;position:relative;overflow:hidden;}
-    .cal-embed::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--teal-dim) 0%,transparent 60%);pointer-events:none;}
-    /* Pricing card shimmer on featured */
-    .pricing-card-e.featured{overflow:hidden;}
-    /* ROI card hover */
-    .roi-card{transition:border-color var(--t),transform var(--t)!important;}
-    .roi-card:hover{transform:translateY(-4px)!important;border-color:rgba(124,58,237,0.28)!important;}
+    @media (max-width: 860px) {
+      .pricing-hero-inner { grid-template-columns: 1fr; }
+      .pricing-hero-pill-stack { flex-direction: row; flex-wrap: wrap; }
+      .risk-pill { flex: 1; min-width: 200px; }
+    }
   </style>
 </head>
 <body>
@@ -200,13 +91,12 @@
     </button>
   </div>
 </nav>
-
 <nav class="mobile-drawer" id="mobile-drawer" aria-label="Mobile navigation">
   <a href="index.html">Home</a>
   <a href="services.html">Services</a>
   <a href="industries.html">Industries</a>
   <a href="results.html">Results</a>
-  <a href="pricing.html">Pricing</a>
+  <a href="pricing.html" class="active">Pricing</a>
   <a href="about.html">About</a>
   <a href="faq.html">FAQ</a>
   <a href="contact.html">Contact</a>
@@ -220,48 +110,65 @@
 
 <!-- ═══ PAGE HERO ═══ -->
 <section class="page-hero" aria-labelledby="pricing-h1">
+  <div class="page-hero-glow" aria-hidden="true"></div>
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="index.html">Home</a>
       <span aria-hidden="true">›</span>
       <span aria-current="page">Pricing</span>
     </nav>
-    <div class="label reveal">Transparent Pricing</div>
-    <h1 id="pricing-h1" class="reveal">Three Ways to Work With Us.<br>All Backed by <span class="gradient-text">Our Guarantee.</span></h1>
-    <p class="page-hero-sub reveal">Choose the model that fits your risk tolerance and growth stage. From performance-based (pay only on results) to fully managed monthly — every plan includes our 10-appointment guarantee.</p>
-  </div>
-</section>
-
-<!-- ═══ GUARANTEE — OVERSIZED BANNER ═══ -->
-<section class="section-sm" aria-label="Guarantee">
-  <div class="container">
-    <div class="guarantee-oversized reveal">
-      <div class="guarantee-icon">🏆</div>
-      <h3><strong>Our Promise:</strong> 10 Booked Appointments in 30 Days — or We Work Free Until You Get Them</h3>
+    <div class="pricing-hero-inner">
+      <div>
+        <div class="label reveal">Transparent Pricing</div>
+        <h1 id="pricing-h1" class="reveal">Three Ways to Work With Us.<br>All Backed by <span class="gradient-text">Our Guarantee.</span></h1>
+        <p class="page-hero-sub reveal">From performance-based (pay only on results) to fully managed monthly — every plan includes our 10-appointment guarantee.</p>
+        <div style="margin-top:28px;" class="reveal">
+          <div class="guarantee-pill" style="margin-top:0;">🏆 &nbsp;10 Appointments in 30 Days — or We Work Free</div>
+        </div>
+      </div>
+      <div class="pricing-hero-pill-stack reveal">
+        <div class="risk-pill">
+          <div class="risk-pill-icon">🛡️</div>
+          <div>
+            <div class="risk-pill-text">Zero Risk Entry</div>
+            <div class="risk-pill-sub">Rev-share — pay on results</div>
+          </div>
+        </div>
+        <div class="risk-pill">
+          <div class="risk-pill-icon">⚡</div>
+          <div>
+            <div class="risk-pill-text">Own It Forever</div>
+            <div class="risk-pill-sub">Done-for-you one-time build</div>
+          </div>
+        </div>
+        <div class="risk-pill">
+          <div class="risk-pill-icon">🔄</div>
+          <div>
+            <div class="risk-pill-text">Fully Hands-Off</div>
+            <div class="risk-pill-sub">Monthly managed retainer</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ═══ PRICING CARDS — BIG PRICE ANCHORS ═══ -->
+<!-- ═══ PRICING CARDS ═══ -->
 <section class="section" aria-labelledby="plans-h2">
   <div class="container">
     <div class="section-header center reveal">
       <div class="label">Plans</div>
       <h2 id="plans-h2">Pick Your Path to AI-Automated Revenue</h2>
     </div>
-    <div class="pricing-v5 reveal">
+    <div class="pricing-editorial reveal">
 
-      <!-- Rev-Share -->
-      <div class="price-card-v5">
-        <div class="price-tier-label">Performance-Based</div>
-        <div class="price-card-name">Rev-Share</div>
-        <div class="price-big">$0–997</div>
-        <div class="price-unit">setup</div>
-        <div class="price-card-desc">
-          Then 10–20% of revenue generated by the system. You pay only when we deliver results.
-        </div>
+      <div class="pricing-card-e">
+        <div class="pricing-tier-e">Performance-Based</div>
+        <div class="pricing-name-e">Rev-Share</div>
+        <div class="pricing-price-e">$0–997<span> setup</span></div>
+        <div class="pricing-desc-e">Then 10–20% of revenue generated by the system. You pay only when we deliver results.</div>
         <ul class="checklist">
           <li>Zero upfront risk</li>
           <li>AI follow-up &amp; appointment setting</li>
@@ -276,16 +183,12 @@
         </div>
       </div>
 
-      <!-- Done-For-You (Featured) -->
-      <div class="price-card-v5 featured">
-        <div class="price-popular-badge">MOST POPULAR</div>
-        <div class="price-tier-label">One-Time Build</div>
-        <div class="price-card-name">Done-For-You</div>
-        <div class="price-big">Pricing on Call</div>
-        <div class="price-unit">one-time</div>
-        <div class="price-card-desc">
-          Full system built, tested, and launched. You own it forever. Optional monthly optimization add-on available.
-        </div>
+      <div class="pricing-card-e featured">
+        <div class="pricing-badge-e">MOST POPULAR</div>
+        <div class="pricing-tier-e">One-Time Build</div>
+        <div class="pricing-name-e">Done-For-You</div>
+        <div class="pricing-price-e">Pricing on Call<span> one-time</span></div>
+        <div class="pricing-desc-e">Full system built, tested, and launched. You own it forever. Optional monthly optimization add-on available.</div>
         <ul class="checklist">
           <li>Everything in Rev-Share</li>
           <li>Complete AI follow-up sequences (90-day)</li>
@@ -301,15 +204,11 @@
         </div>
       </div>
 
-      <!-- Monthly Retainer -->
-      <div class="price-card-v5">
-        <div class="price-tier-label">Fully Managed</div>
-        <div class="price-card-name">Monthly Retainer</div>
-        <div class="price-big">Pricing on Call</div>
-        <div class="price-unit">/month</div>
-        <div class="price-card-desc">
-          We run your entire AI system — build, manage, optimize, and report monthly. Completely hands-off for you.
-        </div>
+      <div class="pricing-card-e">
+        <div class="pricing-tier-e">Fully Managed</div>
+        <div class="pricing-name-e">Monthly Retainer</div>
+        <div class="pricing-price-e">Pricing on Call<span>/month</span></div>
+        <div class="pricing-desc-e">We run your entire AI system — build, manage, optimize, and report monthly. Completely hands-off for you.</div>
         <ul class="checklist">
           <li>Everything in Done-For-You</li>
           <li>Ongoing AI prompt optimization</li>
@@ -332,14 +231,14 @@
 <div class="divider"></div>
 
 <!-- ═══ COMPARISON TABLE ═══ -->
-<section class="section" aria-labelledby="compare-h2">
+<section class="section band-dark" aria-labelledby="compare-h2">
   <div class="container">
     <div class="section-header center reveal">
       <div class="label">Compare Plans</div>
       <h2 id="compare-h2">See What's Included in Each Plan</h2>
     </div>
     <div class="pricing-table-wrap reveal">
-      <table class="pricing-comparison-table" role="table">
+      <table class="comparison-table" role="table">
         <thead>
           <tr>
             <th scope="col">Feature</th>
@@ -349,24 +248,19 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>AI Appointment Setting</td><td><span class="check-yes" aria-label="Included">✓</span></td><td><span class="check-yes" aria-label="Included">✓</span></td><td><span class="check-yes" aria-label="Included">✓</span></td></tr>
-          <tr><td>Missed Call Text-Back</td><td><span class="check-yes" aria-label="Included">✓</span></td><td><span class="check-yes" aria-label="Included">✓</span></td><td><span class="check-yes" aria-label="Included">✓</span></td></tr>
-          <tr><td>CRM Setup &amp; Integration</td><td><span class="check-yes" aria-label="Included">✓</span></td><td><span class="check-yes" aria-label="Included">✓</span></td><td><span class="check-yes" aria-label="Included">✓</span></td></tr>
-          <tr><td>90-Day Follow-Up Sequences</td><td><span class="check-no" aria-label="Not included">—</span></td><td><span class="check-yes" aria-label="Included">✓</span></td><td><span class="check-yes" aria-label="Included">✓</span></td></tr>
-          <tr><td>Lead Qualification AI</td><td><span class="check-no" aria-label="Not included">—</span></td><td><span class="check-yes" aria-label="Included">✓</span></td><td><span class="check-yes" aria-label="Included">✓</span></td></tr>
-          <tr><td>Voice AI</td><td><span class="check-no" aria-label="Not included">—</span></td><td><span class="check-yes" aria-label="Included">✓</span></td><td><span class="check-yes" aria-label="Included">✓</span></td></tr>
-          <tr><td>Custom Reporting Dashboard</td><td><span class="check-no" aria-label="Not included">—</span></td><td><span class="check-yes" aria-label="Included">✓</span></td><td><span class="check-yes" aria-label="Included">✓</span></td></tr>
-          <tr><td>Monthly Optimization</td><td><span class="check-no" aria-label="Not included">—</span></td><td><span class="check-no" aria-label="Not included">—</span></td><td><span class="check-yes" aria-label="Included">✓</span></td></tr>
-          <tr><td>Monthly Strategy Call</td><td><span class="check-no" aria-label="Not included">—</span></td><td><span class="check-no" aria-label="Not included">—</span></td><td><span class="check-yes" aria-label="Included">✓</span></td></tr>
-          <tr><td>Reactivation Campaigns</td><td><span class="check-no" aria-label="Not included">—</span></td><td><span class="check-no" aria-label="Not included">—</span></td><td><span class="check-yes" aria-label="Included">✓</span></td></tr>
-          <tr><td>Priority Same-Day Support</td><td><span class="check-no" aria-label="Not included">—</span></td><td><span class="check-no" aria-label="Not included">—</span></td><td><span class="check-yes" aria-label="Included">✓</span></td></tr>
-          <tr><td>You Own the System</td><td><span class="check-no" aria-label="Not included">—</span></td><td><span class="check-yes" aria-label="Included">✓</span></td><td><span class="check-yes" aria-label="Included">✓</span></td></tr>
-          <tr>
-            <td><strong>10-Appointment Guarantee</strong></td>
-            <td><span class="check-yes" aria-label="Included">✓</span></td>
-            <td><span class="check-yes" aria-label="Included">✓</span></td>
-            <td><span class="check-yes" aria-label="Included">✓</span></td>
-          </tr>
+          <tr><td>AI Appointment Setting</td><td><span class="check-yes" aria-label="Included">✓</span></td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+          <tr><td>Missed Call Text-Back</td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+          <tr><td>CRM Setup &amp; Integration</td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+          <tr><td>90-Day Follow-Up Sequences</td><td><span class="check-no" aria-label="Not included">—</span></td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+          <tr><td>Lead Qualification AI</td><td><span class="check-no">—</span></td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+          <tr><td>Voice AI</td><td><span class="check-no">—</span></td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+          <tr><td>Custom Reporting Dashboard</td><td><span class="check-no">—</span></td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+          <tr><td>Monthly Optimization</td><td><span class="check-no">—</span></td><td><span class="check-no">—</span></td><td><span class="check-yes">✓</span></td></tr>
+          <tr><td>Monthly Strategy Call</td><td><span class="check-no">—</span></td><td><span class="check-no">—</span></td><td><span class="check-yes">✓</span></td></tr>
+          <tr><td>Reactivation Campaigns</td><td><span class="check-no">—</span></td><td><span class="check-no">—</span></td><td><span class="check-yes">✓</span></td></tr>
+          <tr><td>Priority Same-Day Support</td><td><span class="check-no">—</span></td><td><span class="check-no">—</span></td><td><span class="check-yes">✓</span></td></tr>
+          <tr><td>You Own the System</td><td><span class="check-no">—</span></td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
+          <tr><td><strong>10-Appointment Guarantee</strong></td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -375,7 +269,7 @@
 
 <div class="divider"></div>
 
-<!-- ═══ ROI MATH — ACCENT BLOCKS ═══ -->
+<!-- ═══ ROI MATH ═══ -->
 <section class="section" aria-labelledby="roi-h2">
   <div class="container">
     <div class="section-header center reveal">
@@ -383,8 +277,8 @@
       <h2 id="roi-h2">What's the ROI? Let's Do the Numbers.</h2>
       <p>Conservative estimates based on real client results — not best-case projections.</p>
     </div>
-    <div class="roi-split reveal">
-      <div class="roi-block">
+    <div class="roi-grid reveal">
+      <div class="roi-card">
         <div class="roi-industry">HVAC Company</div>
         <div class="roi-headline">15 Extra Jobs/Month</div>
         <div class="roi-math">
@@ -395,7 +289,7 @@
           <p><span>ROI</span><span>18x+</span></p>
         </div>
       </div>
-      <div class="roi-block">
+      <div class="roi-card">
         <div class="roi-industry">Med Spa</div>
         <div class="roi-headline">22 Reactivation Bookings</div>
         <div class="roi-math">
@@ -406,7 +300,7 @@
           <p><span>ROI (first week alone)</span><span>2.2x+</span></p>
         </div>
       </div>
-      <div class="roi-block">
+      <div class="roi-card">
         <div class="roi-industry">Real Estate Team</div>
         <div class="roi-headline">4 Extra Closings/Quarter</div>
         <div class="roi-math">
@@ -423,95 +317,58 @@
 
 <div class="divider"></div>
 
-<!-- ═══ PRICING FAQ ═══ -->
-<section class="section" aria-labelledby="pricing-faq-h2">
+<!-- ═══ FAQ ═══ -->
+<section class="section band-dark" aria-labelledby="pricing-faq-h2">
   <div class="container">
     <div class="section-header center reveal">
       <div class="label">FAQ</div>
       <h2 id="pricing-faq-h2">Common Pricing Questions</h2>
     </div>
     <div class="reveal" style="max-width:760px;margin:0 auto;">
-
       <div class="faq-item">
-        <button class="faq-trigger" aria-expanded="false">
-          Is there a contract or lock-in?
-          <span class="faq-icon" aria-hidden="true">+</span>
-        </button>
-        <div class="faq-body">
-          <p>The Rev-Share plan runs month-to-month after the first 30 days. The Done-For-You plan is a one-time engagement — you own the system with no ongoing commitment. The Monthly Retainer requires 60 days notice to cancel. No long-term lock-ins.</p>
-        </div>
+        <button class="faq-trigger" aria-expanded="false">Is there a contract or lock-in?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-body"><p>The Rev-Share plan runs month-to-month after the first 30 days. The Done-For-You plan is a one-time engagement — you own the system with no ongoing commitment. The Monthly Retainer requires 60 days notice to cancel. No long-term lock-ins.</p></div>
       </div>
-
       <div class="faq-item">
-        <button class="faq-trigger" aria-expanded="false">
-          What if I don't get the 10 appointments in 30 days?
-          <span class="faq-icon" aria-hidden="true">+</span>
-        </button>
-        <div class="faq-body">
-          <p>We continue working at zero charge until you do. This isn't a marketing promise — it's in our service agreement. If the system doesn't perform, we optimize, rebuild, or pivot at our cost, not yours.</p>
-        </div>
+        <button class="faq-trigger" aria-expanded="false">What if I don't get the 10 appointments in 30 days?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-body"><p>We continue working at zero charge until you do. This isn't a marketing promise — it's in our service agreement. If the system doesn't perform, we optimize, rebuild, or pivot at our cost, not yours.</p></div>
       </div>
-
       <div class="faq-item">
-        <button class="faq-trigger" aria-expanded="false">
-          What does "revenue generated" mean in the Rev-Share plan?
-          <span class="faq-icon" aria-hidden="true">+</span>
-        </button>
-        <div class="faq-body">
-          <p>We attribute revenue to the AI system using tracking tags on leads, appointments booked through the system, and deal close data from your CRM. We work with you to agree on the attribution model before launch so there are no disputes.</p>
-        </div>
+        <button class="faq-trigger" aria-expanded="false">What does "revenue generated" mean in the Rev-Share plan?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-body"><p>We attribute revenue to the AI system using tracking tags on leads, appointments booked through the system, and deal close data from your CRM. We work with you to agree on the attribution model before launch so there are no disputes.</p></div>
       </div>
-
       <div class="faq-item">
-        <button class="faq-trigger" aria-expanded="false">
-          Are there any platform or tool costs on top of these prices?
-          <span class="faq-icon" aria-hidden="true">+</span>
-        </button>
-        <div class="faq-body">
-          <p>GoHighLevel runs ~$97–$297/month depending on your plan. Twilio SMS costs are typically $20–$80/month based on volume. We help you set these up at the lowest appropriate tier. All costs are disclosed upfront — no hidden fees.</p>
-        </div>
+        <button class="faq-trigger" aria-expanded="false">Are there any platform or tool costs on top of these prices?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-body"><p>GoHighLevel runs ~$97–$297/month depending on your plan. Twilio SMS costs are typically $20–$80/month based on volume. We help you set these up at the lowest appropriate tier. All costs are disclosed upfront — no hidden fees.</p></div>
       </div>
-
       <div class="faq-item">
-        <button class="faq-trigger" aria-expanded="false">
-          Can I upgrade from one plan to another?
-          <span class="faq-icon" aria-hidden="true">+</span>
-        </button>
-        <div class="faq-body">
-          <p>Yes. Many clients start on Rev-Share to validate results, then move to Done-For-You or Monthly Retainer as revenue grows. We credit the setup fee against the build cost when you upgrade.</p>
-        </div>
+        <button class="faq-trigger" aria-expanded="false">Can I upgrade from one plan to another?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-body"><p>Yes. Many clients start on Rev-Share to validate results, then move to Done-For-You or Monthly Retainer as revenue grows. We credit the setup fee against the build cost when you upgrade.</p></div>
       </div>
-
       <div class="faq-item">
-        <button class="faq-trigger" aria-expanded="false">
-          Do you offer custom pricing for agencies or multi-location businesses?
-          <span class="faq-icon" aria-hidden="true">+</span>
-        </button>
-        <div class="faq-body">
-          <p>Yes. For businesses with multiple locations, franchises, or agencies wanting to resell our systems, we have custom volume pricing. Book a strategy call to discuss your specific situation.</p>
-        </div>
+        <button class="faq-trigger" aria-expanded="false">Do you offer custom pricing for agencies or multi-location businesses?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-body"><p>Yes. For businesses with multiple locations, franchises, or agencies wanting to resell our systems, we have custom volume pricing. Book a strategy call to discuss your specific situation.</p></div>
       </div>
-
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ═══ CALENDAR SECTION ═══ -->
+<!-- ═══ BOOK A CALL ═══ -->
 <section class="section" aria-labelledby="pricing-book-h2">
   <div class="container">
-    <div class="calendar-section-v5 reveal">
+    <div class="cal-section reveal">
       <div class="label" style="justify-content:center;margin-bottom:14px;">Lock In Your Pricing</div>
       <h2 id="pricing-book-h2">Not Sure Which Plan Is Right? Talk to Us First.</h2>
       <p>Book a free 30-minute strategy call. We'll help you pick the right option based on your lead volume, business size, and revenue goals — zero sales pressure.</p>
       <a href="https://tally.so/r/xXQa95" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Book Free Strategy Call →</a>
-      <div class="calendar-embed" aria-label="Booking Calendar">Booking Calendar</div>
+      <div class="cal-embed" aria-label="Booking Calendar">Booking Calendar</div>
     </div>
   </div>
 </section>
 
-<!-- ═══ CTA BANNER ═══ -->
+<!-- ═══ CTA ═══ -->
 <section class="section" aria-labelledby="pricing-cta-h2">
   <div class="container">
     <div class="cta-banner reveal">
@@ -525,7 +382,6 @@
 
 </main>
 
-<!-- ═══ FOOTER ═══ -->
 <footer role="contentinfo">
   <div class="container">
     <div class="footer-grid">
@@ -541,41 +397,12 @@
         <p>Done-for-you AI automation for local businesses. We build, manage, and optimize — you close the appointments we send.</p>
         <a href="https://tally.so/r/xXQa95" target="_blank" class="btn btn-ghost btn-sm">Book Free Call</a>
       </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <a href="services/ai-appointment-setting.html">AI Appointment Setting</a>
-        <a href="services/ai-follow-up.html">AI Follow-Up</a>
-        <a href="services/crm-automation.html">CRM Automation</a>
-        <a href="services/sms-automation.html">SMS Automation</a>
-        <a href="services/voice-ai.html">Voice AI</a>
-      </div>
-      <div class="footer-col">
-        <h4>Industries</h4>
-        <a href="industries/ai-automation-for-roofers.html">Roofing</a>
-        <a href="industries/ai-automation-for-med-spas.html">Med Spas</a>
-        <a href="industries/ai-automation-for-home-services.html">Home Services</a>
-        <a href="industries/ai-automation-for-solar-companies.html">Solar</a>
-        <a href="industries/ai-automation-for-real-estate.html">Real Estate</a>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <a href="about.html">About Us</a>
-        <a href="results.html">Results</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <a href="tel:8482055940">848-205-5940</a>
-        <a href="mailto:ansh102104@gmail.com">ansh102104@gmail.com</a>
-        <a href="https://tally.so/r/xXQa95" target="_blank">Book a Strategy Call</a>
-      </div>
+      <div class="footer-col"><h4>Services</h4><a href="services/ai-appointment-setting.html">AI Appointment Setting</a><a href="services/ai-follow-up.html">AI Follow-Up</a><a href="services/crm-automation.html">CRM Automation</a><a href="services/sms-automation.html">SMS Automation</a><a href="services/voice-ai.html">Voice AI</a></div>
+      <div class="footer-col"><h4>Industries</h4><a href="industries/ai-automation-for-roofers.html">Roofing</a><a href="industries/ai-automation-for-med-spas.html">Med Spas</a><a href="industries/ai-automation-for-home-services.html">Home Services</a><a href="industries/ai-automation-for-solar-companies.html">Solar</a><a href="industries/ai-automation-for-real-estate.html">Real Estate</a></div>
+      <div class="footer-col"><h4>Company</h4><a href="about.html">About Us</a><a href="results.html">Results</a><a href="pricing.html">Pricing</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></div>
+      <div class="footer-col"><h4>Contact</h4><a href="tel:8482055940">848-205-5940</a><a href="mailto:ansh102104@gmail.com">ansh102104@gmail.com</a><a href="https://tally.so/r/xXQa95" target="_blank">Book a Strategy Call</a></div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2025 NovaOps AI. All rights reserved.</span>
-      <span>AI Automation — Results Guaranteed</span>
-    </div>
+    <div class="footer-bottom"><span>© 2025 NovaOps AI. All rights reserved.</span><span>AI Automation — Results Guaranteed</span></div>
   </div>
 </footer>
 
