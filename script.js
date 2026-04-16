@@ -1,4 +1,4 @@
-/* ─── NOVAOPS AI — script.js v5.0 ─── */
+/* ─── NOVAOPS AI — script.js v5.1 ─── */
 
 (function () {
   'use strict';
@@ -21,7 +21,6 @@
       hamburger.setAttribute('aria-expanded', open);
       document.body.style.overflow = open ? 'hidden' : '';
     });
-    // Close on backdrop tap
     document.addEventListener('click', e => {
       if (drawer.classList.contains('open') && !drawer.contains(e.target) && !hamburger.contains(e.target)) {
         drawer.classList.remove('open');
@@ -30,7 +29,6 @@
         document.body.style.overflow = '';
       }
     });
-    // Close on nav link click
     drawer.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => {
         drawer.classList.remove('open');
@@ -41,8 +39,10 @@
     });
   }
 
-  /* ── SCROLL REVEAL ── */
-  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  /* ── SCROLL REVEAL (all variants) ── */
+  const revealEls = document.querySelectorAll(
+    '.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-up, .section-label, .eyebrow'
+  );
   if (revealEls.length) {
     const io = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -51,11 +51,11 @@
           io.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.10, rootMargin: '0px 0px -40px 0px' });
     revealEls.forEach(el => io.observe(el));
   }
 
-  /* ── INLINE REVEAL FOR FEATURE ROWS (not using .reveal class) ── */
+  /* ── INLINE REVEAL FOR FEATURE ROWS ── */
   const inlineReveal = document.querySelectorAll('.feature-row, .about-story-row');
   if (inlineReveal.length) {
     const io2 = new IntersectionObserver((entries) => {
@@ -75,7 +75,6 @@
     btn.addEventListener('click', () => {
       const item   = btn.closest('.faq-item');
       const isOpen = item.classList.contains('open');
-      // Close all siblings in same container
       const parent = item.parentElement;
       parent.querySelectorAll('.faq-item.open').forEach(open => {
         if (open !== item) {
@@ -88,18 +87,19 @@
     });
   });
 
-  /* ── COUNTER ANIMATION ── */
+  /* ── COUNTER ANIMATION (with comma formatting) ── */
+  function formatNum(n) {
+    return n.toLocaleString('en-US');
+  }
   function animateCounter(el, target, suffix) {
-    const duration = 1400;
+    const duration = 1600;
     const start    = performance.now();
-    const isNum    = typeof target === 'number';
-    const update   = (now) => {
+    el.classList.add('visible-counter');
+    const update = (now) => {
       const elapsed  = now - start;
       const progress = Math.min(elapsed / duration, 1);
-      const ease     = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-      if (isNum) {
-        el.textContent = Math.round(target * ease) + (suffix || '');
-      }
+      const ease     = 1 - Math.pow(1 - progress, 3);
+      el.textContent = formatNum(Math.round(target * ease)) + (suffix || '');
       if (progress < 1) requestAnimationFrame(update);
     };
     requestAnimationFrame(update);
@@ -141,24 +141,89 @@
   /* ── STAT PANEL CARD STAGGER (homepage) ── */
   const panels = document.querySelectorAll('.stat-panel-card');
   panels.forEach((card, i) => {
-    card.style.transitionDelay = (i * 0.06) + 's';
+    card.style.transitionDelay = (i * 0.07) + 's';
   });
 
-  /* ── DROPDOWN NAV ── */
+  /* ── CARD ENTRANCE STAGGER (grids) ── */
+  const cardGrids = document.querySelectorAll('.grid-3, .grid-2, .grid-4');
+  cardGrids.forEach(grid => {
+    const cards = grid.querySelectorAll('.card, .testimonial-card, .result-card, .service-card');
+    cards.forEach((card, i) => {
+      if (!card.classList.contains('reveal')) {
+        card.classList.add('reveal');
+        card.style.transitionDelay = (i * 0.08) + 's';
+      }
+    });
+    const io3 = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io3.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    cards.forEach(card => io3.observe(card));
+  });
 
-  // Desktop dropdowns — click to open/close
+  /* ── HERO PARALLAX (subtle) ── */
+  const heroEl = document.querySelector('.hero-split, .services-hero, .pricing-hero, .contact-hero, .results-hero, .industries-hero');
+  if (heroEl) {
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      heroEl.style.backgroundPositionY = (y * 0.3) + 'px';
+    }, { passive: true });
+  }
+
+  /* ── TYPING ANIMATION for hero headline ── */
+  const typeTarget = document.querySelector('[data-type]');
+  if (typeTarget) {
+    const words  = typeTarget.dataset.type.split('|');
+    let wi = 0, ci = 0, deleting = false;
+    const tick = () => {
+      const word    = words[wi];
+      const current = deleting ? word.slice(0, ci--) : word.slice(0, ci++);
+      typeTarget.textContent = current;
+      let delay = deleting ? 60 : 100;
+      if (!deleting && ci > word.length) { delay = 1800; deleting = true; }
+      if (deleting && ci < 0)            { deleting = false; wi = (wi + 1) % words.length; ci = 0; delay = 300; }
+      setTimeout(tick, delay);
+    };
+    setTimeout(tick, 600);
+  }
+
+  /* ── SMOOTH SCROLL for anchor links ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if (el) {
+        e.preventDefault();
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  /* ── BACK TO TOP BUTTON ── */
+  const btt = document.createElement('button');
+  btt.id            = 'back-to-top';
+  btt.setAttribute('aria-label', 'Back to top');
+  btt.innerHTML     = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 12V4M4 8l4-4 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  document.body.appendChild(btt);
+  window.addEventListener('scroll', () => {
+    btt.classList.toggle('visible', window.scrollY > 600);
+  }, { passive: true });
+  btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  /* ── DROPDOWN NAV ── */
   document.querySelectorAll('.nav-drop-btn').forEach(btn => {
     btn.addEventListener('click', function(e) {
       e.stopPropagation();
       const item   = btn.closest('.has-dropdown');
       const isOpen = item.classList.contains('open');
-
-      // Close all first
       document.querySelectorAll('.has-dropdown').forEach(el => {
         el.classList.remove('open');
         el.querySelector('.nav-drop-btn')?.setAttribute('aria-expanded', 'false');
       });
-
       if (!isOpen) {
         item.classList.add('open');
         btn.setAttribute('aria-expanded', 'true');
@@ -166,7 +231,6 @@
     });
   });
 
-  // Close desktop dropdowns on outside click
   document.addEventListener('click', function(e) {
     if (!e.target.closest('.has-dropdown')) {
       document.querySelectorAll('.has-dropdown').forEach(el => {
@@ -176,7 +240,6 @@
     }
   });
 
-  // Escape key closes all dropdowns
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
       document.querySelectorAll('.has-dropdown').forEach(el => {
@@ -186,7 +249,6 @@
     }
   });
 
-  // Mobile accordion dropdowns
   document.querySelectorAll('.mobile-drop-btn').forEach(btn => {
     btn.addEventListener('click', function() {
       const group  = btn.closest('.mobile-drop-group');
