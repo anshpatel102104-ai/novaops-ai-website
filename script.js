@@ -1,7 +1,52 @@
-/* ─── NOVAOPS AI — script.js v5.1 ─── */
+/* ─── NOVAOPS AI — script.js v6.0 ─── */
 
 (function () {
   'use strict';
+
+  /* ── LIGHT / DARK MODE TOGGLE ── */
+  const SCHEME_KEY = 'novaops-scheme';
+  const html = document.documentElement;
+
+  // Moon icon (dark mode active) and Sun icon (light mode active)
+  const ICON_MOON = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 10.5A6 6 0 0 1 5.5 2.5a6.002 6.002 0 1 0 8 8z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>';
+  const ICON_SUN  = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M8 1v1.5M8 13.5V15M1 8h1.5M13.5 8H15M3.05 3.05l1.06 1.06M11.89 11.89l1.06 1.06M3.05 12.95l1.06-1.06M11.89 4.11l1.06-1.06" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>';
+
+  function applyScheme(scheme) {
+    if (scheme === 'light') {
+      html.setAttribute('data-color-scheme', 'light');
+    } else {
+      html.removeAttribute('data-color-scheme');
+    }
+    const btn = document.getElementById('theme-toggle');
+    if (btn) btn.innerHTML = scheme === 'light' ? ICON_MOON : ICON_SUN;
+  }
+
+  // Init from saved preference, default to dark
+  const savedScheme = localStorage.getItem(SCHEME_KEY) || 'dark';
+  applyScheme(savedScheme);
+
+  // Inject toggle button into nav after DOM ready
+  function injectToggle() {
+    const navCta = document.querySelector('.nav-cta');
+    if (!navCta) return;
+    const btn = document.createElement('button');
+    btn.id = 'theme-toggle';
+    btn.setAttribute('aria-label', 'Toggle light/dark mode');
+    btn.innerHTML = (localStorage.getItem(SCHEME_KEY) === 'light') ? ICON_MOON : ICON_SUN;
+    btn.addEventListener('click', () => {
+      const current = html.getAttribute('data-color-scheme') === 'light' ? 'light' : 'dark';
+      const next    = current === 'light' ? 'dark' : 'light';
+      localStorage.setItem(SCHEME_KEY, next);
+      applyScheme(next);
+    });
+    navCta.insertAdjacentElement('beforebegin', btn);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', injectToggle);
+  } else {
+    injectToggle();
+  }
 
   /* ── NAV SCROLL STATE ── */
   const nav = document.querySelector('.nav');

@@ -1,37 +1,37 @@
 @import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,600,700,800,900&f[]=satoshi@400,500,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
-/* ─── NOVAOPS AI DESIGN SYSTEM v5.0 ─── */
+/* ─── NOVAOPS AI DESIGN SYSTEM v6.0 — DARK SPACE THEME ─── */
 :root {
-  /* Surfaces */
-  --bg: #ffffff;
-  --bg-2: #faf8ff;
-  --bg-3: #f4f0fe;
-  --bg-card: #ffffff;
-  --bg-hover: #ede8ff;
-  --bg-subtle: rgba(124,58,237,0.04);
+  /* Surfaces — deep space purple-black (matches logo) */
+  --bg: #09061a;
+  --bg-2: #0e0928;
+  --bg-3: #140e35;
+  --bg-card: #110c2e;
+  --bg-hover: #1a1445;
+  --bg-subtle: rgba(168,85,247,0.07);
 
-  /* Brand */
-  --teal: #7c3aed;
-  --teal-dim: rgba(124,58,237,0.09);
-  --teal-glow: rgba(124,58,237,0.18);
-  --teal-mid: rgba(124,58,237,0.55);
-  --blue: #a855f7;
-  --blue-dim: rgba(168,85,247,0.09);
-  --gold: #f5a623;
-  --red: #e53e3e;
+  /* Brand — bright purple + magenta (matches logo nodes) */
+  --teal: #a855f7;
+  --teal-dim: rgba(168,85,247,0.13);
+  --teal-glow: rgba(168,85,247,0.30);
+  --teal-mid: rgba(168,85,247,0.55);
+  --blue: #d946ef;
+  --blue-dim: rgba(217,70,239,0.10);
+  --gold: #f59e0b;
+  --red: #ef4444;
   --green: #22c55e;
 
-  /* Text */
-  --text: #1c0a3d;
-  --text-2: #5b4280;
-  --text-3: #9b82c2;
-  --text-inv: #ffffff;
+  /* Text — white on dark */
+  --text: #ffffff;
+  --text-2: #c4b0e8;
+  --text-3: #7860a8;
+  --text-inv: #09061a;
 
   /* Borders */
-  --border: rgba(124,58,237,0.18);
-  --border-2: rgba(124,58,237,0.11);
-  --border-3: rgba(124,58,237,0.06);
+  --border: rgba(168,85,247,0.25);
+  --border-2: rgba(168,85,247,0.14);
+  --border-3: rgba(168,85,247,0.07);
 
   /* Fonts */
   --f-display: 'Cabinet Grotesk', 'Helvetica Neue', sans-serif;
@@ -50,183 +50,297 @@
   --t-slow: 400ms cubic-bezier(0.16, 1, 0.3, 1);
 
   /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(124,58,237,0.08);
-  --shadow-md: 0 4px 24px rgba(124,58,237,0.12);
-  --shadow-lg: 0 12px 48px rgba(124,58,237,0.16);
-  --shadow-glow: 0 0 48px rgba(124,58,237,0.18);
-  --shadow-card: 0 4px 32px rgba(124,58,237,0.11);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.50);
+  --shadow-md: 0 4px 24px rgba(0,0,0,0.60);
+  --shadow-lg: 0 12px 48px rgba(0,0,0,0.75);
+  --shadow-glow: 0 0 48px rgba(168,85,247,0.25);
+  --shadow-card: 0 4px 32px rgba(0,0,0,0.65);
 
   /* Layout */
   --max-w: 1200px;
   --max-w-sm: 800px;
   --nav-h: 68px;
 
-  /* Theme */
-  --nav-bg: rgba(255,255,255,0.92);
-  --drawer-bg: rgba(255,255,255,0.98);
-  --grid-line: rgba(124,58,237,0.028);
+  /* Navigation */
+  --nav-bg: rgba(9,6,26,0.94);
+  --drawer-bg: rgba(9,6,26,0.98);
+  --grid-line: rgba(168,85,247,0.04);
 }
 
-/* ─── SERVICES THEME — DARK CINEMATIC PURPLE ─── */
+/* ─── SERVICES THEME — DEEPER SPACE (slightly cooler blue-purple) ─── */
 :root[data-theme="services"] {
-  --bg: #07041a;
-  --bg-2: #0c0826;
-  --bg-3: #110c30;
-  --bg-card: #160f38;
-  --bg-hover: #1d1545;
-  --bg-subtle: rgba(168,85,247,0.06);
+  --bg: #07041c;
+  --bg-2: #0b082a;
+  --bg-3: #100d35;
+  --bg-card: #130f38;
+  --bg-hover: #1c1648;
+  --bg-subtle: rgba(168,85,247,0.07);
 
-  --teal: #c084fc;
-  --teal-dim: rgba(192,132,252,0.13);
-  --teal-glow: rgba(192,132,252,0.28);
-  --teal-mid: rgba(192,132,252,0.55);
-  --blue: #a855f7;
-  --blue-dim: rgba(168,85,247,0.12);
+  --teal: #b87dff;
+  --teal-dim: rgba(184,125,255,0.13);
+  --teal-glow: rgba(184,125,255,0.28);
+  --teal-mid: rgba(184,125,255,0.55);
+  --blue: #e879f9;
+  --blue-dim: rgba(232,121,249,0.10);
 
-  --text: #f0eaff;
-  --text-2: #c4b0e8;
-  --text-3: #7860a8;
-  --text-inv: #07041a;
+  --text: #f5f0ff;
+  --text-2: #c8b4f0;
+  --text-3: #7d65b0;
+  --text-inv: #07041c;
 
-  --border: rgba(192,132,252,0.22);
-  --border-2: rgba(192,132,252,0.13);
-  --border-3: rgba(192,132,252,0.07);
+  --border: rgba(184,125,255,0.24);
+  --border-2: rgba(184,125,255,0.14);
+  --border-3: rgba(184,125,255,0.07);
+
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.55);
+  --shadow-md: 0 4px 24px rgba(0,0,0,0.65);
+  --shadow-lg: 0 12px 48px rgba(0,0,0,0.80);
+  --shadow-glow: 0 0 48px rgba(184,125,255,0.24);
+  --shadow-card: 0 4px 32px rgba(0,0,0,0.70);
+
+  --nav-bg: rgba(7,4,28,0.94);
+  --drawer-bg: rgba(7,4,28,0.98);
+  --grid-line: rgba(184,125,255,0.04);
+}
+
+/* ─── PRICING THEME — RICH DARK PURPLE ─── */
+:root[data-theme="pricing"] {
+  --bg: #07051a;
+  --bg-2: #0c0928;
+  --bg-3: #110e34;
+  --bg-card: #0f0c30;
+  --bg-hover: #181540;
+  --bg-subtle: rgba(168,85,247,0.08);
+
+  --text: #f8f4ff;
+  --text-2: #c9b6ea;
+  --text-3: #7d68a8;
+  --text-inv: #07051a;
+
+  --border: rgba(168,85,247,0.26);
+  --border-2: rgba(168,85,247,0.15);
+  --border-3: rgba(168,85,247,0.07);
+
+  --teal-dim: rgba(168,85,247,0.12);
+  --teal-glow: rgba(168,85,247,0.28);
 
   --shadow-sm: 0 2px 8px rgba(0,0,0,0.50);
   --shadow-md: 0 4px 24px rgba(0,0,0,0.60);
   --shadow-lg: 0 12px 48px rgba(0,0,0,0.75);
-  --shadow-glow: 0 0 48px rgba(192,132,252,0.22);
+  --shadow-glow: 0 0 48px rgba(168,85,247,0.22);
   --shadow-card: 0 4px 32px rgba(0,0,0,0.65);
 
-  --nav-bg: rgba(7,4,26,0.92);
-  --drawer-bg: rgba(7,4,26,0.98);
-  --grid-line: rgba(192,132,252,0.04);
+  --nav-bg: rgba(7,5,26,0.94);
+  --drawer-bg: rgba(7,5,26,0.98);
+  --grid-line: rgba(168,85,247,0.04);
 }
 
-/* ─── PRICING THEME — SOFT LAVENDER ─── */
-:root[data-theme="pricing"] {
-  --bg: #faf8ff;
-  --bg-2: #f4efff;
-  --bg-3: #ede5ff;
-  --bg-card: #ffffff;
-  --bg-hover: #e8deff;
-  --bg-subtle: rgba(124,58,237,0.03);
-
-  --text: #1c0a3d;
-  --text-2: #5b4280;
-  --text-3: #9b82c2;
-
-  --border: rgba(124,58,237,0.12);
-  --border-2: rgba(124,58,237,0.09);
-  --border-3: rgba(124,58,237,0.05);
-
-  --teal-dim: rgba(124,58,237,0.07);
-  --teal-glow: rgba(124,58,237,0.18);
-
-  --shadow-sm: 0 2px 8px rgba(124,58,237,0.07);
-  --shadow-md: 0 4px 24px rgba(124,58,237,0.10);
-  --shadow-lg: 0 12px 48px rgba(124,58,237,0.14);
-  --shadow-glow: 0 0 48px rgba(124,58,237,0.15);
-  --shadow-card: 0 4px 32px rgba(124,58,237,0.09);
-
-  --nav-bg: rgba(250,248,255,0.92);
-  --drawer-bg: rgba(250,248,255,0.98);
-  --grid-line: rgba(124,58,237,0.02);
-}
-
-/* ─── RESULTS THEME — DARK PROOF ─── */
+/* ─── RESULTS THEME — DARKEST SPACE (proof/evidence tone) ─── */
 :root[data-theme="results"] {
   --bg: #06040f;
-  --bg-2: #0b0720;
-  --bg-3: #110c2e;
-  --bg-card: #130e35;
-  --bg-hover: #1a1442;
-  --bg-subtle: rgba(124,58,237,0.07);
+  --bg-2: #0a0820;
+  --bg-3: #0f0d2c;
+  --bg-card: #0d0b2a;
+  --bg-hover: #161340;
+  --bg-subtle: rgba(168,85,247,0.07);
 
   --teal: #a78bfa;
   --teal-dim: rgba(167,139,250,0.12);
-  --teal-glow: rgba(167,139,250,0.25);
+  --teal-glow: rgba(167,139,250,0.28);
   --teal-mid: rgba(167,139,250,0.55);
   --blue: #c084fc;
   --blue-dim: rgba(192,132,252,0.10);
   --gold: #fbbf24;
 
-  --text: #ede9fe;
+  --text: #f0ecff;
   --text-2: #c4b5fd;
   --text-3: #7c6fab;
   --text-inv: #06040f;
 
-  --border: rgba(167,139,250,0.20);
-  --border-2: rgba(167,139,250,0.12);
+  --border: rgba(167,139,250,0.22);
+  --border-2: rgba(167,139,250,0.13);
   --border-3: rgba(167,139,250,0.06);
 
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.55);
-  --shadow-md: 0 4px 24px rgba(0,0,0,0.65);
-  --shadow-lg: 0 12px 48px rgba(0,0,0,0.80);
-  --shadow-glow: 0 0 48px rgba(167,139,250,0.20);
-  --shadow-card: 0 4px 32px rgba(0,0,0,0.60);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.60);
+  --shadow-md: 0 4px 24px rgba(0,0,0,0.70);
+  --shadow-lg: 0 12px 48px rgba(0,0,0,0.85);
+  --shadow-glow: 0 0 48px rgba(167,139,250,0.22);
+  --shadow-card: 0 4px 32px rgba(0,0,0,0.65);
 
-  --nav-bg: rgba(6,4,15,0.92);
+  --nav-bg: rgba(6,4,15,0.94);
   --drawer-bg: rgba(6,4,15,0.98);
   --grid-line: rgba(167,139,250,0.04);
 }
 
-/* ─── CONTACT THEME — MINIMAL DARK ─── */
+/* ─── CONTACT THEME — DEEP NIGHT ─── */
 :root[data-theme="contact"] {
-  --bg: #050310;
-  --bg-2: #090620;
-  --bg-3: #0e0a2c;
-  --bg-card: #120e35;
-  --bg-hover: #181240;
-  --bg-subtle: rgba(124,58,237,0.07);
+  --bg: #050312;
+  --bg-2: #090720;
+  --bg-3: #0d0b2c;
+  --bg-card: #100e32;
+  --bg-hover: #161440;
+  --bg-subtle: rgba(168,85,247,0.07);
 
   --teal: #a78bfa;
-  --teal-dim: rgba(167,139,250,0.10);
-  --teal-glow: rgba(167,139,250,0.22);
+  --teal-dim: rgba(167,139,250,0.12);
+  --teal-glow: rgba(167,139,250,0.26);
   --teal-mid: rgba(167,139,250,0.55);
-  --blue: #818cf8;
+  --blue: #d946ef;
   --gold: #fbbf24;
 
-  --text: #f0eaff;
+  --text: #f2eeff;
   --text-2: #c4b5fd;
   --text-3: #7c6fab;
+  --text-inv: #050312;
 
-  --border: rgba(167,139,250,0.18);
-  --border-2: rgba(167,139,250,0.10);
-  --border-3: rgba(167,139,250,0.05);
+  --border: rgba(167,139,250,0.22);
+  --border-2: rgba(167,139,250,0.12);
+  --border-3: rgba(167,139,250,0.06);
 
   --shadow-card: 0 4px 32px rgba(0,0,0,0.70);
-  --nav-bg: rgba(5,3,16,0.95);
-  --drawer-bg: rgba(5,3,16,0.98);
-  --grid-line: rgba(167,139,250,0.035);
+  --nav-bg: rgba(5,3,18,0.96);
+  --drawer-bg: rgba(5,3,18,0.98);
+  --grid-line: rgba(167,139,250,0.04);
 }
 
-/* ─── FAQ THEME — CLEAN LIGHT ─── */
+/* ─── FAQ THEME — DARK (matches global dark) ─── */
 :root[data-theme="faq"] {
-  --bg: #fdfcff;
-  --bg-2: #f8f5ff;
-  --bg-3: #f2edff;
+  --bg: #09071e;
+  --bg-2: #0d0b28;
+  --bg-3: #130f34;
+  --bg-card: #110e30;
+  --bg-hover: #1a1645;
+
+  --border: rgba(168,85,247,0.22);
+  --border-2: rgba(168,85,247,0.13);
+  --border-3: rgba(168,85,247,0.06);
+}
+
+/* ─── INDUSTRIES THEME — DARK PURPLE (unified with brand) ─── */
+:root[data-theme="industries"] {
+  --bg: #08051c;
+  --bg-2: #0d0a28;
+  --bg-3: #130f34;
+  --bg-card: #100d30;
+  --bg-hover: #1a1644;
+
+  --teal: #a855f7;
+  --teal-dim: rgba(168,85,247,0.13);
+  --teal-glow: rgba(168,85,247,0.28);
+  --teal-mid: rgba(168,85,247,0.55);
+  --blue: #d946ef;
+  --gold: #f59e0b;
+  --green: #22c55e;
+
+  --text: #f5f0ff;
+  --text-2: #c4b0e8;
+  --text-3: #7860a8;
+  --text-inv: #08051c;
+
+  --border: rgba(168,85,247,0.24);
+  --border-2: rgba(168,85,247,0.14);
+  --border-3: rgba(168,85,247,0.07);
+
+  --nav-bg: rgba(8,5,28,0.94);
+  --drawer-bg: rgba(8,5,28,0.98);
+  --grid-line: rgba(168,85,247,0.04);
+}
+
+/* ─── LIGHT MODE OVERRIDE ─── */
+/* Applied when user toggles to light via data-color-scheme="light" on <html> */
+html[data-color-scheme="light"] {
+  --bg: #ffffff;
+  --bg-2: #faf8ff;
+  --bg-3: #f4f0fe;
   --bg-card: #ffffff;
   --bg-hover: #ede8ff;
+  --bg-subtle: rgba(124,58,237,0.04);
 
-  --border: rgba(124,58,237,0.14);
-  --border-2: rgba(124,58,237,0.08);
-  --border-3: rgba(124,58,237,0.04);
+  --teal: #7c3aed;
+  --teal-dim: rgba(124,58,237,0.09);
+  --teal-glow: rgba(124,58,237,0.18);
+  --teal-mid: rgba(124,58,237,0.55);
+  --blue: #a855f7;
+  --blue-dim: rgba(168,85,247,0.09);
+  --gold: #d97706;
+  --red: #dc2626;
+  --green: #16a34a;
+
+  --text: #1c0a3d;
+  --text-2: #5b4280;
+  --text-3: #9b82c2;
+  --text-inv: #ffffff;
+
+  --border: rgba(124,58,237,0.18);
+  --border-2: rgba(124,58,237,0.11);
+  --border-3: rgba(124,58,237,0.06);
+
+  --shadow-sm: 0 2px 8px rgba(124,58,237,0.08);
+  --shadow-md: 0 4px 24px rgba(124,58,237,0.12);
+  --shadow-lg: 0 12px 48px rgba(124,58,237,0.16);
+  --shadow-glow: 0 0 48px rgba(124,58,237,0.18);
+  --shadow-card: 0 4px 32px rgba(124,58,237,0.11);
+
+  --nav-bg: rgba(255,255,255,0.94);
+  --drawer-bg: rgba(255,255,255,0.98);
+  --grid-line: rgba(124,58,237,0.028);
 }
 
-/* ─── INDUSTRIES THEME ─── */
-:root[data-theme="industries"] {
-  --bg: #0e0800; --bg-2: #160e02; --bg-3: #1e1404;
-  --bg-card: #261a06; --bg-hover: #2e2008;
-  --teal: #f59e0b; --teal-dim: rgba(245,158,11,0.10);
-  --teal-glow: rgba(245,158,11,0.22); --teal-mid: rgba(245,158,11,0.55);
-  --blue: #fb923c; --gold: #fbbf24; --green: #34d399;
-  --text: #fef3e2; --text-2: #d4a76a; --text-3: #8a6232;
-  --border: rgba(245,158,11,0.22); --border-2: rgba(245,158,11,0.13);
-  --border-3: rgba(245,158,11,0.07);
-  --nav-bg: rgba(14,8,0,0.93); --drawer-bg: rgba(14,8,0,0.98);
-  --grid-line: rgba(245,158,11,0.04);
+/* Light mode body — replace atmospheric glow with subtle top radial */
+html[data-color-scheme="light"] body {
+  background-image: radial-gradient(ellipse 70% 50% at 50% -5%, rgba(124,58,237,0.06) 0%, transparent 65%);
+  background-attachment: fixed;
 }
+
+/* Light mode per-page theme overrides */
+html[data-color-scheme="light"][data-theme="services"],
+html[data-color-scheme="light"] body[data-theme="services"],
+html[data-color-scheme="light"] :root[data-theme="services"] {
+  --bg: #f8f5ff;
+  --bg-2: #f2edff;
+  --bg-3: #ece5ff;
+  --bg-card: #ffffff;
+  --bg-hover: #e6dcff;
+  --text: #1c0a3d;
+  --text-2: #5b4280;
+  --text-3: #9b82c2;
+  --border: rgba(124,58,237,0.18);
+  --border-2: rgba(124,58,237,0.11);
+  --border-3: rgba(124,58,237,0.06);
+  --nav-bg: rgba(248,245,255,0.94);
+  --drawer-bg: rgba(248,245,255,0.98);
+}
+
+html[data-color-scheme="light"]:has([data-theme="pricing"]) {
+  --bg: #faf8ff;
+  --bg-card: #ffffff;
+  --text: #1c0a3d;
+  --text-2: #5b4280;
+}
+
+/* ─── THEME TOGGLE BUTTON ─── */
+#theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--r-full);
+  background: var(--bg-card);
+  border: 1px solid var(--border-2);
+  color: var(--text-2);
+  cursor: pointer;
+  transition: background var(--t), border-color var(--t), color var(--t), transform var(--t);
+  flex-shrink: 0;
+}
+#theme-toggle:hover {
+  background: var(--bg-hover);
+  border-color: var(--border);
+  color: var(--teal);
+  transform: scale(1.08);
+}
+#theme-toggle svg { display: block; transition: transform 0.4s cubic-bezier(0.16,1,0.3,1); }
+#theme-toggle:hover svg { transform: rotate(20deg); }
 
 /* ─── BASE RESET ─── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -249,6 +363,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100dvh;
+  /* Atmospheric radial glow matching logo */
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -5%, rgba(168,85,247,0.14) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 80% 80%, rgba(217,70,239,0.07) 0%, transparent 50%);
+  background-attachment: fixed;
 }
 
 body::before {
@@ -511,7 +630,7 @@ a, button, [role='button'], input, textarea, select {
   letter-spacing: -0.02em;
   white-space: nowrap;
 }
-.nav-logo-name span { color: var(--teal); }
+.nav-logo-name span { color: inherit; }
 
 .nav-links {
   display: flex;
@@ -1309,12 +1428,12 @@ body {
 }
 .nav-links a:hover::after { width: 100%; }
 
-/* Shimmer loading bar at top of page */
+/* Shimmer loading bar at top of page (uses html::before to avoid conflict with body::before grid) */
 @keyframes topBarSlide {
   from { transform: scaleX(0); transform-origin: left; }
   to   { transform: scaleX(1); transform-origin: left; }
 }
-body::before {
+html::before {
   content: '';
   position: fixed;
   top: 0; left: 0; right: 0;
