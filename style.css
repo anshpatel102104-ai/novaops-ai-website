@@ -246,6 +246,102 @@
   --grid-line: rgba(168,85,247,0.04);
 }
 
+/* ─── LIGHT MODE OVERRIDE ─── */
+/* Applied when user toggles to light via data-color-scheme="light" on <html> */
+html[data-color-scheme="light"] {
+  --bg: #ffffff;
+  --bg-2: #faf8ff;
+  --bg-3: #f4f0fe;
+  --bg-card: #ffffff;
+  --bg-hover: #ede8ff;
+  --bg-subtle: rgba(124,58,237,0.04);
+
+  --teal: #7c3aed;
+  --teal-dim: rgba(124,58,237,0.09);
+  --teal-glow: rgba(124,58,237,0.18);
+  --teal-mid: rgba(124,58,237,0.55);
+  --blue: #a855f7;
+  --blue-dim: rgba(168,85,247,0.09);
+  --gold: #d97706;
+  --red: #dc2626;
+  --green: #16a34a;
+
+  --text: #1c0a3d;
+  --text-2: #5b4280;
+  --text-3: #9b82c2;
+  --text-inv: #ffffff;
+
+  --border: rgba(124,58,237,0.18);
+  --border-2: rgba(124,58,237,0.11);
+  --border-3: rgba(124,58,237,0.06);
+
+  --shadow-sm: 0 2px 8px rgba(124,58,237,0.08);
+  --shadow-md: 0 4px 24px rgba(124,58,237,0.12);
+  --shadow-lg: 0 12px 48px rgba(124,58,237,0.16);
+  --shadow-glow: 0 0 48px rgba(124,58,237,0.18);
+  --shadow-card: 0 4px 32px rgba(124,58,237,0.11);
+
+  --nav-bg: rgba(255,255,255,0.94);
+  --drawer-bg: rgba(255,255,255,0.98);
+  --grid-line: rgba(124,58,237,0.028);
+}
+
+/* Light mode body — replace atmospheric glow with subtle top radial */
+html[data-color-scheme="light"] body {
+  background-image: radial-gradient(ellipse 70% 50% at 50% -5%, rgba(124,58,237,0.06) 0%, transparent 65%);
+  background-attachment: fixed;
+}
+
+/* Light mode per-page theme overrides */
+html[data-color-scheme="light"][data-theme="services"],
+html[data-color-scheme="light"] body[data-theme="services"],
+html[data-color-scheme="light"] :root[data-theme="services"] {
+  --bg: #f8f5ff;
+  --bg-2: #f2edff;
+  --bg-3: #ece5ff;
+  --bg-card: #ffffff;
+  --bg-hover: #e6dcff;
+  --text: #1c0a3d;
+  --text-2: #5b4280;
+  --text-3: #9b82c2;
+  --border: rgba(124,58,237,0.18);
+  --border-2: rgba(124,58,237,0.11);
+  --border-3: rgba(124,58,237,0.06);
+  --nav-bg: rgba(248,245,255,0.94);
+  --drawer-bg: rgba(248,245,255,0.98);
+}
+
+html[data-color-scheme="light"]:has([data-theme="pricing"]) {
+  --bg: #faf8ff;
+  --bg-card: #ffffff;
+  --text: #1c0a3d;
+  --text-2: #5b4280;
+}
+
+/* ─── THEME TOGGLE BUTTON ─── */
+#theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--r-full);
+  background: var(--bg-card);
+  border: 1px solid var(--border-2);
+  color: var(--text-2);
+  cursor: pointer;
+  transition: background var(--t), border-color var(--t), color var(--t), transform var(--t);
+  flex-shrink: 0;
+}
+#theme-toggle:hover {
+  background: var(--bg-hover);
+  border-color: var(--border);
+  color: var(--teal);
+  transform: scale(1.08);
+}
+#theme-toggle svg { display: block; transition: transform 0.4s cubic-bezier(0.16,1,0.3,1); }
+#theme-toggle:hover svg { transform: rotate(20deg); }
+
 /* ─── BASE RESET ─── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
