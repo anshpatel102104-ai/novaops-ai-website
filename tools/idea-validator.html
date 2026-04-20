@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>AI Idea Validator — Stress-Test Your Business Idea | Launchpad</title>
+  <meta name="description" content="Use the AI Idea Validator to instantly stress-test your business idea. Get market size analysis, competitor gaps, and viability score in seconds.">
+  <link rel="canonical" href="https://nova-ops.space/tools/idea-validator.html">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AI Idea Validator — Stress-Test Your Business Idea">
+  <meta property="og:description" content="Get honest AI feedback on your business idea before investing time or money.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,600,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/brand.css">
+</head>
+<body>
+  <div class="tool-page">
+    <header class="tool-header">
+      <div class="container-sm">
+        <a href="/launchpad.html" style="font-size:.85rem;color:var(--txt-3);display:inline-flex;align-items:center;gap:.4rem;margin-bottom:1rem">← Back to Launchpad</a>
+        <p class="eyebrow eyebrow-lp">IDEA VALIDATOR</p>
+        <h1 style="font-size:clamp(1.8rem,4vw,2.8rem)">Stress-Test Your <span class="gradient-text">Business Idea</span></h1>
+        <p style="color:var(--txt-2);margin-top:.5rem;font-size:.975rem;max-width:540px;margin-left:auto;margin-right:auto;">Get honest AI analysis on market viability, competitive landscape, and real risks — before you invest time or money.</p>
+      </div>
+    </header>
+
+    <main class="tool-body">
+      <form id="tool-form" class="tool-form">
+        <div class="form-group">
+          <label for="idea">Your Business Idea</label>
+          <textarea id="idea" name="idea" class="form-control" rows="4" placeholder="Describe your business idea in as much detail as you can. What problem does it solve? Who is the target customer? How does it make money?" required></textarea>
+          <span class="form-hint">Be specific — the more detail you provide, the better the analysis.</span>
+        </div>
+        <div class="form-group">
+          <label for="stage">Current Stage</label>
+          <select id="stage" name="stage" class="form-control">
+            <option value="just an idea">Just an idea</option>
+            <option value="researching the market">Researching the market</option>
+            <option value="built an MVP">Built an MVP</option>
+            <option value="have early customers">Have early customers</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="target">Target Market</label>
+          <input type="text" id="target" name="target" class="form-control" placeholder="e.g. Small business owners, Gen Z consumers, B2B SaaS companies...">
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg tool-submit" id="submit-btn">
+          Validate My Idea →
+        </button>
+      </form>
+
+      <div id="result" style="display:none"></div>
+
+      <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--bdr)">
+        <p style="font-size:.875rem;color:var(--txt-3);margin-bottom:1rem">NEXT STEPS AFTER VALIDATION</p>
+        <div style="display:flex;flex-wrap:wrap;gap:.75rem">
+          <a href="/tools/kill-my-idea.html" class="btn btn-ghost btn-sm">☠️ Kill My Idea</a>
+          <a href="/tools/pitch-generator.html" class="btn btn-ghost btn-sm">🎤 Generate a Pitch</a>
+          <a href="/tools/gtm-strategy-builder.html" class="btn btn-ghost btn-sm">🗺️ Build GTM Strategy</a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/script.js"></script>
+  <script src="/site.js"></script>
+  <script>
+  (function() {
+    const API = 'https://launchpad-api.dpatel0729.workers.dev';
+    const form = document.getElementById('tool-form');
+    const result = document.getElementById('result');
+    const btn = document.getElementById('submit-btn');
+
+    const SYSTEM = `You are a startup advisor and market analyst. When given a business idea, provide a structured validation report with:
+1. VIABILITY SCORE (0-100) with a one-line verdict
+2. MARKET OPPORTUNITY — size, trends, tailwinds
+3. TARGET CUSTOMER — who they are, what pain they have
+4. COMPETITIVE LANDSCAPE — key competitors, gaps to exploit
+5. TOP 3 RISKS — honest assessment of what could go wrong
+6. RECOMMENDATION — should they proceed, pivot, or stop?
+
+Be honest, direct, and specific. Avoid vague platitudes. Format with clear section headers using ##.`;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const idea = document.getElementById('idea').value.trim();
+      const stage = document.getElementById('stage').value;
+      const target = document.getElementById('target').value.trim();
+      if (!idea) return;
+
+      btn.classList.add('btn-loading');
+      btn.disabled = true;
+      result.style.display = 'block';
+      result.innerHTML = '<div style="display:flex;justify-content:center;padding:3rem"><div class="spinner"></div></div>';
+
+      const msg = `Business idea: ${idea}\n\nCurrent stage: ${stage}\nTarget market: ${target || 'Not specified'}`;
+
+      try {
+        const res = await fetch(API, {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({
+            model: 'claude-sonnet-4-20250514',
+            max_tokens: 1500,
+            system: SYSTEM,
+            messages: [{role:'user', content: msg}]
+          })
+        });
+        if (!res.ok) throw new Error('API ' + res.status);
+        const data = await res.json();
+        const text = data?.content?.[0]?.text || '';
+        if (!text) throw new Error('Empty');
+        result.innerHTML = renderResult(text);
+      } catch(err) {
+        result.innerHTML = '<div class="out-card"><div class="alert alert-red">Something went wrong. Please try again in a moment.</div></div>';
+      } finally {
+        btn.classList.remove('btn-loading');
+        btn.disabled = false;
+      }
+    });
+
+    function renderResult(text) {
+      const sections = text.split(/\n(?=##)/);
+      let html = '<div class="out-card">';
+      html += '<p class="eyebrow eyebrow-lp" style="margin-bottom:1rem">VALIDATION REPORT</p>';
+      sections.forEach(section => {
+        const lines = section.trim().split('\n');
+        const heading = lines[0].replace(/^#+\s*/, '');
+        const body = lines.slice(1).join('\n').trim();
+        if (!heading && !body) return;
+        html += `<section>`;
+        if (heading) html += `<h4>${escHtml(heading)}</h4>`;
+        const bodyHtml = body
+          .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+          .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
+          .replace(/^[-*] (.+)$/gm,'<li>$1</li>')
+          .replace(/(<li>[\s\S]*?<\/li>\n?)+/g,'<ul>$&</ul>')
+          .replace(/\n\n/g,'</p><p>')
+          .replace(/^(?!<[ul])/gm,'<p>').replace(/<p><\/p>/g,'');
+        html += bodyHtml + '</section>';
+      });
+      html += '</div>';
+      return html;
+    }
+
+    function escHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  })();
+  </script>
+</body>
+</html>

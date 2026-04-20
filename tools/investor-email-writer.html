@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>AI Investor Email Writer — Cold Emails That Get Replies | Launchpad</title>
+  <meta name="description" content="Write personalized investor cold emails that get opened and replied to. AI-generated outreach tailored to your startup and the specific investor you're targeting.">
+  <link rel="canonical" href="https://nova-ops.space/tools/investor-email-writer.html">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,600,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/brand.css">
+</head>
+<body>
+  <div class="tool-page">
+    <header class="tool-header">
+      <div class="container-sm">
+        <a href="/launchpad.html" style="font-size:.85rem;color:var(--txt-3);display:inline-flex;align-items:center;gap:.4rem;margin-bottom:1rem">← Back to Launchpad</a>
+        <p class="eyebrow eyebrow-lp">INVESTOR EMAIL WRITER</p>
+        <h1 style="font-size:clamp(1.8rem,4vw,2.8rem)">Investor Cold Emails That <span class="gradient-text">Actually Get Replies</span></h1>
+        <p style="color:var(--txt-2);margin-top:.5rem;font-size:.975rem;max-width:540px;margin-left:auto;margin-right:auto;">Write a compelling, personalized cold email to investors — crafted to get a response, not a delete.</p>
+      </div>
+    </header>
+    <main class="tool-body">
+      <form id="tool-form" class="tool-form">
+        <div class="form-group"><label for="startup">Your Startup</label><input type="text" id="startup" class="form-control" placeholder="Startup name" required></div>
+        <div class="form-group"><label for="oneliner">One-Line Description</label><input type="text" id="oneliner" class="form-control" placeholder="e.g. Stripe for restaurant payments, AI that cuts SaaS churn by 40%" required></div>
+        <div class="form-group"><label for="traction">Best Traction Signal</label><input type="text" id="traction" class="form-control" placeholder="e.g. $8k MRR, 200 signups in 48 hours, ex-Google team, 3 LOIs signed"></div>
+        <div class="form-group"><label for="ask">Raise Amount</label><input type="text" id="ask" class="form-control" placeholder="e.g. $750k pre-seed"></div>
+        <div class="form-group"><label for="investor">Investor Context (optional)</label><input type="text" id="investor" class="form-control" placeholder="e.g. Andreessen Horowitz, early-stage fintech investor, invested in Stripe..."></div>
+        <div class="form-group"><label for="tone">Email Tone</label>
+          <select id="tone" class="form-control">
+            <option>Confident and direct</option>
+            <option>Warm and founder-to-founder</option>
+            <option>Brief and punchy (under 100 words)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg tool-submit" id="submit-btn">Write My Investor Email →</button>
+      </form>
+      <div id="result" style="display:none"></div>
+    </main>
+  </div>
+  <script src="/script.js"></script><script src="/site.js"></script>
+  <script>
+  (function(){
+    const API='https://launchpad-api.dpatel0729.workers.dev';
+    const SYSTEM=`You are a fundraising expert who has helped founders raise over $100M. Write an exceptional investor cold email that gets a reply.
+
+Provide:
+## SUBJECT LINE — 3 options ranging from direct to intriguing
+## THE EMAIL — A complete, ready-to-send cold email (${200} words max)
+## WHY IT WORKS — Brief explanation of the psychology and structure
+## FOLLOW-UP — A short follow-up email to send 5 days later if no reply
+
+The email should: hook in the first line, establish credibility fast, create urgency without desperation, have a clear single ask (15-min call).
+Never use: "I hope this email finds you well", buzzwords, or long paragraphs. Use ## headers.`;
+    document.getElementById('tool-form').addEventListener('submit',async(e)=>{
+      e.preventDefault();
+      const btn=document.getElementById('submit-btn'),result=document.getElementById('result');
+      btn.classList.add('btn-loading');btn.disabled=true;
+      result.style.display='block';result.innerHTML='<div style="display:flex;justify-content:center;padding:3rem"><div class="spinner"></div></div>';
+      const msg=`Startup: ${document.getElementById('startup').value}\nOne-liner: ${document.getElementById('oneliner').value}\nTraction: ${document.getElementById('traction').value||'Early stage'}\nRaise: ${document.getElementById('ask').value||'TBD'}\nInvestor context: ${document.getElementById('investor').value||'General VC'}\nTone: ${document.getElementById('tone').value}`;
+      try{
+        const res=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1200,system:SYSTEM,messages:[{role:'user',content:msg}]})});
+        if(!res.ok)throw new Error();
+        const data=await res.json();const text=data?.content?.[0]?.text||'';
+        const sections=text.split(/\n(?=##)/);
+        let html='<div class="out-card"><p class="eyebrow eyebrow-lp" style="margin-bottom:1rem">YOUR INVESTOR EMAILS</p>';
+        sections.forEach(s=>{const ls=s.trim().split('\n');const hd=ls[0].replace(/^#+\s*/,'');const b=ls.slice(1).join('\n').trim().replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+        if(hd||b)html+=`<section>${hd?`<h4>${hd}</h4>`:''}${b?`<pre style="white-space:pre-wrap;font-family:inherit;background:var(--bg-3);padding:1rem;border-radius:var(--r);margin-top:.5rem">${b}</pre>`:''}</section>`;});
+        result.innerHTML=html+'</div>';
+      }catch{result.innerHTML='<div class="out-card"><div class="alert alert-red">Something went wrong. Please try again.</div></div>';}
+      finally{btn.classList.remove('btn-loading');btn.disabled=false;}
+    });
+  })();
+  </script>
+</body>
+</html>

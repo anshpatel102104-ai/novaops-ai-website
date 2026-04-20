@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Funding Readiness Score — Is Your Startup Investor-Ready? | Launchpad</title>
+  <meta name="description" content="Get an AI-generated funding readiness score for your startup. Know exactly what investors will ask and what gaps to fix before your next raise.">
+  <link rel="canonical" href="https://nova-ops.space/tools/funding-readiness-score.html">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,600,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/brand.css">
+</head>
+<body>
+  <div class="tool-page">
+    <header class="tool-header">
+      <div class="container-sm">
+        <a href="/launchpad.html" style="font-size:.85rem;color:var(--txt-3);display:inline-flex;align-items:center;gap:.4rem;margin-bottom:1rem">← Back to Launchpad</a>
+        <p class="eyebrow eyebrow-lp">FUNDING READINESS SCORE</p>
+        <h1 style="font-size:clamp(1.8rem,4vw,2.8rem)">Are You <span class="gradient-text">Investor-Ready?</span></h1>
+        <p style="color:var(--txt-2);margin-top:.5rem;font-size:.975rem;max-width:540px;margin-left:auto;margin-right:auto;">Get a scored assessment of your startup across every dimension investors evaluate — and know what to fix before you pitch.</p>
+      </div>
+    </header>
+    <main class="tool-body">
+      <form id="tool-form" class="tool-form">
+        <div class="form-group"><label for="stage">Funding Stage Targeting</label>
+          <select id="stage" class="form-control">
+            <option>Pre-seed / Friends & Family</option>
+            <option>Seed Round ($500k–$2M)</option>
+            <option>Series A ($2M–$15M)</option>
+          </select>
+        </div>
+        <div class="form-group"><label for="revenue">Monthly Revenue (MRR)</label><input type="text" id="revenue" class="form-control" placeholder="e.g. $0, $2,000/mo, $15,000/mo"></div>
+        <div class="form-group"><label for="growth">Month-over-Month Growth</label><input type="text" id="growth" class="form-control" placeholder="e.g. 20% MoM, early, pre-revenue"></div>
+        <div class="form-group"><label for="team">Team</label><input type="text" id="team" class="form-control" placeholder="e.g. 2 co-founders, ex-Google engineer + operator with domain expertise"></div>
+        <div class="form-group"><label for="moat">Defensibility / Moat</label><textarea id="moat" class="form-control" rows="2" placeholder="What makes your startup hard to copy? IP, network effects, contracts, data..."></textarea></div>
+        <div class="form-group"><label for="market">Market Size</label><input type="text" id="market" class="form-control" placeholder="e.g. $50B TAM, growing 25% YoY"></div>
+        <button type="submit" class="btn btn-primary btn-lg tool-submit" id="submit-btn">Score My Funding Readiness →</button>
+      </form>
+      <div id="result" style="display:none"></div>
+    </main>
+  </div>
+  <script src="/script.js"></script><script src="/site.js"></script>
+  <script>
+  (function(){
+    const API='https://launchpad-api.dpatel0729.workers.dev';
+    const SYSTEM=`You are a venture capital partner who evaluates hundreds of startups per year. Score this startup's funding readiness across key investor criteria.
+
+Provide:
+## OVERALL SCORE — X/100 with a one-line verdict (e.g. "Not ready — strong idea, weak traction")
+## CATEGORY SCORES — Score each on a scale of 1-10:
+- Team (1-10)
+- Market Size (1-10)
+- Traction & Revenue (1-10)
+- Product & Differentiation (1-10)
+- Defensibility (1-10)
+## BIGGEST GAPS — Top 3 things investors will push back on
+## WHAT YOU NEED — Specific milestones to unlock the next funding stage
+## INVESTOR FIT — What type of investors / funds are right for this stage
+
+Be honest. A score below 50 is common for early-stage startups. Use ## headers.`;
+    document.getElementById('tool-form').addEventListener('submit',async(e)=>{
+      e.preventDefault();
+      const btn=document.getElementById('submit-btn'),result=document.getElementById('result');
+      btn.classList.add('btn-loading');btn.disabled=true;
+      result.style.display='block';result.innerHTML='<div style="display:flex;justify-content:center;padding:3rem"><div class="spinner"></div></div>';
+      const msg=`Stage targeting: ${document.getElementById('stage').value}\nMRR: ${document.getElementById('revenue').value||'Pre-revenue'}\nGrowth: ${document.getElementById('growth').value||'N/A'}\nTeam: ${document.getElementById('team').value||'Not specified'}\nMoat: ${document.getElementById('moat').value||'Not specified'}\nMarket: ${document.getElementById('market').value||'Not specified'}`;
+      try{
+        const res=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1500,system:SYSTEM,messages:[{role:'user',content:msg}]})});
+        if(!res.ok)throw new Error();
+        const data=await res.json();const text=data?.content?.[0]?.text||'';
+        const sections=text.split(/\n(?=##)/);
+        let html='<div class="out-card"><p class="eyebrow eyebrow-lp" style="margin-bottom:1rem">FUNDING READINESS ASSESSMENT</p>';
+        sections.forEach(s=>{const ls=s.trim().split('\n');const hd=ls[0].replace(/^#+\s*/,'');const b=ls.slice(1).join('\n').trim().replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/^[-*] (.+)$/gm,'<li>$1</li>').replace(/(<li>[\s\S]*?<\/li>\n?)+/g,'<ul>$&</ul>');
+        if(hd||b)html+=`<section>${hd?`<h4>${hd}</h4>`:''}${b?`<p>${b}</p>`:''}</section>`;});
+        result.innerHTML=html+'</div>';
+      }catch{result.innerHTML='<div class="out-card"><div class="alert alert-red">Something went wrong. Please try again.</div></div>';}
+      finally{btn.classList.remove('btn-loading');btn.disabled=false;}
+    });
+  })();
+  </script>
+</body>
+</html>

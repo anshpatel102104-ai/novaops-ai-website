@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>First 10 Customers Finder — AI Customer Acquisition Strategy | Launchpad</title>
+  <meta name="description" content="Find your first 10 customers with AI. Get specific personas, where to find them, what to say, and the exact outreach playbook to close your first deals.">
+  <link rel="canonical" href="https://nova-ops.space/tools/first-10-customers-finder.html">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,600,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/brand.css">
+</head>
+<body>
+  <div class="tool-page">
+    <header class="tool-header">
+      <div class="container-sm">
+        <a href="/launchpad.html" style="font-size:.85rem;color:var(--txt-3);display:inline-flex;align-items:center;gap:.4rem;margin-bottom:1rem">← Back to Launchpad</a>
+        <p class="eyebrow eyebrow-lp">FIRST 10 CUSTOMERS FINDER</p>
+        <h1 style="font-size:clamp(1.8rem,4vw,2.8rem)">Find Your <span class="gradient-text">First 10 Customers</span></h1>
+        <p style="color:var(--txt-2);margin-top:.5rem;font-size:.975rem;max-width:540px;margin-left:auto;margin-right:auto;">Get specific personas, where to find them online, what to say, and a step-by-step outreach playbook to close your first real customers.</p>
+      </div>
+    </header>
+    <main class="tool-body">
+      <form id="tool-form" class="tool-form">
+        <div class="form-group"><label for="product">Your Product / Service</label><textarea id="product" class="form-control" rows="3" placeholder="What do you sell? What does it do? What problem does it solve?" required></textarea></div>
+        <div class="form-group"><label for="guess">Your Guess at the Customer</label><input type="text" id="guess" class="form-control" placeholder="Who do you think will buy this? Be specific." required></div>
+        <div class="form-group"><label for="price">Price</label><input type="text" id="price" class="form-control" placeholder="e.g. $49/mo, $2,000 one-time, free beta"></div>
+        <div class="form-group"><label for="channels">Channels You Can Access</label><input type="text" id="channels" class="form-control" placeholder="e.g. LinkedIn, Twitter/X, local network, Reddit communities, email..."></div>
+        <button type="submit" class="btn btn-primary btn-lg tool-submit" id="submit-btn">Find My First 10 Customers →</button>
+      </form>
+      <div id="result" style="display:none"></div>
+    </main>
+  </div>
+  <script src="/script.js"></script><script src="/site.js"></script>
+  <script>
+  (function(){
+    const API='https://launchpad-api.dpatel0729.workers.dev';
+    const SYSTEM=`You are a B2B/B2C growth expert who specializes in zero-to-one customer acquisition. Help this founder find and close their first 10 customers.
+
+Structure your response with:
+## IDEAL CUSTOMER PROFILE — Specific, detailed description of the person most likely to buy right now (not eventually)
+## WHERE TO FIND THEM — 3-5 specific places online and offline where these people congregate
+## THE OUTREACH PLAYBOOK — Step-by-step process to approach, qualify, and close
+## WHAT TO SAY — Sample outreach message (DM or email) they can copy and send today
+## FAST PATH TO FIRST 5 — The single fastest route to getting the first 5 customers
+## WHAT TO LEARN — What questions to ask early customers to sharpen the product
+
+Be tactical. Give specific names of communities, subreddits, LinkedIn groups, hashtags, or events where applicable. Use ## headers.`;
+    document.getElementById('tool-form').addEventListener('submit',async(e)=>{
+      e.preventDefault();
+      const btn=document.getElementById('submit-btn'),result=document.getElementById('result');
+      btn.classList.add('btn-loading');btn.disabled=true;
+      result.style.display='block';result.innerHTML='<div style="display:flex;justify-content:center;padding:3rem"><div class="spinner"></div></div>';
+      const msg=`Product: ${document.getElementById('product').value}\nTarget customer guess: ${document.getElementById('guess').value}\nPrice: ${document.getElementById('price').value||'TBD'}\nChannels available: ${document.getElementById('channels').value||'Not specified'}`;
+      try{
+        const res=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1600,system:SYSTEM,messages:[{role:'user',content:msg}]})});
+        if(!res.ok)throw new Error();
+        const data=await res.json();const text=data?.content?.[0]?.text||'';
+        const sections=text.split(/\n(?=##)/);
+        let html='<div class="out-card"><p class="eyebrow eyebrow-lp" style="margin-bottom:1rem">CUSTOMER ACQUISITION PLAYBOOK</p>';
+        sections.forEach(s=>{const ls=s.trim().split('\n');const hd=ls[0].replace(/^#+\s*/,'');const b=ls.slice(1).join('\n').trim().replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/^[-*] (.+)$/gm,'<li>$1</li>').replace(/(<li>[\s\S]*?<\/li>\n?)+/g,'<ul>$&</ul>');
+        if(hd||b)html+=`<section>${hd?`<h4>${hd}</h4>`:''}${b?`<p>${b}</p>`:''}</section>`;});
+        result.innerHTML=html+'</div>';
+      }catch{result.innerHTML='<div class="out-card"><div class="alert alert-red">Something went wrong. Please try again.</div></div>';}
+      finally{btn.classList.remove('btn-loading');btn.disabled=false;}
+    });
+  })();
+  </script>
+</body>
+</html>
