@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>AI GTM Strategy Builder — Go-to-Market Plan for Startups | Launchpad</title>
+  <meta name="description" content="Build a channel-by-channel go-to-market strategy for your startup with AI. Get acquisition channels, messaging, pricing strategy, and 90-day launch plan.">
+  <link rel="canonical" href="https://nova-ops.space/tools/gtm-strategy-builder.html">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,600,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/brand.css">
+</head>
+<body>
+  <div class="tool-page">
+    <header class="tool-header">
+      <div class="container-sm">
+        <a href="/launchpad.html" style="font-size:.85rem;color:var(--txt-3);display:inline-flex;align-items:center;gap:.4rem;margin-bottom:1rem">← Back to Launchpad</a>
+        <p class="eyebrow eyebrow-lp">GTM STRATEGY BUILDER</p>
+        <h1 style="font-size:clamp(1.8rem,4vw,2.8rem)">Build Your <span class="gradient-text">Go-to-Market Strategy</span></h1>
+        <p style="color:var(--txt-2);margin-top:.5rem;font-size:.975rem;max-width:540px;margin-left:auto;margin-right:auto;">Get a channel-by-channel acquisition plan, messaging framework, and 90-day launch roadmap — custom to your startup.</p>
+      </div>
+    </header>
+    <main class="tool-body">
+      <form id="tool-form" class="tool-form">
+        <div class="form-group"><label for="product">Product / Service</label><textarea id="product" class="form-control" rows="3" placeholder="What do you sell? What problem does it solve?" required></textarea></div>
+        <div class="form-group"><label for="customer">Ideal Customer</label><input type="text" id="customer" class="form-control" placeholder="e.g. SaaS founders with 1-10 employees, B2C health-conscious millennials" required></div>
+        <div class="form-group"><label for="price">Price Point</label><input type="text" id="price" class="form-control" placeholder="e.g. $99/month, $500 one-time, $5,000 implementation fee"></div>
+        <div class="form-group"><label for="budget">Launch Budget</label>
+          <select id="budget" class="form-control">
+            <option>$0 — bootstrapped, organic only</option>
+            <option>$1k–5k — small paid experiments</option>
+            <option>$5k–20k — serious launch budget</option>
+            <option>$20k+ — funded launch</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg tool-submit" id="submit-btn">Build My GTM Strategy →</button>
+      </form>
+      <div id="result" style="display:none"></div>
+    </main>
+  </div>
+  <script src="/script.js"></script><script src="/site.js"></script>
+  <script>
+  (function(){
+    const API='https://launchpad-api.dpatel0729.workers.dev';
+    const SYSTEM=`You are a GTM strategist. Create a comprehensive go-to-market strategy with:
+## POSITIONING — One-sentence positioning statement and key differentiators
+## TARGET SEGMENTS — 2-3 specific customer personas with demographics and pain points
+## TOP ACQUISITION CHANNELS — Top 3-5 channels ranked by fit, with tactical steps for each
+## MESSAGING FRAMEWORK — Core message, key benefits, and objection handlers
+## PRICING STRATEGY — Recommended pricing model and rationale
+## 90-DAY LAUNCH PLAN — Week-by-week milestones for first 90 days
+## SUCCESS METRICS — KPIs to track in the first 3 months
+Be tactical and specific. Use ## headers.`;
+    document.getElementById('tool-form').addEventListener('submit', async(e)=>{
+      e.preventDefault();
+      const btn=document.getElementById('submit-btn'),result=document.getElementById('result');
+      btn.classList.add('btn-loading');btn.disabled=true;
+      result.style.display='block';result.innerHTML='<div style="display:flex;justify-content:center;padding:3rem"><div class="spinner"></div></div>';
+      const msg=`Product: ${document.getElementById('product').value}\nIdeal customer: ${document.getElementById('customer').value}\nPrice: ${document.getElementById('price').value||'TBD'}\nBudget: ${document.getElementById('budget').value}`;
+      try{
+        const res=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1800,system:SYSTEM,messages:[{role:'user',content:msg}]})});
+        if(!res.ok)throw new Error();
+        const data=await res.json();const text=data?.content?.[0]?.text||'';
+        result.innerHTML=renderSections(text,'GTM STRATEGY');
+      }catch{result.innerHTML='<div class="out-card"><div class="alert alert-red">Something went wrong. Please try again.</div></div>';}
+      finally{btn.classList.remove('btn-loading');btn.disabled=false;}
+    });
+    function renderSections(text,label){
+      const s=text.split(/\n(?=##)/);let h=`<div class="out-card"><p class="eyebrow eyebrow-lp" style="margin-bottom:1rem">${label}</p>`;
+      s.forEach(sec=>{const ls=sec.trim().split('\n');const hd=ls[0].replace(/^#+\s*/,'');const b=ls.slice(1).join('\n').trim().replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/^[-*] (.+)$/gm,'<li>$1</li>').replace(/(<li>[\s\S]*?<\/li>\n?)+/g,'<ul>$&</ul>');
+      if(hd||b)h+=`<section>${hd?`<h4>${hd}</h4>`:''}${b?`<p>${b}</p>`:''}</section>`;});return h+'</div>';
+    }
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>AI Landing Page Creator — High-Converting Copy Generator | Launchpad</title>
+  <meta name="description" content="Generate high-converting landing page copy for your product with AI. Get headline, subheadline, feature bullets, social proof, and CTA — ready to publish.">
+  <link rel="canonical" href="https://nova-ops.space/tools/landing-page-creator.html">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,600,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/brand.css">
+</head>
+<body>
+  <div class="tool-page">
+    <header class="tool-header">
+      <div class="container-sm">
+        <a href="/launchpad.html" style="font-size:.85rem;color:var(--txt-3);display:inline-flex;align-items:center;gap:.4rem;margin-bottom:1rem">← Back to Launchpad</a>
+        <p class="eyebrow eyebrow-lp">LANDING PAGE CREATOR</p>
+        <h1 style="font-size:clamp(1.8rem,4vw,2.8rem)">Generate <span class="gradient-text">High-Converting</span> Landing Page Copy</h1>
+        <p style="color:var(--txt-2);margin-top:.5rem;font-size:.975rem;max-width:540px;margin-left:auto;margin-right:auto;">Get complete landing page copy — headline, subheadline, features, FAQ, testimonials, and CTA — ready to drop into any builder.</p>
+      </div>
+    </header>
+    <main class="tool-body">
+      <form id="tool-form" class="tool-form">
+        <div class="form-group"><label for="product">Product / Service</label><textarea id="product" class="form-control" rows="3" placeholder="What does your product do? What problem does it solve?" required></textarea></div>
+        <div class="form-group"><label for="customer">Target Customer</label><input type="text" id="customer" class="form-control" placeholder="Who is this landing page for?" required></div>
+        <div class="form-group"><label for="outcome">Primary Outcome / Benefit</label><input type="text" id="outcome" class="form-control" placeholder="What's the #1 result your customer will get? e.g. Cut churn by 40%, never miss a lead"></div>
+        <div class="form-group"><label for="cta">Primary CTA</label><input type="text" id="cta" class="form-control" placeholder="e.g. Start free trial, Book a demo, Get instant access"></div>
+        <div class="form-group"><label for="tone">Brand Tone</label>
+          <select id="tone" class="form-control">
+            <option>Bold and direct (startup energy)</option>
+            <option>Professional and credible (enterprise)</option>
+            <option>Friendly and conversational (consumer)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg tool-submit" id="submit-btn">Generate Landing Page Copy →</button>
+      </form>
+      <div id="result" style="display:none"></div>
+    </main>
+  </div>
+  <script src="/script.js"></script><script src="/site.js"></script>
+  <script>
+  (function(){
+    const API='https://launchpad-api.dpatel0729.workers.dev';
+    const SYSTEM=`You are an expert conversion copywriter. Generate complete landing page copy with:
+## HERO HEADLINE — 3 options (bold statement, outcome-driven, curiosity-gap)
+## SUBHEADLINE — 2 options that expand on the headline
+## HERO PARAGRAPH — 2-3 sentences explaining the value proposition
+## FEATURE BULLETS — 5-6 punchy benefit-focused bullets (not feature dumps)
+## SOCIAL PROOF SECTION — 3 short testimonial-style quotes to use as placeholders (mark as [PLACEHOLDER])
+## FAQ — 4 common objections turned into Q&A
+## CTA COPY — Primary button text + surrounding copy to increase conversion
+## SEO TITLE & META — Optimized page title and meta description
+
+Make it conversion-focused, clear, and specific. No jargon. Use ## headers.`;
+    document.getElementById('tool-form').addEventListener('submit',async(e)=>{
+      e.preventDefault();
+      const btn=document.getElementById('submit-btn'),result=document.getElementById('result');
+      btn.classList.add('btn-loading');btn.disabled=true;
+      result.style.display='block';result.innerHTML='<div style="display:flex;justify-content:center;padding:3rem"><div class="spinner"></div></div>';
+      const msg=`Product: ${document.getElementById('product').value}\nTarget customer: ${document.getElementById('customer').value}\nPrimary outcome: ${document.getElementById('outcome').value||'Not specified'}\nCTA: ${document.getElementById('cta').value||'Get started'}\nTone: ${document.getElementById('tone').value}`;
+      try{
+        const res=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1800,system:SYSTEM,messages:[{role:'user',content:msg}]})});
+        if(!res.ok)throw new Error();
+        const data=await res.json();const text=data?.content?.[0]?.text||'';
+        const sections=text.split(/\n(?=##)/);
+        let html='<div class="out-card"><p class="eyebrow eyebrow-lp" style="margin-bottom:1rem">LANDING PAGE COPY</p>';
+        sections.forEach(s=>{const ls=s.trim().split('\n');const hd=ls[0].replace(/^#+\s*/,'');const b=ls.slice(1).join('\n').trim().replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/^[-*] (.+)$/gm,'<li>$1</li>').replace(/(<li>[\s\S]*?<\/li>\n?)+/g,'<ul>$&</ul>');
+        if(hd||b)html+=`<section>${hd?`<h4>${hd}</h4>`:''}${b?`<p>${b}</p>`:''}</section>`;});
+        result.innerHTML=html+'</div>';
+      }catch{result.innerHTML='<div class="out-card"><div class="alert alert-red">Something went wrong. Please try again.</div></div>';}
+      finally{btn.classList.remove('btn-loading');btn.disabled=false;}
+    });
+  })();
+  </script>
+</body>
+</html>
