@@ -17,6 +17,31 @@
 /faq                    /faq.html                    200
 /contact                /contact.html                200
 
+# Launchpad × Nova OS pages
+/launchpad              /launchpad.html              200
+/nova                   /nova.html                   200
+/how-it-works           /how-it-works.html           200
+
+# Tool pages
+/tools/idea-validator           /tools/idea-validator.html           200
+/tools/pitch-generator          /tools/pitch-generator.html          200
+/tools/gtm-strategy-builder     /tools/gtm-strategy-builder.html     200
+/tools/kill-my-idea             /tools/kill-my-idea.html             200
+/tools/funding-readiness-score  /tools/funding-readiness-score.html  200
+/tools/first-10-customers       /tools/first-10-customers-finder.html 200
+/tools/business-plan-generator  /tools/business-plan-generator.html  200
+/tools/investor-email-writer    /tools/investor-email-writer.html    200
+/tools/idea-vs-idea             /tools/idea-vs-idea.html             200
+/tools/landing-page-creator     /tools/landing-page-creator.html     200
+
+# Operations pages
+/operations/crm-pipeline         /operations/crm-pipeline.html         200
+/operations/lead-capture         /operations/lead-capture.html         200
+/operations/automation-workflows /operations/automation-workflows.html 200
+/operations/follow-up-booking    /operations/follow-up-booking.html    200
+/operations/client-onboarding    /operations/client-onboarding.html    200
+/operations/reporting-dashboard  /operations/reporting-dashboard.html  200
+
 # Industry short URLs
 /roofers                /industries/ai-automation-for-roofers.html          200
 /med-spas               /industries/ai-automation-for-med-spas.html         200
