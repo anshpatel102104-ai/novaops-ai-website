@@ -1,49 +1,95 @@
-/* site.js — shared nav/footer injection + utilities */
+/* site.js — AI Business OS shared nav/footer + utilities */
 (function () {
   'use strict';
 
-  /* ---- NAV HTML ---- */
   const NAV_HTML = `
 <nav class="site-nav" id="siteNav" aria-label="Main navigation">
   <div class="nav-inner">
-    <a class="nav-brand" href="/">
-      <span class="lp-mark">Launchpad</span><span style="color:var(--txt-3);font-weight:400">×</span><span class="nv-mark">Nova</span>
+    <a class="nav-brand" href="/" aria-label="AI Business OS home">
+      <span class="os-dot"></span>
+      <span class="os-name">AI Business OS</span>
     </a>
-    <div class="nav-links">
-      <a href="/launchpad.html">Launchpad</a>
-      <a href="/nova.html">Nova OS</a>
-      <a href="/how-it-works.html">How It Works</a>
-      <a href="/pricing.html">Pricing</a>
-      <a href="/about.html">About</a>
+    <div class="nav-links" role="menubar">
+      <span class="nav-has-drop" role="none">
+        <a href="/launchpad.html" role="menuitem">Launchpad</a>
+        <div class="nav-drop" aria-label="Launchpad tools">
+          <div class="nav-drop-section">Build</div>
+          <a href="/tools/idea-validator.html"><span class="drop-icon">💡</span>Idea Validator</a>
+          <a href="/tools/pitch-generator.html"><span class="drop-icon">🎤</span>Pitch Generator</a>
+          <a href="/tools/gtm-strategy-builder.html"><span class="drop-icon">🗺️</span>GTM Strategy Builder</a>
+          <a href="/tools/kill-my-idea.html"><span class="drop-icon">☠️</span>Kill My Idea</a>
+          <a href="/tools/funding-readiness-score.html"><span class="drop-icon">💰</span>Funding Readiness Score</a>
+          <hr>
+          <a href="/launchpad.html" style="color:var(--lp-acc);font-weight:600">View all 10 tools →</a>
+        </div>
+      </span>
+      <span class="nav-has-drop" role="none">
+        <a href="/nova.html" role="menuitem">Nova OS</a>
+        <div class="nav-drop" aria-label="Nova operations">
+          <div class="nav-drop-section">Operate</div>
+          <a href="/operations/crm-pipeline.html"><span class="drop-icon">📊</span>CRM Pipeline</a>
+          <a href="/operations/lead-capture.html"><span class="drop-icon">🧲</span>Lead Capture</a>
+          <a href="/operations/automation-workflows.html"><span class="drop-icon">⚡</span>Automation Workflows</a>
+          <a href="/operations/follow-up-booking.html"><span class="drop-icon">📅</span>Follow-Up &amp; Booking</a>
+          <a href="/operations/client-onboarding.html"><span class="drop-icon">🤝</span>Client Onboarding</a>
+          <hr>
+          <a href="/nova.html" style="color:var(--nv-acc);font-weight:600">View all systems →</a>
+        </div>
+      </span>
+      <a href="/how-it-works.html" role="menuitem">How It Works</a>
+      <a href="/pricing.html" role="menuitem">Pricing</a>
     </div>
     <div class="nav-ctas">
-      <a href="/pricing.html" class="btn btn-outline btn-sm">Get Access</a>
-      <a href="https://tally.so/r/xXQa95" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Book a Demo</a>
+      <a href="/pricing.html#starter" class="btn btn-ghost btn-sm">Start Free</a>
+      <a href="/pricing.html" class="btn btn-primary btn-sm">Get Started</a>
     </div>
-    <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu" aria-expanded="false">
+    <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMobile">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 <div class="nav-mobile" id="navMobile" aria-hidden="true">
-  <a href="/launchpad.html">Launchpad</a>
-  <a href="/nova.html">Nova OS</a>
+  <a href="/">Home</a>
+  <div class="nav-mobile-section">Launchpad</div>
+  <a href="/launchpad.html">All Launchpad Tools</a>
+  <a href="/tools/idea-validator.html">💡 Idea Validator</a>
+  <a href="/tools/pitch-generator.html">🎤 Pitch Generator</a>
+  <a href="/tools/gtm-strategy-builder.html">🗺️ GTM Strategy Builder</a>
+  <a href="/tools/kill-my-idea.html">☠️ Kill My Idea</a>
+  <a href="/tools/funding-readiness-score.html">💰 Funding Readiness Score</a>
+  <a href="/tools/first-10-customers-finder.html">🎯 First 10 Customers</a>
+  <a href="/tools/business-plan-generator.html">📋 Business Plan Generator</a>
+  <a href="/tools/investor-email-writer.html">✉️ Investor Email Writer</a>
+  <a href="/tools/idea-vs-idea.html">⚖️ Idea vs Idea</a>
+  <a href="/tools/landing-page-creator.html">🖥️ Landing Page Creator</a>
+  <hr>
+  <div class="nav-mobile-section">Nova OS</div>
+  <a href="/nova.html">All Nova Systems</a>
+  <a href="/operations/crm-pipeline.html">📊 CRM Pipeline</a>
+  <a href="/operations/lead-capture.html">🧲 Lead Capture</a>
+  <a href="/operations/automation-workflows.html">⚡ Automation Workflows</a>
+  <a href="/operations/follow-up-booking.html">📅 Follow-Up &amp; Booking</a>
+  <a href="/operations/client-onboarding.html">🤝 Client Onboarding</a>
+  <a href="/operations/reporting-dashboard.html">📈 Reporting Dashboard</a>
+  <hr>
   <a href="/how-it-works.html">How It Works</a>
   <a href="/pricing.html">Pricing</a>
   <a href="/about.html">About</a>
   <a href="/contact.html">Contact</a>
-  <a href="https://tally.so/r/xXQa95" target="_blank" rel="noopener" class="btn btn-primary btn-sm" style="margin-top:.5rem">Book a Demo</a>
+  <div style="padding:.75rem .9rem 0">
+    <a href="/pricing.html" class="btn btn-primary btn-full" style="display:flex">Get Started →</a>
+  </div>
 </div>`;
 
-  /* ---- FOOTER HTML ---- */
   const FOOTER_HTML = `
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-brand">
-      <a class="nav-brand" href="/" style="font-size:1rem">
-        <span class="lp-mark">Launchpad</span><span style="color:var(--txt-3);font-weight:400">×</span><span class="nv-mark">Nova</span>
-      </a>
-      <p>The AI Business OS for founders who want to build fast and scale smart.</p>
+      <div class="footer-logo">
+        <span class="os-dot" style="width:8px;height:8px;border-radius:50%;background:var(--grad);display:inline-block"></span>
+        <span class="os-name" style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:800;font-size:.95rem;letter-spacing:-.01em">AI Business OS</span>
+      </div>
+      <p>From idea to automated business — Launchpad builds it, Nova runs it.</p>
     </div>
     <div class="footer-col">
       <h5>Launchpad</h5>
@@ -52,30 +98,23 @@
       <a href="/tools/gtm-strategy-builder.html">GTM Strategy</a>
       <a href="/tools/kill-my-idea.html">Kill My Idea</a>
       <a href="/tools/funding-readiness-score.html">Funding Score</a>
-      <a href="/launchpad.html">All Tools →</a>
+      <a href="/launchpad.html" style="color:var(--lp-acc)">All 10 tools →</a>
     </div>
     <div class="footer-col">
       <h5>Nova OS</h5>
       <a href="/operations/crm-pipeline.html">CRM Pipeline</a>
       <a href="/operations/lead-capture.html">Lead Capture</a>
       <a href="/operations/automation-workflows.html">Automations</a>
-      <a href="/operations/follow-up-booking.html">Follow-Up & Booking</a>
+      <a href="/operations/follow-up-booking.html">Follow-Up &amp; Booking</a>
       <a href="/operations/client-onboarding.html">Client Onboarding</a>
-      <a href="/nova.html">All Operations →</a>
+      <a href="/nova.html" style="color:var(--nv-acc)">All systems →</a>
     </div>
     <div class="footer-col">
-      <h5>Company</h5>
+      <h5>Platform</h5>
       <a href="/how-it-works.html">How It Works</a>
       <a href="/pricing.html">Pricing</a>
       <a href="/about.html">About</a>
       <a href="/contact.html">Contact</a>
-      <a href="/results.html">Results</a>
-    </div>
-    <div class="footer-col">
-      <h5>Connect</h5>
-      <a href="https://tally.so/r/xXQa95" target="_blank" rel="noopener">Book a Demo</a>
-      <a href="https://calendar.app.google/syCyZmgeggCeuvPM8" target="_blank" rel="noopener">Schedule a Call</a>
-      <a href="/contact.html">Get in Touch</a>
     </div>
   </div>
   <div class="footer-bottom">
@@ -84,139 +123,106 @@
   </div>
 </footer>`;
 
-  /* ---- INJECT NAV ---- */
-  function injectNav() {
-    const placeholder = document.getElementById('site-nav-placeholder');
-    if (placeholder) {
-      placeholder.outerHTML = NAV_HTML;
-    } else {
-      document.body.insertAdjacentHTML('afterbegin', NAV_HTML);
-    }
+  function inject(id, html, where) {
+    const el = document.getElementById(id);
+    if (el) { el.outerHTML = html; return; }
+    document.body.insertAdjacentHTML(where, html);
   }
 
-  /* ---- INJECT FOOTER ---- */
-  function injectFooter() {
-    const placeholder = document.getElementById('site-footer-placeholder');
-    if (placeholder) {
-      placeholder.outerHTML = FOOTER_HTML;
-    } else {
-      document.body.insertAdjacentHTML('beforeend', FOOTER_HTML);
-    }
-    const yr = document.getElementById('footerYear');
-    if (yr) yr.textContent = new Date().getFullYear();
-  }
-
-  /* ---- NAV SCROLL STATE ---- */
-  function initNavScroll() {
+  function initNav() {
     const nav = document.getElementById('siteNav');
     if (!nav) return;
-    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 20);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  }
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 24), { passive: true });
+    nav.classList.toggle('scrolled', window.scrollY > 24);
 
-  /* ---- HAMBURGER ---- */
-  function initHamburger() {
     const btn = document.getElementById('navHamburger');
     const menu = document.getElementById('navMobile');
-    if (!btn || !menu) return;
-    btn.addEventListener('click', () => {
-      const open = menu.classList.toggle('open');
-      btn.setAttribute('aria-expanded', String(open));
-      menu.setAttribute('aria-hidden', String(!open));
-    });
-    document.addEventListener('click', e => {
-      if (!btn.contains(e.target) && !menu.contains(e.target)) {
-        menu.classList.remove('open');
-        btn.setAttribute('aria-expanded', 'false');
-        menu.setAttribute('aria-hidden', 'true');
-      }
-    });
-  }
+    if (btn && menu) {
+      btn.addEventListener('click', () => {
+        const open = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(open));
+        menu.setAttribute('aria-hidden', String(!open));
+      });
+      document.addEventListener('click', e => {
+        if (!nav.contains(e.target) && !menu.contains(e.target)) {
+          menu.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+          menu.setAttribute('aria-hidden', 'true');
+        }
+      });
+    }
 
-  /* ---- ACTIVE NAV LINK ---- */
-  function markActiveLink() {
     const path = window.location.pathname.replace(/\/$/, '') || '/';
     document.querySelectorAll('.nav-links a, .nav-mobile a').forEach(a => {
-      const href = a.getAttribute('href').replace(/\/$/, '') || '/';
-      if (href === path || (href !== '/' && path.startsWith(href))) {
-        a.classList.add('active');
-      }
+      const href = (a.getAttribute('href') || '').replace(/\/$/, '') || '/';
+      if (href && href !== '/' && path.startsWith(href)) a.classList.add('active');
+      if (href === '/' && path === '/') a.classList.add('active');
     });
   }
 
-  /* ---- REVEAL ON SCROLL ---- */
   function initReveal() {
     const els = document.querySelectorAll('.reveal');
     if (!els.length) return;
     const io = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.1 });
     els.forEach(el => io.observe(el));
   }
 
-  /* ---- AI API CALL ---- */
-  window.callAI = async function (systemPrompt, userMessage, outputEl, transformFn) {
+  function setYear() {
+    const el = document.getElementById('footerYear');
+    if (el) el.textContent = new Date().getFullYear();
+  }
+
+  /* AI call utility */
+  window.callAI = async function(system, userMsg, outputEl, renderFn) {
     const API = 'https://launchpad-api.dpatel0729.workers.dev';
-    outputEl.innerHTML = '<div class="spinner" style="margin:2rem auto"></div>';
     outputEl.style.display = 'block';
+    outputEl.innerHTML = '<div style="display:flex;justify-content:center;padding:2.5rem"><div class="spinner"></div></div>';
     try {
       const res = await fetch(API, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
-          max_tokens: 1500,
-          messages: [{ role: 'user', content: userMessage }],
-          system: systemPrompt
-        })
+        body: JSON.stringify({ model: 'claude-sonnet-4-20250514', max_tokens: 1600, system, messages: [{ role: 'user', content: userMsg }] })
       });
-      if (!res.ok) throw new Error('API error ' + res.status);
+      if (!res.ok) throw new Error('API ' + res.status);
       const data = await res.json();
-      const text = data?.content?.[0]?.text || data?.choices?.[0]?.message?.content || '';
-      if (!text) throw new Error('Empty response');
-      outputEl.innerHTML = transformFn ? transformFn(text) : `<div class="out-card"><p>${escHtml(text)}</p></div>`;
-    } catch (err) {
-      outputEl.innerHTML = `<div class="out-card"><div class="alert alert-red">Something went wrong. Please try again.</div></div>`;
-      console.error(err);
+      const text = data?.content?.[0]?.text || '';
+      if (!text) throw new Error('empty');
+      outputEl.innerHTML = renderFn ? renderFn(text) : renderSections(text, 'RESULT');
+    } catch {
+      outputEl.innerHTML = '<div class="out-card"><div class="alert alert-red">Something went wrong — please try again.</div></div>';
     }
   };
 
-  /* ---- MARKDOWN → HTML (lightweight) ---- */
-  window.mdToHtml = function (md) {
-    return md
-      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
-      .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
-      .replace(/\*(.+?)\*/g,'<em>$1</em>')
-      .replace(/^### (.+)$/gm,'<h4>$1</h4>')
-      .replace(/^## (.+)$/gm,'<h3>$1</h3>')
-      .replace(/^# (.+)$/gm,'<h2>$1</h2>')
-      .replace(/^[-*] (.+)$/gm,'<li>$1</li>')
-      .replace(/(<li>.*<\/li>\n?)+/g,'<ul>$&</ul>')
-      .replace(/\n\n+/g,'</p><p>')
-      .replace(/^(?!<[h|u|l])/gm,'')
-      .replace(/(<p><\/p>)+/g,'');
+  window.renderSections = function(text, label, accentClass) {
+    const cls = accentClass || 'eyebrow-lp';
+    const sections = text.split(/\n(?=##\s)/);
+    let html = `<div class="out-card"><p class="eyebrow ${cls}" style="margin-bottom:1rem">${label}</p>`;
+    sections.forEach(s => {
+      const lines = s.trim().split('\n');
+      const heading = lines[0].replace(/^#+\s*/, '');
+      const body = lines.slice(1).join('\n').trim()
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/^[-*] (.+)$/gm, '<li>$1</li>')
+        .replace(/(<li>[\s\S]*?<\/li>\n?)+/g, s => `<ul>${s}</ul>`);
+      if (heading || body) {
+        html += `<section>${heading ? `<h4>${heading.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</h4>` : ''}${body ? `<div>${body}</div>` : ''}</section>`;
+      }
+    });
+    return html + '</div>';
   };
 
-  /* ---- ESCAPE HTML ---- */
-  function escHtml(str) {
-    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-  }
-  window.escHtml = escHtml;
-
-  /* ---- INIT ---- */
   function init() {
-    injectNav();
-    injectFooter();
-    initNavScroll();
-    initHamburger();
-    markActiveLink();
+    inject('site-nav-placeholder', NAV_HTML, 'afterbegin');
+    inject('site-footer-placeholder', FOOTER_HTML, 'beforeend');
+    initNav();
     initReveal();
+    setYear();
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+  document.readyState === 'loading'
+    ? document.addEventListener('DOMContentLoaded', init)
+    : init();
 })();

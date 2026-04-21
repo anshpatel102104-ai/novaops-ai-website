@@ -4,190 +4,162 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
-  <title>Launchpad — 10 AI Tools to Build Your Business | NovaOps AI</title>
-  <meta name="description" content="Use Launchpad's 10 AI-powered tools to validate your idea, generate a pitch, build a GTM strategy, score funding readiness, and more. Free to try.">
+  <title>Launchpad — AI Tools for Founders | AI Business OS</title>
+  <meta name="description" content="Launchpad gives founders 10 AI tools to go from idea to first customer. Validate, pitch, strategize, and launch — all in minutes, not months.">
   <link rel="canonical" href="https://nova-ops.space/launchpad.html">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://nova-ops.space/launchpad.html">
-  <meta property="og:title" content="Launchpad — 10 AI Tools to Build Your Business">
-  <meta property="og:description" content="From raw idea to funded startup — 10 AI-powered tools for every step of the founder journey.">
-  <meta property="og:image" content="https://nova-ops.space/og-image.png">
-  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:title" content="Launchpad — AI Tools for Founders">
+  <meta property="og:description" content="10 AI tools for every stage of the founder journey. Validate, pitch, launch — in minutes.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,600,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="brand.css">
+  <link rel="stylesheet" href="/brand.css">
   <style>
-    .lp-hero {
-      padding: 120px 2rem 80px;
-      text-align: center;
-      background: radial-gradient(ellipse 70% 55% at 50% 0%, rgba(37,99,235,.12) 0%, transparent 65%);
-    }
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    @media (max-width: 768px) {
-      .why-grid { grid-template-columns: 1fr; }
-    }
+    .lp-hero { padding:calc(var(--nav-h) + 80px) 1.75rem 72px; text-align:center; background:radial-gradient(ellipse 70% 50% at 50% 0%, rgba(75,139,244,.12) 0%, transparent 65%) }
+    .tool-stage { margin-bottom:3rem }
+    .tool-stage-label { display:flex; align-items:center; gap:.75rem; margin-bottom:1.25rem }
+    .tool-stage-label::before, .tool-stage-label::after { content:''; flex:1; height:1px; background:var(--bdr) }
+    .tool-stage-label span { font-size:.72rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--txt-3); white-space:nowrap }
+    .tool-card-full { display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:1.25rem; background:var(--bg-card); border:1px solid var(--bdr); border-radius:var(--r-lg); padding:1.25rem 1.5rem; text-decoration:none; transition:all var(--t) }
+    .tool-card-full:hover { border-color:var(--lp-line); box-shadow:0 0 0 1px var(--lp-line), var(--sh-lp); transform:translateX(4px) }
+    .tool-card-full .tf-icon { width:44px; height:44px; background:var(--lp-dim); border:1px solid var(--lp-line); border-radius:var(--r-sm); display:flex; align-items:center; justify-content:center; font-size:1.25rem; flex-shrink:0 }
+    .tool-card-full .tf-body h3 { font-size:1rem; margin-bottom:.2rem }
+    .tool-card-full .tf-body p { font-size:.855rem }
+    .tool-card-full .tf-arrow { color:var(--txt-3); font-size:1.1rem; flex-shrink:0 }
+    .tool-card-full:hover .tf-arrow { color:var(--lp-acc) }
+    .stage-grid { display:flex; flex-direction:column; gap:.65rem }
   </style>
 </head>
 <body>
-
   <!-- HERO -->
   <section class="lp-hero">
     <div class="container">
       <p class="eyebrow eyebrow-lp reveal">LAUNCHPAD</p>
-      <h1 class="reveal reveal-delay-1">10 AI Tools to <span class="gradient-text">Build Your Business</span></h1>
-      <p class="lead reveal reveal-delay-2" style="max-width:580px;margin:1rem auto 2rem;">
-        From raw idea to funded startup — Launchpad gives you AI-powered tools for every critical step of the founder journey.
-      </p>
+      <h1 class="reveal reveal-delay-1">The Founder's <span class="gradient-text">Execution Toolkit</span></h1>
+      <p class="lead reveal reveal-delay-2" style="max-width:540px;margin:1rem auto 2rem">10 AI tools for every critical step of the early founder journey — from validating an idea to landing your first customers.</p>
       <div class="hero-ctas reveal reveal-delay-3">
         <a href="/pricing.html" class="btn btn-primary btn-lg">Get Full Access</a>
-        <a href="/how-it-works.html" class="btn btn-outline btn-lg">How It Works</a>
+        <a href="/pricing.html#starter" class="btn btn-outline btn-lg">Start Free</a>
       </div>
     </div>
   </section>
 
-  <!-- TOOL GRID -->
-  <section class="section" style="background:var(--bg-2);border-top:1px solid var(--bdr)">
+  <!-- WHAT LAUNCHPAD IS -->
+  <section class="section section-dark">
     <div class="container">
-      <div class="section-header reveal">
-        <p class="eyebrow" style="color:var(--txt-3)">THE TOOLKIT</p>
-        <h2>Pick Your Tool</h2>
-        <p>Each tool is purpose-built for a specific founder challenge. Use them individually or work through the full stack.</p>
-      </div>
-      <div class="grid-tools">
-        <a href="/tools/idea-validator.html" class="tool-card reveal">
-          <div class="tool-icon">💡</div>
-          <div>
-            <h3 style="font-size:1.1rem">Idea Validator</h3>
-            <p style="font-size:.875rem;margin-top:.3rem">Stress-test your business idea with AI before investing time or money.</p>
-          </div>
-          <span class="badge badge-lp">Validation</span>
-        </a>
-        <a href="/tools/pitch-generator.html" class="tool-card reveal reveal-delay-1">
-          <div class="tool-icon">🎤</div>
-          <div>
-            <h3 style="font-size:1.1rem">Pitch Generator</h3>
-            <p style="font-size:.875rem;margin-top:.3rem">Generate a compelling investor pitch in seconds.</p>
-          </div>
-          <span class="badge badge-lp">Pitching</span>
-        </a>
-        <a href="/tools/gtm-strategy-builder.html" class="tool-card reveal reveal-delay-2">
-          <div class="tool-icon">🗺️</div>
-          <div>
-            <h3 style="font-size:1.1rem">GTM Strategy Builder</h3>
-            <p style="font-size:.875rem;margin-top:.3rem">Build a go-to-market strategy tailored to your startup.</p>
-          </div>
-          <span class="badge badge-lp">Strategy</span>
-        </a>
-        <a href="/tools/kill-my-idea.html" class="tool-card reveal">
-          <div class="tool-icon">☠️</div>
-          <div>
-            <h3 style="font-size:1.1rem">Kill My Idea</h3>
-            <p style="font-size:.875rem;margin-top:.3rem">Get brutal AI feedback on every reason your idea might fail.</p>
-          </div>
-          <span class="badge badge-lp">Validation</span>
-        </a>
-        <a href="/tools/funding-readiness-score.html" class="tool-card reveal reveal-delay-1">
-          <div class="tool-icon">💰</div>
-          <div>
-            <h3 style="font-size:1.1rem">Funding Readiness Score</h3>
-            <p style="font-size:.875rem;margin-top:.3rem">Find out how investor-ready your startup really is.</p>
-          </div>
-          <span class="badge badge-lp">Funding</span>
-        </a>
-        <a href="/tools/first-10-customers-finder.html" class="tool-card reveal reveal-delay-2">
-          <div class="tool-icon">🎯</div>
-          <div>
-            <h3 style="font-size:1.1rem">First 10 Customers Finder</h3>
-            <p style="font-size:.875rem;margin-top:.3rem">Identify exactly who your first customers are and how to reach them.</p>
-          </div>
-          <span class="badge badge-lp">Growth</span>
-        </a>
-        <a href="/tools/business-plan-generator.html" class="tool-card reveal">
-          <div class="tool-icon">📋</div>
-          <div>
-            <h3 style="font-size:1.1rem">Business Plan Generator</h3>
-            <p style="font-size:.875rem;margin-top:.3rem">Generate a structured business plan in minutes, not months.</p>
-          </div>
-          <span class="badge badge-lp">Planning</span>
-        </a>
-        <a href="/tools/investor-email-writer.html" class="tool-card reveal reveal-delay-1">
-          <div class="tool-icon">✉️</div>
-          <div>
-            <h3 style="font-size:1.1rem">Investor Email Writer</h3>
-            <p style="font-size:.875rem;margin-top:.3rem">Write personalized cold emails to investors that actually get replies.</p>
-          </div>
-          <span class="badge badge-lp">Outreach</span>
-        </a>
-        <a href="/tools/idea-vs-idea.html" class="tool-card reveal reveal-delay-2">
-          <div class="tool-icon">⚖️</div>
-          <div>
-            <h3 style="font-size:1.1rem">Idea vs Idea</h3>
-            <p style="font-size:.875rem;margin-top:.3rem">Compare two business ideas side by side to pick the winner.</p>
-          </div>
-          <span class="badge badge-lp">Decision</span>
-        </a>
-        <a href="/tools/landing-page-creator.html" class="tool-card reveal">
-          <div class="tool-icon">🖥️</div>
-          <div>
-            <h3 style="font-size:1.1rem">Landing Page Creator</h3>
-            <p style="font-size:.875rem;margin-top:.3rem">Generate high-converting landing page copy for your product.</p>
-          </div>
-          <span class="badge badge-lp">Marketing</span>
-        </a>
+      <div class="grid-3 reveal">
+        <div class="card card-lp">
+          <div style="font-size:1.5rem;margin-bottom:.65rem">🎯</div>
+          <h4>Built for the zero-to-one stage</h4>
+          <p style="font-size:.875rem;margin-top:.4rem">Every tool is designed for the hardest part of building: before you have customers, revenue, or certainty.</p>
+        </div>
+        <div class="card card-lp reveal-delay-1">
+          <div style="font-size:1.5rem;margin-bottom:.65rem">⚡</div>
+          <h4>Minutes, not months</h4>
+          <p style="font-size:.875rem;margin-top:.4rem">What used to take consultants, research, and guesswork now takes a form, a submit button, and 30 seconds.</p>
+        </div>
+        <div class="card card-lp reveal-delay-2">
+          <div style="font-size:1.5rem;margin-bottom:.65rem">🔗</div>
+          <h4>Each tool feeds the next</h4>
+          <p style="font-size:.875rem;margin-top:.4rem">Validate first. Then pitch. Then GTM. Then customers. The tools are designed to work as a connected workflow.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- WHY LAUNCHPAD -->
+  <!-- TOOL DIRECTORY -->
   <section class="section">
     <div class="container">
       <div class="section-header reveal">
-        <p class="eyebrow" style="color:var(--txt-3)">WHY LAUNCHPAD</p>
-        <h2>AI That Actually <span class="gradient-text">Thinks Like a Founder</span></h2>
+        <p class="eyebrow" style="color:var(--txt-3)">THE TOOLKIT</p>
+        <h2>10 Tools. Every Stage.</h2>
       </div>
-      <div class="why-grid">
-        <div class="card card-lp reveal">
-          <div style="font-size:1.75rem;margin-bottom:.75rem">🧠</div>
-          <h3 style="font-size:1.05rem">Trained on Real Playbooks</h3>
-          <p style="font-size:.875rem;margin-top:.4rem">Every tool is built on proven startup frameworks — not generic advice.</p>
+
+      <div class="tool-stage reveal">
+        <div class="tool-stage-label"><span>VALIDATE</span></div>
+        <div class="stage-grid">
+          <a href="/tools/idea-validator.html" class="tool-card-full">
+            <div class="tf-icon">💡</div>
+            <div class="tf-body"><h3>Idea Validator</h3><p>AI analysis of market viability, competitive gaps, and business risks — before you commit.</p></div>
+            <div class="tf-arrow">→</div>
+          </a>
+          <a href="/tools/kill-my-idea.html" class="tool-card-full">
+            <div class="tf-icon">☠️</div>
+            <div class="tf-body"><h3>Kill My Idea</h3><p>Brutal devil's advocate critique. Find every reason to fail before the market finds it for you.</p></div>
+            <div class="tf-arrow">→</div>
+          </a>
+          <a href="/tools/idea-vs-idea.html" class="tool-card-full">
+            <div class="tf-icon">⚖️</div>
+            <div class="tf-body"><h3>Idea vs Idea</h3><p>Side-by-side AI comparison of two concepts across market, execution, and revenue potential.</p></div>
+            <div class="tf-arrow">→</div>
+          </a>
         </div>
-        <div class="card card-lp reveal reveal-delay-1">
-          <div style="font-size:1.75rem;margin-bottom:.75rem">⚡</div>
-          <h3 style="font-size:1.05rem">Built for Speed</h3>
-          <p style="font-size:.875rem;margin-top:.4rem">Get structured, actionable output in seconds — not after a week of research.</p>
+      </div>
+
+      <div class="tool-stage reveal">
+        <div class="tool-stage-label"><span>PITCH & FUNDRAISE</span></div>
+        <div class="stage-grid">
+          <a href="/tools/pitch-generator.html" class="tool-card-full">
+            <div class="tf-icon">🎤</div>
+            <div class="tf-body"><h3>Pitch Generator</h3><p>Full investor pitch narrative — problem, solution, market, traction, ask — structured for the room.</p></div>
+            <div class="tf-arrow">→</div>
+          </a>
+          <a href="/tools/funding-readiness-score.html" class="tool-card-full">
+            <div class="tf-icon">💰</div>
+            <div class="tf-body"><h3>Funding Readiness Score</h3><p>Scored assessment across team, traction, market, and defensibility. Know your gaps before investors do.</p></div>
+            <div class="tf-arrow">→</div>
+          </a>
+          <a href="/tools/investor-email-writer.html" class="tool-card-full">
+            <div class="tf-icon">✉️</div>
+            <div class="tf-body"><h3>Investor Email Writer</h3><p>Cold emails to investors — personalized, punchy, and engineered to get a reply.</p></div>
+            <div class="tf-arrow">→</div>
+          </a>
         </div>
-        <div class="card card-lp reveal reveal-delay-2">
-          <div style="font-size:1.75rem;margin-bottom:.75rem">🎯</div>
-          <h3 style="font-size:1.05rem">Founder-Focused</h3>
-          <p style="font-size:.875rem;margin-top:.4rem">No MBA jargon. No fluff. Just clear, direct guidance you can act on today.</p>
+      </div>
+
+      <div class="tool-stage reveal">
+        <div class="tool-stage-label"><span>LAUNCH</span></div>
+        <div class="stage-grid">
+          <a href="/tools/gtm-strategy-builder.html" class="tool-card-full">
+            <div class="tf-icon">🗺️</div>
+            <div class="tf-body"><h3>GTM Strategy Builder</h3><p>Channel-by-channel go-to-market plan with messaging, positioning, and a 90-day launch roadmap.</p></div>
+            <div class="tf-arrow">→</div>
+          </a>
+          <a href="/tools/first-10-customers-finder.html" class="tool-card-full">
+            <div class="tf-icon">🎯</div>
+            <div class="tf-body"><h3>First 10 Customers Finder</h3><p>Specific personas, where to find them, what to say, and a step-by-step outreach playbook.</p></div>
+            <div class="tf-arrow">→</div>
+          </a>
+          <a href="/tools/business-plan-generator.html" class="tool-card-full">
+            <div class="tf-icon">📋</div>
+            <div class="tf-body"><h3>Business Plan Generator</h3><p>Complete structured business plan — executive summary through operations, ready in minutes.</p></div>
+            <div class="tf-arrow">→</div>
+          </a>
+          <a href="/tools/landing-page-creator.html" class="tool-card-full">
+            <div class="tf-icon">🖥️</div>
+            <div class="tf-body"><h3>Landing Page Creator</h3><p>High-converting copy — headline, features, social proof, FAQ, and CTA — ready to drop into any builder.</p></div>
+            <div class="tf-arrow">→</div>
+          </a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="section" style="background:var(--bg-2);border-top:1px solid var(--bdr);text-align:center">
+  <section class="section section-dark" style="text-align:center">
     <div class="container-sm reveal">
-      <h2>Ready to <span class="gradient-text">Launch Your Idea?</span></h2>
-      <p class="lead" style="margin:1rem auto 2rem">Get full access to all 10 tools and start building in minutes.</p>
+      <p class="eyebrow eyebrow-lp">GET STARTED</p>
+      <h2>Start Validating. Start Building.</h2>
+      <p class="lead" style="margin:1rem auto 2rem;max-width:440px">Starter is free. No credit card. Start with Idea Validator and see what AI can do for your business idea today.</p>
       <div class="hero-ctas">
-        <a href="/pricing.html" class="btn btn-primary btn-lg">Get Full Access</a>
-        <a href="https://calendar.app.google/syCyZmgeggCeuvPM8" target="_blank" rel="noopener" class="btn btn-outline btn-lg">Book a Strategy Call</a>
+        <a href="/pricing.html#starter" class="btn btn-primary btn-lg">Start Free</a>
+        <a href="/nova.html" class="btn btn-outline btn-lg">See Nova OS →</a>
       </div>
     </div>
   </section>
 
-  <script src="script.js"></script>
-  <script src="site.js"></script>
+  <script src="/site.js"></script>
 </body>
 </html>
