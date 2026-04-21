@@ -161,12 +161,86 @@
   }
 
   function initReveal() {
-    const els = document.querySelectorAll('.reveal');
+    const els = document.querySelectorAll('.reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-scale, .reveal-blur');
     if (!els.length) return;
     const io = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     els.forEach(el => io.observe(el));
+  }
+
+  /* Cursor-follow glow on cards */
+  function initCardGlow() {
+    const cards = document.querySelectorAll('.card, .tool-card, .pc, .pricing-card, .feature-tile, .testi-card, .pain-card, .connect-side');
+    if (!cards.length) return;
+    cards.forEach(c => {
+      c.addEventListener('pointermove', e => {
+        const r = c.getBoundingClientRect();
+        c.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+        c.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+      });
+      c.addEventListener('pointerleave', () => {
+        c.style.setProperty('--mx', '50%');
+        c.style.setProperty('--my', '0%');
+      });
+    });
+  }
+
+  /* Count-up for numeric stats when they enter view */
+  function initCountUp() {
+    const els = document.querySelectorAll('[data-count]');
+    if (!els.length) return;
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const target = parseFloat(el.dataset.count);
+        const suffix = el.dataset.suffix || '';
+        const prefix = el.dataset.prefix || '';
+        const dur = 1400;
+        const start = performance.now();
+        const from = 0;
+        function tick(now) {
+          const t = Math.min(1, (now - start) / dur);
+          const eased = 1 - Math.pow(1 - t, 3);
+          const val = from + (target - from) * eased;
+          el.textContent = prefix + (target % 1 === 0 ? Math.round(val) : val.toFixed(1)) + suffix;
+          if (t < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        io.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    els.forEach(el => io.observe(el));
+  }
+
+  /* Parallax orbs — gentle mouse-based movement */
+  function initParallax() {
+    const orbs = document.querySelectorAll('.orb, .aurora-bg::before, .parallax');
+    if (!orbs.length) return;
+    let rx = 0, ry = 0, tx = 0, ty = 0;
+    window.addEventListener('pointermove', e => {
+      rx = (e.clientX / window.innerWidth - .5) * 24;
+      ry = (e.clientY / window.innerHeight - .5) * 24;
+    });
+    (function loop() {
+      tx += (rx - tx) * .06;
+      ty += (ry - ty) * .06;
+      document.querySelectorAll('.orb').forEach((o, i) => {
+        const depth = i % 2 === 0 ? 1 : -1;
+        o.style.transform = `translate3d(${tx * depth}px, ${ty * depth}px, 0)`;
+      });
+      requestAnimationFrame(loop);
+    })();
+  }
+
+  /* FAQ toggle helper (for any page using .faq-q) */
+  function initFaq() {
+    document.querySelectorAll('.faq-q').forEach(q => {
+      if (q.dataset.bound) return;
+      q.dataset.bound = '1';
+      q.addEventListener('click', () => q.parentElement.classList.toggle('open'));
+    });
   }
 
   function setYear() {
@@ -219,6 +293,10 @@
     inject('site-footer-placeholder', FOOTER_HTML, 'beforeend');
     initNav();
     initReveal();
+    initCardGlow();
+    initCountUp();
+    initParallax();
+    initFaq();
     setYear();
   }
 
