@@ -5,7 +5,7 @@
   const ANN_BAR_HTML = `
 <div class="ann-bar" id="annBar" role="banner">
   <div class="ann-bar-inner">
-    <a href="https://app.lauchpad.nova-ops.space/signup?plan=Starter" class="ann-bar-link" target="_blank" rel="noopener">
+    <a href="https://app.launchpad.nova-ops.space/signup?plan=Starter" class="ann-bar-link" target="_blank" rel="noopener">
       🚀 Nova OPS is live — claim your free account today
     </a>
     <button class="ann-bar-close" id="annBarClose" aria-label="Dismiss announcement">✕</button>
@@ -87,8 +87,8 @@
       <a href="/faq.html" role="menuitem">FAQ</a>
     </div>
     <div class="nav-ctas">
-      <a href="https://app.lauchpad.nova-ops.space/login" class="btn btn-outline btn-sm">Log In</a>
-      <a href="https://app.lauchpad.nova-ops.space/signup?plan=Starter" class="btn btn-primary btn-sm">Get Started</a>
+      <a href="https://app.launchpad.nova-ops.space/login" class="btn btn-outline btn-sm">Log In</a>
+      <a href="https://app.launchpad.nova-ops.space/signup?plan=Starter" class="btn btn-primary btn-sm">Get Started</a>
     </div>
     <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMobile">
       <span></span><span></span><span></span>
@@ -124,8 +124,8 @@
   <a href="/about.html">About</a>
   <a href="/contact.html">Contact</a>
   <div style="padding:.75rem .9rem 0;display:flex;flex-direction:column;gap:.5rem">
-    <a href="https://app.lauchpad.nova-ops.space/login" class="btn btn-outline btn-full" style="display:flex;justify-content:center">Log In</a>
-    <a href="https://app.lauchpad.nova-ops.space/signup?plan=Starter" class="btn btn-primary btn-full" style="display:flex;justify-content:center">Get Started →</a>
+    <a href="https://app.launchpad.nova-ops.space/login" class="btn btn-outline btn-full" style="display:flex;justify-content:center">Log In</a>
+    <a href="https://app.launchpad.nova-ops.space/signup?plan=Starter" class="btn btn-primary btn-full" style="display:flex;justify-content:center">Get Started →</a>
   </div>
 </div>`;
 
