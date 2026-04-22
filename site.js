@@ -2,6 +2,51 @@
 (function () {
   'use strict';
 
+  const ANN_BAR_HTML = `
+<div class="ann-bar" id="annBar" role="banner">
+  <div class="ann-bar-inner">
+    <a href="https://app.lauchpad.nova-ops.space/signup?plan=Starter" class="ann-bar-link" target="_blank" rel="noopener">
+      🚀 Nova OPS is live — claim your free account today
+    </a>
+    <button class="ann-bar-close" id="annBarClose" aria-label="Dismiss announcement">✕</button>
+  </div>
+</div>`;
+
+  const ANN_BAR_CSS = `
+.ann-bar{position:fixed;top:0;left:0;right:0;background:#0e0a24;border-bottom:1px solid rgba(139,92,246,.28);padding:.45rem 1.75rem;z-index:1001;display:flex;align-items:center;justify-content:center}
+.ann-bar-inner{display:flex;align-items:center;justify-content:center;gap:1rem;max-width:1200px;width:100%}
+.ann-bar-link{color:rgba(255,255,255,.88);font-size:.78rem;font-weight:600;text-decoration:none;transition:color .15s;flex:1;text-align:center}
+.ann-bar-link:hover{color:var(--lp-acc)}
+.ann-bar-close{background:none;border:none;color:rgba(255,255,255,.45);cursor:pointer;font-size:.9rem;padding:.25rem .4rem;line-height:1;flex-shrink:0;transition:color .15s}
+.ann-bar-close:hover{color:rgba(255,255,255,.9)}`;
+
+  const WAITLIST_HTML = `
+<section class="waitlist-section">
+  <div class="container-sm">
+    <div class="waitlist-inner">
+      <h3 class="waitlist-heading">Stay in the loop</h3>
+      <p class="waitlist-sub">Get updates on new tools, automations, and Nova OPS news.</p>
+      <form class="waitlist-form" id="waitlistForm" novalidate>
+        <input type="email" id="waitlistEmail" class="waitlist-input" placeholder="you@example.com" required autocomplete="email">
+        <button type="submit" class="btn btn-primary">Notify Me</button>
+      </form>
+      <p class="waitlist-confirm" id="waitlistConfirm">✓ You're on the list!</p>
+    </div>
+  </div>
+</section>`;
+
+  const WAITLIST_CSS = `
+.waitlist-section{padding:4rem 1.75rem;background:var(--bg-2,#080617);border-top:1px solid var(--bdr)}
+.waitlist-inner{text-align:center;max-width:480px;margin:0 auto}
+.waitlist-heading{font-size:1.6rem;font-weight:800;color:#fff;margin-bottom:.45rem}
+.waitlist-sub{color:var(--txt-2);font-size:.9rem;margin-bottom:1.5rem}
+.waitlist-form{display:flex;gap:.65rem;max-width:420px;margin:0 auto}
+.waitlist-input{flex:1;padding:.65rem 1rem;background:var(--bg-card);border:1px solid var(--bdr);border-radius:var(--r);color:#fff;font-size:.875rem;font-family:inherit;outline:none;transition:border-color .15s}
+.waitlist-input::placeholder{color:var(--txt-3)}
+.waitlist-input:focus{border-color:var(--lp-acc)}
+.waitlist-confirm{display:none;color:var(--green);font-size:.875rem;margin-top:.75rem}
+@media(max-width:480px){.waitlist-form{flex-direction:column}}`;
+
   const NAV_HTML = `
 <nav class="site-nav" id="siteNav" aria-label="Main navigation">
   <div class="nav-inner">
@@ -40,8 +85,8 @@
       <a href="/pricing.html" role="menuitem">Pricing</a>
     </div>
     <div class="nav-ctas">
-      <a href="/pricing.html#starter" class="btn btn-ghost btn-sm">Start Free</a>
-      <a href="/pricing.html" class="btn btn-primary btn-sm">Get Started</a>
+      <a href="https://app.lauchpad.nova-ops.space/login" class="btn btn-outline btn-sm">Log In</a>
+      <a href="https://app.lauchpad.nova-ops.space/signup?plan=Starter" class="btn btn-primary btn-sm">Get Started</a>
     </div>
     <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMobile">
       <span></span><span></span><span></span>
@@ -76,8 +121,9 @@
   <a href="/pricing.html">Pricing</a>
   <a href="/about.html">About</a>
   <a href="/contact.html">Contact</a>
-  <div style="padding:.75rem .9rem 0">
-    <a href="/pricing.html" class="btn btn-primary btn-full" style="display:flex">Get Started →</a>
+  <div style="padding:.75rem .9rem 0;display:flex;flex-direction:column;gap:.5rem">
+    <a href="https://app.lauchpad.nova-ops.space/login" class="btn btn-outline btn-full" style="display:flex;justify-content:center">Log In</a>
+    <a href="https://app.lauchpad.nova-ops.space/signup?plan=Starter" class="btn btn-primary btn-full" style="display:flex;justify-content:center">Get Started →</a>
   </div>
 </div>`;
 
@@ -234,6 +280,49 @@
     })();
   }
 
+  function initAnnBar() {
+    const bar = document.getElementById('annBar');
+    if (!bar) return;
+    if (sessionStorage.getItem('novaops_ann_dismissed')) {
+      bar.remove();
+      return;
+    }
+    function applyOffset() {
+      const h = bar.getBoundingClientRect().height;
+      const nav = document.getElementById('siteNav');
+      const mob = document.getElementById('navMobile');
+      if (nav) nav.style.top = h + 'px';
+      if (mob) mob.style.top = (h + (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 64)) + 'px';
+      document.body.style.paddingTop = h + 'px';
+    }
+    applyOffset();
+    window.addEventListener('resize', applyOffset, { passive: true });
+    document.getElementById('annBarClose').addEventListener('click', () => {
+      sessionStorage.setItem('novaops_ann_dismissed', '1');
+      bar.remove();
+      const nav = document.getElementById('siteNav');
+      const mob = document.getElementById('navMobile');
+      if (nav) nav.style.top = '';
+      if (mob) mob.style.top = '';
+      document.body.style.paddingTop = '';
+      window.removeEventListener('resize', applyOffset);
+    });
+  }
+
+  function initWaitlist() {
+    const form = document.getElementById('waitlistForm');
+    const confirm = document.getElementById('waitlistConfirm');
+    if (!form || !confirm) return;
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const email = document.getElementById('waitlistEmail').value.trim();
+      if (!email) return;
+      console.log('[NovaOPS Waitlist] Email submitted:', email);
+      form.style.display = 'none';
+      confirm.style.display = 'block';
+    });
+  }
+
   /* FAQ toggle helper (for any page using .faq-q) */
   function initFaq() {
     document.querySelectorAll('.faq-q').forEach(q => {
@@ -288,15 +377,28 @@
     return html + '</div>';
   };
 
+  function injectStyles(id, css) {
+    if (document.getElementById(id)) return;
+    const s = document.createElement('style');
+    s.id = id;
+    s.textContent = css;
+    document.head.appendChild(s);
+  }
+
   function init() {
+    injectStyles('ann-bar-css', ANN_BAR_CSS);
+    injectStyles('waitlist-css', WAITLIST_CSS);
+    document.body.insertAdjacentHTML('afterbegin', ANN_BAR_HTML);
     inject('site-nav-placeholder', NAV_HTML, 'afterbegin');
-    inject('site-footer-placeholder', FOOTER_HTML, 'beforeend');
+    inject('site-footer-placeholder', WAITLIST_HTML + FOOTER_HTML, 'beforeend');
+    initAnnBar();
     initNav();
     initReveal();
     initCardGlow();
     initCountUp();
     initParallax();
     initFaq();
+    initWaitlist();
     setYear();
   }
 
