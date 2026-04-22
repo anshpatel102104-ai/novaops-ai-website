@@ -83,6 +83,8 @@
       </span>
       <a href="/how-it-works.html" role="menuitem">How It Works</a>
       <a href="/pricing.html" role="menuitem">Pricing</a>
+      <a href="/about.html" role="menuitem">About</a>
+      <a href="/faq.html" role="menuitem">FAQ</a>
     </div>
     <div class="nav-ctas">
       <a href="https://app.lauchpad.nova-ops.space/login" class="btn btn-outline btn-sm">Log In</a>
@@ -332,6 +334,97 @@
     });
   }
 
+  /* Premium FAQ accordion (.faq-acc-trigger / .faq-acc-item) */
+  function initFaqAcc() {
+    document.querySelectorAll('.faq-acc-trigger').forEach(btn => {
+      if (btn.dataset.bound) return;
+      btn.dataset.bound = '1';
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-acc-item');
+        const isOpen = item.classList.contains('open');
+        item.closest('.faq-acc, .faq-group')
+          ?.querySelectorAll('.faq-acc-item.open')
+          .forEach(el => el.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  }
+
+  /* Custom cursor */
+  function initCustomCursor() {
+    const dot  = document.querySelector('.cursor-dot');
+    const ring = document.querySelector('.cursor-ring');
+    if (!dot || !ring) return;
+    if (window.matchMedia('(hover: none)').matches) return;
+
+    let mx = -200, my = -200, rx = -200, ry = -200;
+
+    document.addEventListener('pointermove', e => {
+      mx = e.clientX; my = e.clientY;
+      dot.style.left = mx + 'px';
+      dot.style.top  = my + 'px';
+    }, { passive: true });
+
+    (function loop() {
+      rx += (mx - rx) * 0.1;
+      ry += (my - ry) * 0.1;
+      ring.style.left = rx + 'px';
+      ring.style.top  = ry + 'px';
+      requestAnimationFrame(loop);
+    })();
+
+    document.querySelectorAll('a, button, .btn, .card, .tool-card, .faq-acc-trigger, .feature-tile').forEach(el => {
+      el.addEventListener('mouseenter', () => { dot.classList.add('hovered'); ring.classList.add('hovered'); });
+      el.addEventListener('mouseleave', () => { dot.classList.remove('hovered'); ring.classList.remove('hovered'); });
+    });
+  }
+
+  /* Scroll progress bar */
+  function initScrollProgress() {
+    const bar = document.getElementById('scroll-progress');
+    if (!bar) return;
+    function update() {
+      const scrolled = window.scrollY;
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (total > 0 ? scrolled / total * 100 : 0) + '%';
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  }
+
+  /* Magnetic buttons — subtle pull toward cursor */
+  function initMagneticBtns() {
+    if (window.matchMedia('(hover: none)').matches) return;
+    document.querySelectorAll('.btn-primary, .btn-nv, .btn-lp').forEach(btn => {
+      btn.addEventListener('pointermove', e => {
+        const r  = btn.getBoundingClientRect();
+        const dx = (e.clientX - (r.left + r.width  / 2)) * 0.28;
+        const dy = (e.clientY - (r.top  + r.height / 2)) * 0.28;
+        btn.style.transform = `translate(${dx}px, ${dy}px) translateY(-2px)`;
+      });
+      btn.addEventListener('pointerleave', () => { btn.style.transform = ''; });
+    });
+  }
+
+  /* FAQ sidebar active state on scroll */
+  function initFaqSidebar() {
+    const links = document.querySelectorAll('.faq-nav-link[href^="#"]');
+    if (!links.length) return;
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          links.forEach(l => l.classList.remove('active'));
+          const link = document.querySelector(`.faq-nav-link[href="#${e.target.id}"]`);
+          if (link) link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    links.forEach(l => {
+      const target = document.querySelector(l.getAttribute('href'));
+      if (target) io.observe(target);
+    });
+  }
+
   function setYear() {
     const el = document.getElementById('footerYear');
     if (el) el.textContent = new Date().getFullYear();
@@ -398,8 +491,13 @@
     initCountUp();
     initParallax();
     initFaq();
+    initFaqAcc();
+    initFaqSidebar();
     initWaitlist();
     setYear();
+    initScrollProgress();
+    initCustomCursor();
+    initMagneticBtns();
   }
 
   document.readyState === 'loading'
