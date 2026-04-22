@@ -257,7 +257,7 @@
       const res = await fetch(API, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ model: 'claude-sonnet-4-20250514', max_tokens: 1600, system, messages: [{ role: 'user', content: userMsg }] })
+        body: JSON.stringify({ model: 'claude-sonnet-4-6', max_tokens: 1600, system, messages: [{ role: 'user', content: userMsg }] })
       });
       if (!res.ok) throw new Error('API ' + res.status);
       const data = await res.json();
