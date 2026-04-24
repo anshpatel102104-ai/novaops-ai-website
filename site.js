@@ -6,7 +6,7 @@
 <div class="ann-bar" id="annBar" role="banner">
   <div class="ann-bar-inner">
     <a href="https://app.launchpad.nova-ops.space/signup?plan=Starter" class="ann-bar-link" target="_blank" rel="noopener">
-      🚀 Nova OPS is live — claim your free account today
+      🚀 Launch your business on autopilot — Start free today, no credit card required
     </a>
     <button class="ann-bar-close" id="annBarClose" aria-label="Dismiss announcement">✕</button>
   </div>
