@@ -19,6 +19,26 @@
   <style>
     .pricing-hero { padding:calc(var(--nav-h) + 72px) 1.75rem 60px; text-align:center; background:radial-gradient(ellipse 70% 50% at 50% 0%, rgba(139,92,246,.10) 0%, transparent 65%) }
     .pricing-grid-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:1.25rem; align-items:start; max-width:1200px; margin:0 auto }
+
+    /* Guarantee banner */
+    .guarantee-banner {
+      max-width: 820px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, rgba(139,92,246,.12) 0%, rgba(75,139,244,.08) 100%);
+      border: 1.5px solid rgba(139,92,246,.30);
+      border-radius: var(--r-2xl);
+      padding: 2.5rem 3rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    .guarantee-icon { font-size: 3.5rem; line-height: 1; }
+    .guarantee-headline { font-size: 1.35rem; font-weight: 800; color: #fff; margin-bottom: .4rem; letter-spacing: -.02em; }
+    .guarantee-body { font-size: .9rem; color: var(--txt-2); line-height: 1.68; }
+    .guarantee-terms { font-size: .775rem; color: var(--txt-3); margin-top: .6rem; font-style: italic; }
+    @media(max-width:640px) { .guarantee-banner { grid-template-columns:1fr; padding:1.75rem; text-align:center } .guarantee-icon { font-size:2.5rem } }
+
     .pc {
       background: var(--bg-card);
       border: 1px solid var(--bdr);
@@ -131,10 +151,12 @@
             <ul>
               <li>All Launchpad tools</li>
               <li>1,000 AI generations/month</li>
-              <li>Nova OS access</li>
-              <li>10 workflows</li>
-              <li>500 leads</li>
+              <li>Nova OS: CRM + lead capture + follow-up + onboarding + reporting — built for you</li>
+              <li>10 automated workflows</li>
+              <li>500 leads tracked</li>
               <li>5 seats</li>
+              <li>Monthly optimization calls</li>
+              <li>10-appointment guarantee</li>
             </ul>
           </div>
           <a href="https://app.launchpad.nova-ops.space/signup?plan=Operate" class="btn btn-primary btn-full">Run My Business</a>
@@ -145,18 +167,34 @@
           <div class="pc-header">
             <div class="plan-tier" style="color:var(--gold)">Scale</div>
             <div class="plan-price"><span class="amt">$299</span><span class="per">/month</span></div>
-            <div class="plan-tagline">Advanced workflows and deep customization.</div>
+            <div class="plan-tagline">Advanced workflows and full customization.</div>
           </div>
           <div class="pc-features">
             <ul>
-              <li>Everything unlimited</li>
-              <li>Nova OS</li>
-              <li>Unlimited workflows</li>
-              <li>Priority support</li>
-              <li>Custom integrations</li>
+              <li>Everything in Operate, plus:</li>
+              <li>Unlimited leads and workflows</li>
+              <li>Voice AI agent included</li>
+              <li>Custom third-party integrations</li>
+              <li>Priority support (4-hour response)</li>
+              <li>Dedicated account manager</li>
+              <li>10-appointment guarantee</li>
             </ul>
           </div>
           <a href="https://app.launchpad.nova-ops.space/signup?plan=Scale" class="btn btn-outline btn-full">Scale With Nova</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUARANTEE -->
+  <section class="section">
+    <div class="container">
+      <div class="guarantee-banner reveal">
+        <div class="guarantee-icon">🏆</div>
+        <div>
+          <div class="guarantee-headline">10 Appointments in 30 Days — or We Work Free</div>
+          <div class="guarantee-body">Every Nova OS plan comes with a performance guarantee. If our automation systems don't generate at least 10 qualified appointments for your business in the first 30 days, we keep working at no additional charge until they do. No awkward conversations. No refund requests. Just results.</div>
+          <div class="guarantee-terms">Applies to Operate and Scale plans. "Qualified appointment" means a prospect who meets your minimum criteria and shows up to a scheduled call or visit.</div>
         </div>
       </div>
     </div>
@@ -189,6 +227,18 @@
         <div class="faq-item">
           <div class="faq-q">Is there a contract or commitment?</div>
           <div class="faq-a">No long-term contracts. All plans are month-to-month and can be cancelled any time. Scale plan includes a 30-day minimum due to the custom build work involved.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What if I don't get results?</div>
+          <div class="faq-a">Our performance guarantee covers you. If Nova OS doesn't generate at least 10 qualified appointments in your first 30 days, we continue working at no additional charge until it does. We've never had to invoke this because our onboarding process is designed to identify and fix your specific lead-flow issues before launch — but the guarantee exists so you have zero risk trying us.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Who actually builds and manages the systems — is it all AI?</div>
+          <div class="faq-a">Real humans design, build, and manage every system. We use AI tools to accelerate the work — but every workflow is custom-built by our team for your specific business, reviewed before it goes live, and actively monitored month-to-month. You'll have a dedicated point of contact from your kickoff call through ongoing optimization. The AI handles your leads; we handle the AI.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What tools and platforms do you use?</div>
+          <div class="faq-a">We build primarily on GoHighLevel — an enterprise-grade CRM and automation platform used by thousands of agencies worldwide. On top of that, we layer AI conversation bots, voice AI agents, and SMS/email delivery systems. You don't need existing accounts with any of these — they're included in your plan. If you already use a specific CRM, book a call and we'll discuss integration options.</div>
         </div>
       </div>
     </div>
